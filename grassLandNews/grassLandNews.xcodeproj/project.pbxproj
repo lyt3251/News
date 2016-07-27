@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01C429879D9BA1656BE648BC /* libPods-grassLandNewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3999DFDA49CF748C71174F99 /* libPods-grassLandNewsTests.a */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
 		0DA95AD21D485BD000509547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD01D485BD000509547 /* Main.storyboard */; };
 		0DA95AD41D485BD000509547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD31D485BD000509547 /* Assets.xcassets */; };
-		0DA95AD71D485BD000509547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */; };
 		0DA95AE21D485BD000509547 /* grassLandNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AE11D485BD000509547 /* grassLandNewsTests.m */; };
 		0DA95AED1D485BD000509547 /* grassLandNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AEC1D485BD000509547 /* grassLandNewsUITests.m */; };
 		0DA95AFD1D487AB900509547 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AFC1D487AB900509547 /* LeftViewController.m */; };
@@ -120,7 +120,8 @@
 		0DA95C4A1D4894C900509547 /* NSDate+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C491D4894C900509547 /* NSDate+TuXing.m */; };
 		0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */; };
 		0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */; };
-		778B91CC55EA2AB31E9EC2DD /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9393D2D7CB922FAB3C32F8D /* libPods-grassLandNews.a */; };
+		E3AFA0F87BE34349A640F7F5 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797153EF756321F0D4E8E34A /* libPods-grassLandNewsUITests.a */; };
+		EFC27D72DF41540B68886378 /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED43797003C5AD65E92D25 /* libPods-grassLandNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,7 +142,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C7183CF2C0ACB027B62A56E /* Pods-grassLandNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.release.xcconfig"; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -150,7 +150,6 @@
 		0DA95ACE1D485BD000509547 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0DA95AD11D485BD000509547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DA95AD31D485BD000509547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0DA95AD61D485BD000509547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DA95AD81D485BD000509547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA95ADD1D485BD000509547 /* grassLandNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grassLandNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AE11D485BD000509547 /* grassLandNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grassLandNewsTests.m; sourceTree = "<group>"; };
@@ -363,8 +362,15 @@
 		0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TuXing.m"; sourceTree = "<group>"; };
 		0DA95C4F1D489AB000509547 /* UIImageView+TXSDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TXSDImage.h"; sourceTree = "<group>"; };
 		0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TXSDImage.m"; sourceTree = "<group>"; };
-		9886D86BDE8EA511C4151405 /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
-		B9393D2D7CB922FAB3C32F8D /* libPods-grassLandNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3999DFDA49CF748C71174F99 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FC1785FB09D64DAC65B4403 /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
+		6851CB76BA4D01B3B4CBA0C5 /* Pods-grassLandNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		797153EF756321F0D4E8E34A /* libPods-grassLandNewsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2376B97746A1B40DFDA1853 /* Pods-grassLandNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.release.xcconfig"; sourceTree = "<group>"; };
+		C8C227C279D3F565CFB50830 /* Pods-grassLandNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		E2ED43797003C5AD65E92D25 /* libPods-grassLandNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E41B265B111F69724711433F /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FB5C8809D0E32071699B6D3D /* Pods-grassLandNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,10 +378,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778B91CC55EA2AB31E9EC2DD /* libPods-grassLandNews.a in Frameworks */,
 				0DA95BC01D487F4C00509547 /* libopencore-amrnb.a in Frameworks */,
 				0DA95BC11D487F4C00509547 /* libopencore-amrwb.a in Frameworks */,
 				0DA95BBD1D487F4C00509547 /* libUMessage_Sdk_1.3.0.a in Frameworks */,
+				EFC27D72DF41540B68886378 /* libPods-grassLandNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +389,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C429879D9BA1656BE648BC /* libPods-grassLandNewsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +397,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3AFA0F87BE34349A640F7F5 /* libPods-grassLandNewsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,8 +411,8 @@
 				0DA95AE01D485BD000509547 /* grassLandNewsTests */,
 				0DA95AEB1D485BD000509547 /* grassLandNewsUITests */,
 				0DA95AC51D485BD000509547 /* Products */,
-				90DE9D5FAF21F446F15CC3AA /* Pods */,
-				B443E9674BAA4BEA0D4D6A13 /* Frameworks */,
+				B525E08102D78CACE678EF88 /* Pods */,
+				2466B87A6C910624DB8B5305 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -431,7 +439,6 @@
 				0DA95ACE1D485BD000509547 /* ViewController.m */,
 				0DA95AD01D485BD000509547 /* Main.storyboard */,
 				0DA95AD31D485BD000509547 /* Assets.xcassets */,
-				0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */,
 				0DA95AD81D485BD000509547 /* Info.plist */,
 				0DA95AC71D485BD000509547 /* Supporting Files */,
 				0DA95C041D4882E700509547 /* grassLandNews.pch */,
@@ -928,21 +935,27 @@
 			path = UIImageView_TXSDImage;
 			sourceTree = "<group>";
 		};
-		90DE9D5FAF21F446F15CC3AA /* Pods */ = {
+		2466B87A6C910624DB8B5305 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9886D86BDE8EA511C4151405 /* Pods-grassLandNews.debug.xcconfig */,
-				0C7183CF2C0ACB027B62A56E /* Pods-grassLandNews.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		B443E9674BAA4BEA0D4D6A13 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B9393D2D7CB922FAB3C32F8D /* libPods-grassLandNews.a */,
+				E2ED43797003C5AD65E92D25 /* libPods-grassLandNews.a */,
+				3999DFDA49CF748C71174F99 /* libPods-grassLandNewsTests.a */,
+				797153EF756321F0D4E8E34A /* libPods-grassLandNewsUITests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B525E08102D78CACE678EF88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4FC1785FB09D64DAC65B4403 /* Pods-grassLandNews.debug.xcconfig */,
+				A2376B97746A1B40DFDA1853 /* Pods-grassLandNews.release.xcconfig */,
+				E41B265B111F69724711433F /* Pods-grassLandNewsTests.debug.xcconfig */,
+				C8C227C279D3F565CFB50830 /* Pods-grassLandNewsTests.release.xcconfig */,
+				6851CB76BA4D01B3B4CBA0C5 /* Pods-grassLandNewsUITests.debug.xcconfig */,
+				FB5C8809D0E32071699B6D3D /* Pods-grassLandNewsUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -952,12 +965,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DA95AF11D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNews" */;
 			buildPhases = (
-				B73F806F03210FBE13D8784C /* Check Pods Manifest.lock */,
+				932C092F78E7C1813672A25E /* [CP] Check Pods Manifest.lock */,
 				0DA95AC01D485BD000509547 /* Sources */,
 				0DA95AC11D485BD000509547 /* Frameworks */,
 				0DA95AC21D485BD000509547 /* Resources */,
-				0D3D686AC76C385D4A572E6E /* Embed Pods Frameworks */,
-				27A79BE58AC4673AE9FC1A20 /* Copy Pods Resources */,
+				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
+				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -972,9 +985,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DA95AF41D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsTests" */;
 			buildPhases = (
+				1EA9DC902ACE42E0C692253D /* [CP] Check Pods Manifest.lock */,
 				0DA95AD91D485BD000509547 /* Sources */,
 				0DA95ADA1D485BD000509547 /* Frameworks */,
 				0DA95ADB1D485BD000509547 /* Resources */,
+				33499D413E820F8A18E69EB6 /* [CP] Embed Pods Frameworks */,
+				5B0769CF07E80938E51CCD0F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -990,9 +1006,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DA95AF71D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsUITests" */;
 			buildPhases = (
+				FEFD223C2ED4F5AC91B74465 /* [CP] Check Pods Manifest.lock */,
 				0DA95AE41D485BD000509547 /* Sources */,
 				0DA95AE51D485BD000509547 /* Frameworks */,
 				0DA95AE61D485BD000509547 /* Resources */,
+				17A5F4EC11406BD3AAE395F1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1056,7 +1074,6 @@
 				0DA95B9C1D487F4C00509547 /* GMEmptyFolder@1x.png in Resources */,
 				0DA95C2C1D4892FE00509547 /* .gitkeep in Resources */,
 				0DA95BA31D487F4C00509547 /* GMVideoIcon.png in Resources */,
-				0DA95AD71D485BD000509547 /* LaunchScreen.storyboard in Resources */,
 				0DA95BA21D487F4C00509547 /* GMSelected@2x.png in Resources */,
 				0DA95C3A1D4892FE00509547 /* WKTSearchTableViewCell.xib in Resources */,
 				0DA95BA41D487F4C00509547 /* GMVideoIcon@2x.png in Resources */,
@@ -1085,14 +1102,74 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0D3D686AC76C385D4A572E6E /* Embed Pods Frameworks */ = {
+		17A5F4EC11406BD3AAE395F1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EA9DC902ACE42E0C692253D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		33499D413E820F8A18E69EB6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B0769CF07E80938E51CCD0F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1100,14 +1177,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		27A79BE58AC4673AE9FC1A20 /* Copy Pods Resources */ = {
+		932C092F78E7C1813672A25E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1115,14 +1207,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B73F806F03210FBE13D8784C /* Check Pods Manifest.lock */ = {
+		FEFD223C2ED4F5AC91B74465 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1274,14 +1366,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0DA95AD61D485BD000509547 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		0DA95B2E1D487F4C00509547 /* GMImagePicker.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1378,7 +1462,7 @@
 		};
 		0DA95AF21D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9886D86BDE8EA511C4151405 /* Pods-grassLandNews.debug.xcconfig */;
+			baseConfigurationReference = 4FC1785FB09D64DAC65B4403 /* Pods-grassLandNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1399,7 +1483,7 @@
 		};
 		0DA95AF31D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C7183CF2C0ACB027B62A56E /* Pods-grassLandNews.release.xcconfig */;
+			baseConfigurationReference = A2376B97746A1B40DFDA1853 /* Pods-grassLandNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1420,6 +1504,7 @@
 		};
 		0DA95AF51D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E41B265B111F69724711433F /* Pods-grassLandNewsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
@@ -1432,6 +1517,7 @@
 		};
 		0DA95AF61D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8C227C279D3F565CFB50830 /* Pods-grassLandNewsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
@@ -1444,6 +1530,7 @@
 		};
 		0DA95AF81D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6851CB76BA4D01B3B4CBA0C5 /* Pods-grassLandNewsUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1456,6 +1543,7 @@
 		};
 		0DA95AF91D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB5C8809D0E32071699B6D3D /* Pods-grassLandNewsUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
