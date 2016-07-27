@@ -1,0 +1,14 @@
+//
+//  MidViewController.h
+//  grassLandNews
+//
+//  Created by liuyuantao on 16/7/27.
+//  Copyright © 2016年 liuyuantao. All rights reserved.
+//
+
+#import "ViewController.h"
+//#import "BaseViewController.h"
+
+@interface MidViewController : BaseViewController
+
+@end

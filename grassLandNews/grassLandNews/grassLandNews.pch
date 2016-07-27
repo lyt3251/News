@@ -1,0 +1,17 @@
+//
+//  grassLandNews.pch
+//  grassLandNews
+//
+//  Created by liuyuantao on 16/7/27.
+//  Copyright © 2016年 liuyuantao. All rights reserved.
+//
+
+#ifndef grassLandNews_pch
+#define grassLandNews_pch
+#import "BaseViewController.h"
+#import <RESideMenu.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* grassLandNews_pch */

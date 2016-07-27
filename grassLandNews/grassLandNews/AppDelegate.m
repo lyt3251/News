@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import <RESideMenu.h>
+#import "BaseViewController.h"
+#import "LeftViewController.h"
+#import "MidViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +22,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+//    MidViewController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[MidViewController alloc] init]];
+//    MidViewController *MidViewController =  [[MidViewController alloc] init];
+    
+    
+    MidViewController *midVC = [[MidViewController alloc] init];
+    LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
+    
+    // Create side menu controller
+    //
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:midVC
+                                                                    leftMenuViewController:leftMenuViewController
+                                                                   rightMenuViewController:nil];
+//    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    
+    // Make it a root controller
+    //
+    self.window.rootViewController = sideMenuViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

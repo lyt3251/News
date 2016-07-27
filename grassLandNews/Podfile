@@ -1,0 +1,35 @@
+# Uncomment this line to define a global platform for your project
+ platform :ios, '7.0'
+# Uncomment this line if you're using Swift
+# use_frameworks!
+
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+inhibit_all_warnings!
+
+def import_main_pods
+	pod 'Masonry'
+	pod 'UMengAnalytics-NO-IDFA', '3.5.17'
+	pod 'libextobjc'
+	pod 'UIColor+Hex', '~> 1.0.1'
+	pod 'SDCycleScrollView','~> 1.64'	
+	pod 'ZipArchive'	
+	pod 'RESideMenu', '~> 4.0.7'	
+	pod 'MMPopupView','~>1.5.1'	
+	pod 'MBProgressHUD'
+	pod 'Reachability'		
+end
+
+target 'grassLandNews' do
+	import_main_pods
+end
+
+target 'grassLandNewsTests' do
+
+end
+
+target 'grassLandNewsUITests' do
+
+end
+

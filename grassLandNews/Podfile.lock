@@ -1,0 +1,80 @@
+PODS:
+  - libextobjc (0.4.1):
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
+  - libextobjc/EXTADT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTConcreteProtocol (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTKeyPathCoding (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTNil (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSafeCategory (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSelectorChecking (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/EXTSynthesize (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSInvocation+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - Masonry (1.0.1)
+  - MBProgressHUD (1.0.0)
+  - MMPopupView (1.5.3):
+    - Masonry
+  - Reachability (3.2)
+  - RESideMenu (4.0.7)
+  - SDCycleScrollView (1.65):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - UIColor+Hex (1.0.1):
+    - UIColor+Hex/NSColor (= 1.0.1)
+    - UIColor+Hex/UIColor (= 1.0.1)
+  - UIColor+Hex/UIColor (1.0.1)
+  - UMengAnalytics-NO-IDFA (3.5.17)
+  - ZipArchive (1.4.0)
+
+DEPENDENCIES:
+  - libextobjc
+  - Masonry
+  - MBProgressHUD
+  - MMPopupView (~> 1.5.1)
+  - Reachability
+  - RESideMenu (~> 4.0.7)
+  - SDCycleScrollView (~> 1.64)
+  - UIColor+Hex (~> 1.0.1)
+  - UMengAnalytics-NO-IDFA (= 3.5.17)
+  - ZipArchive
+
+SPEC CHECKSUMS:
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MMPopupView: 0ef34f67cb63ac48bca0517fa6770852b4cdd042
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  UIColor+Hex: 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
+  UMengAnalytics-NO-IDFA: 601dab9ffe32f9de3fa0a6116768aed18a56f8a9
+  ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966
+
+COCOAPODS: 0.39.0
