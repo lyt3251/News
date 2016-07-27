@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
+		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
+		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
+		0DA95AD21D485BD000509547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD01D485BD000509547 /* Main.storyboard */; };
+		0DA95AD41D485BD000509547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD31D485BD000509547 /* Assets.xcassets */; };
+		0DA95AD71D485BD000509547 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */; };
+		0DA95AE21D485BD000509547 /* grassLandNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AE11D485BD000509547 /* grassLandNewsTests.m */; };
+		0DA95AED1D485BD000509547 /* grassLandNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AEC1D485BD000509547 /* grassLandNewsUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0DA95ADE1D485BD000509547 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DA95ABC1D485BD000509547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DA95AC31D485BD000509547;
+			remoteInfo = grassLandNews;
+		};
+		0DA95AE91D485BD000509547 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0DA95ABC1D485BD000509547 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0DA95AC31D485BD000509547;
+			remoteInfo = grassLandNews;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0DA95ACB1D485BD000509547 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0DA95ACD1D485BD000509547 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		0DA95ACE1D485BD000509547 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		0DA95AD11D485BD000509547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0DA95AD31D485BD000509547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0DA95AD61D485BD000509547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0DA95AD81D485BD000509547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DA95ADD1D485BD000509547 /* grassLandNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grassLandNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DA95AE11D485BD000509547 /* grassLandNewsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grassLandNewsTests.m; sourceTree = "<group>"; };
+		0DA95AE31D485BD000509547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DA95AE81D485BD000509547 /* grassLandNewsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grassLandNewsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DA95AEC1D485BD000509547 /* grassLandNewsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grassLandNewsUITests.m; sourceTree = "<group>"; };
+		0DA95AEE1D485BD000509547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0DA95AC11D485BD000509547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95ADA1D485BD000509547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95AE51D485BD000509547 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DA95ABB1D485BD000509547 = {
+			isa = PBXGroup;
+			children = (
+				0DA95AC61D485BD000509547 /* grassLandNews */,
+				0DA95AE01D485BD000509547 /* grassLandNewsTests */,
+				0DA95AEB1D485BD000509547 /* grassLandNewsUITests */,
+				0DA95AC51D485BD000509547 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0DA95AC51D485BD000509547 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0DA95AC41D485BD000509547 /* grassLandNews.app */,
+				0DA95ADD1D485BD000509547 /* grassLandNewsTests.xctest */,
+				0DA95AE81D485BD000509547 /* grassLandNewsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0DA95AC61D485BD000509547 /* grassLandNews */ = {
+			isa = PBXGroup;
+			children = (
+				0DA95ACA1D485BD000509547 /* AppDelegate.h */,
+				0DA95ACB1D485BD000509547 /* AppDelegate.m */,
+				0DA95ACD1D485BD000509547 /* ViewController.h */,
+				0DA95ACE1D485BD000509547 /* ViewController.m */,
+				0DA95AD01D485BD000509547 /* Main.storyboard */,
+				0DA95AD31D485BD000509547 /* Assets.xcassets */,
+				0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */,
+				0DA95AD81D485BD000509547 /* Info.plist */,
+				0DA95AC71D485BD000509547 /* Supporting Files */,
+			);
+			path = grassLandNews;
+			sourceTree = "<group>";
+		};
+		0DA95AC71D485BD000509547 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DA95AC81D485BD000509547 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0DA95AE01D485BD000509547 /* grassLandNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DA95AE11D485BD000509547 /* grassLandNewsTests.m */,
+				0DA95AE31D485BD000509547 /* Info.plist */,
+			);
+			path = grassLandNewsTests;
+			sourceTree = "<group>";
+		};
+		0DA95AEB1D485BD000509547 /* grassLandNewsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0DA95AEC1D485BD000509547 /* grassLandNewsUITests.m */,
+				0DA95AEE1D485BD000509547 /* Info.plist */,
+			);
+			path = grassLandNewsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0DA95AC31D485BD000509547 /* grassLandNews */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DA95AF11D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNews" */;
+			buildPhases = (
+				0DA95AC01D485BD000509547 /* Sources */,
+				0DA95AC11D485BD000509547 /* Frameworks */,
+				0DA95AC21D485BD000509547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = grassLandNews;
+			productName = grassLandNews;
+			productReference = 0DA95AC41D485BD000509547 /* grassLandNews.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0DA95ADC1D485BD000509547 /* grassLandNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DA95AF41D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsTests" */;
+			buildPhases = (
+				0DA95AD91D485BD000509547 /* Sources */,
+				0DA95ADA1D485BD000509547 /* Frameworks */,
+				0DA95ADB1D485BD000509547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DA95ADF1D485BD000509547 /* PBXTargetDependency */,
+			);
+			name = grassLandNewsTests;
+			productName = grassLandNewsTests;
+			productReference = 0DA95ADD1D485BD000509547 /* grassLandNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0DA95AE71D485BD000509547 /* grassLandNewsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0DA95AF71D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsUITests" */;
+			buildPhases = (
+				0DA95AE41D485BD000509547 /* Sources */,
+				0DA95AE51D485BD000509547 /* Frameworks */,
+				0DA95AE61D485BD000509547 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0DA95AEA1D485BD000509547 /* PBXTargetDependency */,
+			);
+			name = grassLandNewsUITests;
+			productName = grassLandNewsUITests;
+			productReference = 0DA95AE81D485BD000509547 /* grassLandNewsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0DA95ABC1D485BD000509547 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = liuyuantao;
+				TargetAttributes = {
+					0DA95AC31D485BD000509547 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					0DA95ADC1D485BD000509547 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 0DA95AC31D485BD000509547;
+					};
+					0DA95AE71D485BD000509547 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 0DA95AC31D485BD000509547;
+					};
+				};
+			};
+			buildConfigurationList = 0DA95ABF1D485BD000509547 /* Build configuration list for PBXProject "grassLandNews" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0DA95ABB1D485BD000509547;
+			productRefGroup = 0DA95AC51D485BD000509547 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0DA95AC31D485BD000509547 /* grassLandNews */,
+				0DA95ADC1D485BD000509547 /* grassLandNewsTests */,
+				0DA95AE71D485BD000509547 /* grassLandNewsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0DA95AC21D485BD000509547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DA95AD71D485BD000509547 /* LaunchScreen.storyboard in Resources */,
+				0DA95AD41D485BD000509547 /* Assets.xcassets in Resources */,
+				0DA95AD21D485BD000509547 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95ADB1D485BD000509547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95AE61D485BD000509547 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0DA95AC01D485BD000509547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DA95ACF1D485BD000509547 /* ViewController.m in Sources */,
+				0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */,
+				0DA95AC91D485BD000509547 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95AD91D485BD000509547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DA95AE21D485BD000509547 /* grassLandNewsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0DA95AE41D485BD000509547 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0DA95AED1D485BD000509547 /* grassLandNewsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0DA95ADF1D485BD000509547 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DA95AC31D485BD000509547 /* grassLandNews */;
+			targetProxy = 0DA95ADE1D485BD000509547 /* PBXContainerItemProxy */;
+		};
+		0DA95AEA1D485BD000509547 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0DA95AC31D485BD000509547 /* grassLandNews */;
+			targetProxy = 0DA95AE91D485BD000509547 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0DA95AD01D485BD000509547 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0DA95AD11D485BD000509547 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0DA95AD51D485BD000509547 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0DA95AD61D485BD000509547 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0DA95AEF1D485BD100509547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0DA95AF01D485BD100509547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0DA95AF21D485BD100509547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = grassLandNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0DA95AF31D485BD100509547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = grassLandNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNews;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0DA95AF51D485BD100509547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/grassLandNews.app/grassLandNews";
+			};
+			name = Debug;
+		};
+		0DA95AF61D485BD100509547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/grassLandNews.app/grassLandNews";
+			};
+			name = Release;
+		};
+		0DA95AF81D485BD100509547 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = grassLandNews;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		0DA95AF91D485BD100509547 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNewsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = grassLandNews;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0DA95ABF1D485BD000509547 /* Build configuration list for PBXProject "grassLandNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DA95AEF1D485BD100509547 /* Debug */,
+				0DA95AF01D485BD100509547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0DA95AF11D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNews" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DA95AF21D485BD100509547 /* Debug */,
+				0DA95AF31D485BD100509547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0DA95AF41D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DA95AF51D485BD100509547 /* Debug */,
+				0DA95AF61D485BD100509547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0DA95AF71D485BD100509547 /* Build configuration list for PBXNativeTarget "grassLandNewsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0DA95AF81D485BD100509547 /* Debug */,
+				0DA95AF91D485BD100509547 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0DA95ABC1D485BD000509547 /* Project object */;
+}
