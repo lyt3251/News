@@ -1,4 +1,5 @@
 PODS:
+  - DateTools (1.7.0)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
     - libextobjc/EXTConcreteProtocol (= 0.4.1)
@@ -36,8 +37,14 @@ PODS:
   - libextobjc/UmbrellaHeader (0.4.1)
   - Masonry (1.0.1)
   - MBProgressHUD (1.0.0)
+  - MJRefresh (2.4.12)
   - MMPopupView (1.5.3):
     - Masonry
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core (= 0.2.3)
+    - NJKWebViewProgress/ProgressView (= 0.2.3)
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
   - Reachability (3.2)
   - RESideMenu (4.0.7)
   - SDCycleScrollView (1.65):
@@ -53,10 +60,13 @@ PODS:
   - ZipArchive (1.4.0)
 
 DEPENDENCIES:
+  - DateTools
   - libextobjc
   - Masonry
   - MBProgressHUD
+  - MJRefresh (~> 2.4.7)
   - MMPopupView (~> 1.5.1)
+  - NJKWebViewProgress
   - Reachability
   - RESideMenu (~> 4.0.7)
   - SDCycleScrollView (~> 1.64)
@@ -65,10 +75,13 @@ DEPENDENCIES:
   - ZipArchive
 
 SPEC CHECKSUMS:
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   MMPopupView: 0ef34f67cb63ac48bca0517fa6770852b4cdd042
+  NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c

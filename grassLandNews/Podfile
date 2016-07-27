@@ -18,7 +18,10 @@ def import_main_pods
 	pod 'RESideMenu', '~> 4.0.7'	
 	pod 'MMPopupView','~>1.5.1'	
 	pod 'MBProgressHUD'
-	pod 'Reachability'		
+	pod 'Reachability'	
+	pod 'MJRefresh', '~> 2.4.7'
+	pod 'DateTools'
+	pod 'NJKWebViewProgress'				
 end
 
 target 'grassLandNews' do

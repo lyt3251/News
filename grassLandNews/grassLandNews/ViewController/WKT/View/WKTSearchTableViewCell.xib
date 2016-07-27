@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WKTSearchTableViewIdentifer" rowHeight="122" id="KGk-i7-Jjw" customClass="WKTSearchTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="122"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="121.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n4E-ed-np2" userLabel="wImageView">
+                        <rect key="frame" x="15" y="10" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="18M-ev-tFm"/>
+                            <constraint firstAttribute="width" constant="50" id="FJo-vk-7VU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EnH-bt-Cjf" userLabel="wTitleLabel">
+                        <rect key="frame" x="76" y="15" width="260" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="18" id="FkN-Wf-wUZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vaX-Es-ic9" userLabel="wScanLabel">
+                        <rect key="frame" x="336" y="45" width="0.0" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="12" id="6Lo-Fr-amb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3M2-rO-jgO" userLabel="lineView">
+                        <rect key="frame" x="0.0" y="120.5" width="351" height="1"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="qZR-qT-qa1"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EnH-bt-Cjf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="7S6-If-XOx"/>
+                    <constraint firstItem="n4E-ed-np2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="V41-4g-Urg"/>
+                    <constraint firstItem="3M2-rO-jgO" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="VSg-HR-yYZ"/>
+                    <constraint firstItem="n4E-ed-np2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Wcz-83-fUT"/>
+                    <constraint firstItem="3M2-rO-jgO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dkG-7N-95V"/>
+                    <constraint firstItem="vaX-Es-ic9" firstAttribute="top" secondItem="EnH-bt-Cjf" secondAttribute="bottom" constant="12" id="g5P-Kz-BMO"/>
+                    <constraint firstAttribute="trailing" secondItem="EnH-bt-Cjf" secondAttribute="trailing" constant="15" id="ndG-se-VNO"/>
+                    <constraint firstItem="EnH-bt-Cjf" firstAttribute="leading" secondItem="n4E-ed-np2" secondAttribute="trailing" constant="11" id="nle-Op-3Bw"/>
+                    <constraint firstAttribute="trailing" secondItem="vaX-Es-ic9" secondAttribute="trailing" constant="15" id="sO3-T4-ZgP"/>
+                    <constraint firstAttribute="bottom" secondItem="3M2-rO-jgO" secondAttribute="bottom" id="zJd-yi-B99"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="wImageView" destination="n4E-ed-np2" id="RfN-MA-Me9"/>
+                <outlet property="wLineView" destination="3M2-rO-jgO" id="O3e-Vq-kx9"/>
+                <outlet property="wScanLabel" destination="vaX-Es-ic9" id="LQh-vf-Bw4"/>
+                <outlet property="wTitleLabel" destination="EnH-bt-Cjf" id="HSC-Zd-G0n"/>
+            </connections>
+            <point key="canvasLocation" x="226.5" y="262"/>
+        </tableViewCell>
+    </objects>
+</document>

@@ -53,28 +53,96 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 
 #define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
-#define kColorBackground  [UIColor whiteColor]
-#define kColorWhite                 RGBCOLOR(254,254,254)
-#define kColorBlack                 RGBCOLOR(0x33, 0x33, 0x33)
+
+#define kColorGray4             [UIColor colorWithRed:236/255.0 green:236/255.0 blue:236/255.0 alpha:1]
+#define kColorGray5             [UIColor colorWithRed:244/255.0 green:244/255.0 blue:244/255.0 alpha:1]
+#define kColorGray6             [UIColor colorWithRed:213/255.0 green:213/255.0 blue:213/255.0 alpha:1]
+#define kColorBlue1              [UIColor colorWithRed:48/255.0 green:183/255.0 blue:239/255.0 alpha:1]
+#define kColorPinkLine          [UIColor colorWithRed:247/255.0 green:111/255.0 blue:113/255.0 alpha:0.3]
+
+
+//新定义颜色
+#define kColorType              RGBCOLOR(65,195,255)
+#define kColorType1             RGBCOLOR(50,170,226)
+#define kColorBackground        RGBCOLOR(243,243,243)
+#define kColorOrange            RGBCOLOR(255,147,61)
+#define kColorBlack             KColorNewTitleTxt              //黑色字体
+#define kColorLightBlack        RGBCOLOR(96,96,96)              //浅黑色字体
+#define kColorLine              RGBCOLOR(216,216,216)           //分割线颜色
+
+
 #define kColorClear                 [UIColor clearColor]
-#define kColorItem                  RGBCOLOR(147, 158, 166)
-#define kColorNavigationTitle       RGBCOLOR(0xff, 0xff, 0xff)
-#define kColorNavigationTitleDisable  RGBACOLOR(0x44, 0x44, 0x44)
-#define kColorGray                  RGBCOLOR(115,115,115)
-#define kColorLine                  RGBCOLOR(216,216,216)
-#define KColorSubTitleTxt           RGBCOLOR(0x75, 0x75, 0x75)
-#define KColorTitleTxt              RGBCOLOR(0x44, 0x44, 0x44)
+#define kColorWhite                 RGBCOLOR(254,254,254)           //白色字体
+#define kColorGray                  RGBCOLOR(115,115,115)           //灰色字体
+#define kColorGray1                 RGBCOLOR(73, 104, 119)
+#define kColorGray2                 RGBCOLOR(158, 158, 158)
+#define kColorGray3                 RGBCOLOR(240, 240, 240)
+#define kColorLightGray             RGBCOLOR(159,160,160)           //浅灰色字体
+#define kColorPink                  RGBCOLOR(253,133,132)           //粉色
+#define kColorBlue                  RGBCOLOR(0, 160, 233)
+#define kColorItem                  RGBCOLOR(147, 158, 166)         //底部导航颜色
+#define kColorSection               RGBCOLOR(230, 230, 230)          //
+#define KColorNormalTxt             RGBCOLOR(75, 75, 75)          //
+#define KColorTitleTxt              RGBCOLOR(0x44, 0x44, 0x44) //标题颜色
+#define KColorSubTitleTxt           RGBCOLOR(0x75, 0x75, 0x75) //子标题颜色
+#define kColorNavigationTitle       RGBCOLOR(0x48, 0x48, 0x48)
+#define kColorNavigationTitleDisable       RGBACOLOR(0x44, 0x44, 0x44, 0.5)
+#define kColorCircleBg              RGBCOLOR(220, 219, 219)
+#define kColorMessageText           RGBCOLOR(46,46,46)
+#define kColorSearch                RGBCOLOR(0x82,0x82,0x82)
+#define kColorBtn                   RGBCOLOR(0x83,0x83,0x83)
+#define kColorStar                  RGBCOLOR(0xff,0xb5,0x56)
+#define kColorBorder                RGBCOLOR(0xd0,0xd6,0xd9)
+#define kColorBack                  RGBCOLOR(0xf1,0xf1,0xf1)
+
+#define KColorBorderLine            RGBCOLOR(0xe5, 0xe5, 0xe5)
+
+
+#define KColorNewTitleTxt           RGBCOLOR(0x33, 0x33, 0x33)
+#define KColorNewSubTitleTxt        RGBCOLOR(0x99, 0x99, 0x99)
+#define KColorNewTimeTxt            RGBCOLOR(0xb2, 0xb2, 0xb2)
+#define KColorNewLine               RGBCOLOR(0xe5, 0xe5, 0xe5)
+#define KColorResourceLine          RGBCOLOR(225, 225, 225)
+
+#define KColorAppMain               RGBCOLOR(0x41, 0xc3, 0xff) //app主色调
+#define KColorAppMainP              RGBCOLOR(0x32, 0xaa, 0xe2) //app主色调按下效果
+
+#define kColorChildhood             RGBCOLOR(0xff, 0x80, 0x62)
 #define kColorNavigationBackGroundColor RGBCOLOR(0x01, 0x8c, 0xf5)
 
-#define KColorAppMain               RGBCOLOR(0xf9, 0x74, 0x7a)
+//新定义字体
+#define kFontMiddle                 [UIFont systemFontOfSize:15]
+#define kFontLarge                  [UIFont systemFontOfSize:16]
 
+
+#define kFontNormal                 [UIFont systemFontOfSize:18]
+#define kFontNormal_b               [UIFont boldSystemFontOfSize:18]
+#define kFontMiddle_b               [UIFont boldSystemFontOfSize:15]
+#define kFontSmall                  [UIFont systemFontOfSize:13]
+#define kFontSmall_b                [UIFont boldSystemFontOfSize:13]
+#define kFontLarge_b                [UIFont boldSystemFontOfSize:16]
+#define kFontSubTitle               [UIFont systemFontOfSize:14]
+#define kFontSubTitle_b             [UIFont boldSystemFontOfSize:14]
+#define kFontTitle                  [UIFont systemFontOfSize:16]
+#define kFontTimeTitle              [UIFont systemFontOfSize:11]
+
+//font
+#define kFontSuper              [UIFont systemFontOfSize:20]
+#define kFontSuper_b            [UIFont boldSystemFontOfSize:18]
+#define kFontLarge_1            [UIFont systemFontOfSize:17]
+#define kFontLarge_1_b          [UIFont boldSystemFontOfSize:17]
+
+#define kFontSmallBold          [UIFont boldSystemFontOfSize:12]
+#define kFontTiny               [UIFont systemFontOfSize:13]
+#define kFontMini               [UIFont systemFontOfSize:10]
+#define kMessageTextFont        [UIFont systemFontOfSize:16]
+#define kFontChildSection       [UIFont systemFontOfSize:12]
+
+#define kFontMiddle_1_b          [UIFont boldSystemFontOfSize:15]
 //字体
 #define kFontSuperLarge_b        [UIFont systemFontOfSize:19]
 
-#define kFontLarge_b             [UIFont systemFontOfSize:16]
-
-#define kFontMiddle                 [UIFont systemFontOfSize:15]
-#define kFontTimeTitle              [UIFont systemFontOfSize:13]
+#define KNavFontSize (ISSMALLIPHONE?kFontMiddle_1_b:kFontSuper_b)
 
 
 
