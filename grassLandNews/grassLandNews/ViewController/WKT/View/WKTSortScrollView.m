@@ -70,8 +70,15 @@
     
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",currentUser.username];
-//    
-    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+//
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for(NSInteger i = 0; i < 10; i++)
+    {
+        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
+        [array addObject:dic];
+    }
+//    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
     self.selectChannelDataArray = [[NSMutableArray alloc] initWithArray:array];
     self.originalChannelDataArray = [[NSMutableArray alloc] initWithArray:array];
     self.imageViewArr = [NSMutableArray array];

@@ -12,6 +12,7 @@
 #import "LeftViewController.h"
 #import "MidViewController.h"
 #import "WXYNewListViewController.h"
+#import "CustomNavigationController.h"
 
 
 @interface AppDelegate ()
@@ -28,14 +29,18 @@
 //    MidViewController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[MidViewController alloc] init]];
 //    MidViewController *MidViewController =  [[MidViewController alloc] init];
     WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
+    CustomNavigationController *loginNV = [[CustomNavigationController alloc]
+                                           initWithRootViewController:vc];
+    loginNV.navigationBarHidden = YES;
 //    [self.navigationController pushViewController:vc animated:YES];
     
-    MidViewController *midVC = [[MidViewController alloc] init];
+//    MidViewController *midVC = [[MidViewController alloc] init];
+    
     LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
     
     // Create side menu controller
     //
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:vc
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:loginNV
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:nil];
 //    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];

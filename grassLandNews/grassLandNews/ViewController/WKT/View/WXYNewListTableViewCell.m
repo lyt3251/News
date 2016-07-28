@@ -22,14 +22,17 @@
     // Initialization code
     [self.wImageView setImage:[UIImage imageNamed:@"wxyDefault"]];
     [self.wTitleLabel setFont:[UIFont boldSystemFontOfSize:16.0]];
+    self.wTitleLabel.text = @"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题";
     self.wTitleLabel.numberOfLines = 1;
     self.wContentLabel.numberOfLines = 2;
     self.wContentLabel.lineBreakMode = NSLineBreakByCharWrapping;
+    self.wContentLabel.text = @"测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容";
     [self.wContentLabel setFont:[UIFont systemFontOfSize:13.0]];
     [self.wContentLabel setTextColor:[UIColor colorWithHexStr:@"999999"]];
     self.wScanLabel.textAlignment = NSTextAlignmentRight;
     [self.wScanLabel setTextColor:[UIColor colorWithHexStr:@"999999"]];
     self.wScanLabel.font = [UIFont systemFontOfSize:10.0];
+    self.wScanLabel.text = @"测试标签";
   
     [self.wlineView setBackgroundColor:[UIColor colorWithHexStr:@"e5e5e5"]];
     
