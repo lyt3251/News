@@ -49,8 +49,9 @@
  */
 - (NSInteger)getIndexChannelFromName:(NSString*)aChannelID{
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
-    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
-    NSArray *array =  [[NSUserDefaults standardUserDefaults] objectForKey:name];
+//    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
+//    NSArray *array =  [[NSUserDefaults standardUserDefaults] objectForKey:name];
+    NSArray *array = [[ChannelManager shareInstance] getChannels];
     NSInteger i = 0;
     for(NSDictionary *dict in array){
         NSString *channelID = [dict objectForKey:@"channelId"];
@@ -155,14 +156,8 @@
     self.shadowView.hidden = YES;
 //        [self checkNewChannel:tags];
     
-    NSMutableArray *array = [NSMutableArray new];
     
-    for(NSInteger i = 0; i < 10; i++)
-    {
-        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-        [array addObject:dic];
-    }
-    self.iChannleArr = array;
+    self.iChannleArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
     
     for (int i=0; i<weself.iChannleArr.count; i++) {
         WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];

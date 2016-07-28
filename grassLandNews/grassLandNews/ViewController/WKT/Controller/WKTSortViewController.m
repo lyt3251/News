@@ -118,15 +118,9 @@
 //        TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //        NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-        NSMutableArray *array = [NSMutableArray new];
-        
-        for(NSInteger i = 0; i < 10; i++)
-        {
-            NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-            [array addObject:dic];
-        }
+
         NSInteger index = [weself getChannelNameIndexFromChannelArr:selectName];
-         weself.delegate(index,array);
+         weself.delegate(index,[[ChannelManager shareInstance] getChannels]);
         [weself.navigationController popViewControllerAnimated:YES];
     };
     [self.view insertSubview:self.iSortBtnScrollView belowSubview:self.iTopView];
@@ -148,13 +142,7 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for(NSInteger i = 0; i < 10; i++)
-    {
-        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-        [array addObject:dic];
-    }
+    NSArray *array = [[ChannelManager shareInstance] getChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
         NSString *selectId = [dict objectForKey:@"channelId"];
@@ -169,13 +157,7 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for(NSInteger i = 0; i < 10; i++)
-    {
-        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-        [array addObject:dic];
-    }
+    NSArray *array = [[ChannelManager shareInstance] getChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
         NSString *channelName = [dict objectForKey:@"channelName"];
@@ -223,13 +205,7 @@
 //            TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //            NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //            NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-            NSMutableArray *array = [NSMutableArray new];
-            
-            for(NSInteger i = 0; i < 10; i++)
-            {
-                NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-                [array addObject:dic];
-            }
+            NSArray *array = [[ChannelManager shareInstance] getChannels];
             NSString *selectId = [NSString stringWithFormat:@"%li",(long)self.iSelectId];
             NSInteger index = [self getSelectIdIndexFromChannelArr:selectId];
             //返回index

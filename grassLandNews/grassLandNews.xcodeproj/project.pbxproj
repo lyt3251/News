@@ -102,7 +102,6 @@
 		0DA95C301D4892FE00509547 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C101D4892FE00509547 /* ViewPagerController.m */; };
 		0DA95C311D4892FE00509547 /* WKTSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C121D4892FE00509547 /* WKTSortViewController.m */; };
 		0DA95C321D4892FE00509547 /* WXYArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C141D4892FE00509547 /* WXYArticleTableViewCell.m */; };
-		0DA95C331D4892FE00509547 /* WXYListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C161D4892FE00509547 /* WXYListViewController.m */; };
 		0DA95C341D4892FE00509547 /* WXYNewListArchiverHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C181D4892FE00509547 /* WXYNewListArchiverHelper.m */; };
 		0DA95C351D4892FE00509547 /* WXYNewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C1A1D4892FE00509547 /* WXYNewListViewController.m */; };
 		0DA95C361D4892FE00509547 /* WXYNewSubListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C1C1D4892FE00509547 /* WXYNewSubListViewController.m */; };
@@ -120,6 +119,7 @@
 		0DA95C4A1D4894C900509547 /* NSDate+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C491D4894C900509547 /* NSDate+TuXing.m */; };
 		0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */; };
 		0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */; };
+		0DA95C541D49F7FA00509547 /* ChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C531D49F7FA00509547 /* ChannelManager.m */; };
 		E3AFA0F87BE34349A640F7F5 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 797153EF756321F0D4E8E34A /* libPods-grassLandNewsUITests.a */; };
 		EFC27D72DF41540B68886378 /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E2ED43797003C5AD65E92D25 /* libPods-grassLandNews.a */; };
 /* End PBXBuildFile section */
@@ -328,8 +328,6 @@
 		0DA95C121D4892FE00509547 /* WKTSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKTSortViewController.m; sourceTree = "<group>"; };
 		0DA95C131D4892FE00509547 /* WXYArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXYArticleTableViewCell.h; sourceTree = "<group>"; };
 		0DA95C141D4892FE00509547 /* WXYArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXYArticleTableViewCell.m; sourceTree = "<group>"; };
-		0DA95C151D4892FE00509547 /* WXYListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXYListViewController.h; sourceTree = "<group>"; };
-		0DA95C161D4892FE00509547 /* WXYListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXYListViewController.m; sourceTree = "<group>"; };
 		0DA95C171D4892FE00509547 /* WXYNewListArchiverHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXYNewListArchiverHelper.h; sourceTree = "<group>"; };
 		0DA95C181D4892FE00509547 /* WXYNewListArchiverHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXYNewListArchiverHelper.m; sourceTree = "<group>"; };
 		0DA95C191D4892FE00509547 /* WXYNewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXYNewListViewController.h; sourceTree = "<group>"; };
@@ -362,6 +360,8 @@
 		0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+TuXing.m"; sourceTree = "<group>"; };
 		0DA95C4F1D489AB000509547 /* UIImageView+TXSDImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+TXSDImage.h"; sourceTree = "<group>"; };
 		0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TXSDImage.m"; sourceTree = "<group>"; };
+		0DA95C521D49F7FA00509547 /* ChannelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelManager.h; sourceTree = "<group>"; };
+		0DA95C531D49F7FA00509547 /* ChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelManager.m; sourceTree = "<group>"; };
 		3999DFDA49CF748C71174F99 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FC1785FB09D64DAC65B4403 /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
 		6851CB76BA4D01B3B4CBA0C5 /* Pods-grassLandNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -865,6 +865,8 @@
 			children = (
 				0DA95C061D4892FE00509547 /* Controller */,
 				0DA95C1F1D4892FE00509547 /* View */,
+				0DA95C521D49F7FA00509547 /* ChannelManager.h */,
+				0DA95C531D49F7FA00509547 /* ChannelManager.m */,
 			);
 			path = WKT;
 			sourceTree = "<group>";
@@ -879,8 +881,6 @@
 				0DA95C121D4892FE00509547 /* WKTSortViewController.m */,
 				0DA95C131D4892FE00509547 /* WXYArticleTableViewCell.h */,
 				0DA95C141D4892FE00509547 /* WXYArticleTableViewCell.m */,
-				0DA95C151D4892FE00509547 /* WXYListViewController.h */,
-				0DA95C161D4892FE00509547 /* WXYListViewController.m */,
 				0DA95C171D4892FE00509547 /* WXYNewListArchiverHelper.h */,
 				0DA95C181D4892FE00509547 /* WXYNewListArchiverHelper.m */,
 				0DA95C191D4892FE00509547 /* WXYNewListViewController.h */,
@@ -1251,6 +1251,7 @@
 				0DA95B971D487F4C00509547 /* RMCollectionCell.m in Sources */,
 				0DA95BAF1D487F4C00509547 /* MJFoundation.m in Sources */,
 				0DA95BF21D487F5500509547 /* EasyJSWebViewProxyDelegate.m in Sources */,
+				0DA95C541D49F7FA00509547 /* ChannelManager.m in Sources */,
 				0DA95C3C1D4892FE00509547 /* WKTSortScrollView.m in Sources */,
 				0DA95BF61D487F5500509547 /* NSDateFormatter+Utils.m in Sources */,
 				0DA95B031D487D9900509547 /* BaseViewController.m in Sources */,
@@ -1270,7 +1271,6 @@
 				0DA95BF71D487F5500509547 /* NSString+Utils.m in Sources */,
 				0DA95AFD1D487AB900509547 /* LeftViewController.m in Sources */,
 				0DA95BB91D487F4C00509547 /* PSPDFThreadSafeMutableDictionary.m in Sources */,
-				0DA95C331D4892FE00509547 /* WXYListViewController.m in Sources */,
 				0DA95BF51D487F5500509547 /* NSDate+Utils.m in Sources */,
 				0DA95C341D4892FE00509547 /* WXYNewListArchiverHelper.m in Sources */,
 				0DA95BAE1D487F4C00509547 /* MJConst.m in Sources */,

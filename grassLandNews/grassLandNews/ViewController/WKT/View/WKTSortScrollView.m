@@ -71,16 +71,10 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",currentUser.username];
 //
-    NSMutableArray *array = [NSMutableArray new];
-    
-    for(NSInteger i = 0; i < 10; i++)
-    {
-        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
-        [array addObject:dic];
-    }
+
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
-    self.selectChannelDataArray = [[NSMutableArray alloc] initWithArray:array];
-    self.originalChannelDataArray = [[NSMutableArray alloc] initWithArray:array];
+    self.selectChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getChannels]];
+    self.originalChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getChannels]];
     self.imageViewArr = [NSMutableArray array];
 }
 
@@ -329,7 +323,7 @@
     
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",currentUser.username];
-    NSMutableArray *oldChannelArr = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
+    NSMutableArray *oldChannelArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
     for (int i=0; i<selectChannelArray.count; i++) {
         NSString *channelText = [selectChannelArray objectAtIndex:i];
         for (int j=0; j<oldChannelArr.count; j++) {
@@ -342,8 +336,11 @@
         }
     }
     
-    [[NSUserDefaults standardUserDefaults] setObject:newChannelArr forKey:@""];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+//    [[NSUserDefaults standardUserDefaults] setObject:newChannelArr forKey:@""];
+//    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[ChannelManager shareInstance] updateChannels:newChannelArr];
+    
+    
 }
 
 #pragma mark - NSNotificaiton
