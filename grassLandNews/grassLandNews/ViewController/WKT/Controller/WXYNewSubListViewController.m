@@ -34,7 +34,7 @@
     [self initTableViewArr];
     [self initTableView];
     [self setupRefresh];
-    [self.iWXYNewListTableView.header beginRefreshing];
+//    [self.iWXYNewListTableView.header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
