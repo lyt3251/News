@@ -87,7 +87,7 @@
 - (void)createCustomNavBar{
     [super createCustomNavBar];
     
-    self.titleStr = @"微学园";
+    self.titleStr = @"测试";
     [self.btnRight setImage:[UIImage imageNamed:@"wxySearch"]  forState:UIControlStateNormal];
     [self.btnRight addTarget:self action:@selector(searchPress:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -95,7 +95,7 @@
     UIButton *sortBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 
     if (IOS_VERSION_7) {
-        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,64+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
+        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,72+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
     }else{
         [sortBtn setBackgroundColor:[UIColor colorWithHexStr:@"f4f5f6"]];
         [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,44+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
@@ -117,7 +117,7 @@
 }
 
 - (void)initShadwView{
-    self.iShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height)];
+    self.iShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, self.customNavigationView.maxY, self.view.frame.size.width, self.view.frame.size.height)];
     self.iShadowView.backgroundColor = self.view.backgroundColor;
     [self.view addSubview:self.iShadowView];
 }
@@ -150,6 +150,32 @@
 //        [self  selectChannelIndex];
 //        [weself reloadData];
 //    }];
+    
+    self.iShadowView.hidden = YES;
+    self.shadowView.hidden = YES;
+//        [self checkNewChannel:tags];
+    
+    NSMutableArray *array = [NSMutableArray new];
+    
+    for(NSInteger i = 0; i < 10; i++)
+    {
+        NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
+        [array addObject:dic];
+    }
+    self.iChannleArr = array;
+    
+    for (int i=0; i<weself.iChannleArr.count; i++) {
+        WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];
+        NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
+        NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+        [w loadData:channelId];
+        [weself.iViewControllersArray addObject:w];
+    }
+    //跳转到制定channel
+    [self  selectChannelIndex];
+    [weself reloadData];
+    
+    
 }
 /**
  *  排序页跳转到搜索页

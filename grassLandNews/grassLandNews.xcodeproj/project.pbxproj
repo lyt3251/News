@@ -971,6 +971,7 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
+				69E074AE78488A664FB5F6CC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1170,6 +1171,21 @@
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69E074AE78488A664FB5F6CC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

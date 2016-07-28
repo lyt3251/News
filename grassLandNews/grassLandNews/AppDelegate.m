@@ -11,6 +11,7 @@
 #import "BaseViewController.h"
 #import "LeftViewController.h"
 #import "MidViewController.h"
+#import "WXYNewListViewController.h"
 
 
 @interface AppDelegate ()
@@ -26,14 +27,15 @@
     
 //    MidViewController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[MidViewController alloc] init]];
 //    MidViewController *MidViewController =  [[MidViewController alloc] init];
-    
+    WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:vc animated:YES];
     
     MidViewController *midVC = [[MidViewController alloc] init];
     LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
     
     // Create side menu controller
     //
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:midVC
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:vc
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:nil];
 //    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];

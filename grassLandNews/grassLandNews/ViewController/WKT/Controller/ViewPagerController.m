@@ -220,7 +220,7 @@
     
     CGFloat topLayoutGuide = 0.0;
     if (IOS_VERSION_7) {
-        topLayoutGuide = 64.0;
+        topLayoutGuide = 74.0;
         //        if (self.navigationController && !self.navigationController.navigationBarHidden) {
         //            topLayoutGuide += self.navigationController.navigationBar.frame.size.height;
         //        }
