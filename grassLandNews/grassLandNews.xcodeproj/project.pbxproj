@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
+		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
@@ -142,6 +144,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2114751D522E1A006888DF /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
+		0D2114761D522E1A006888DF /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
+		0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithPhotoTableViewCell.h; sourceTree = "<group>"; };
+		0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWithPhotoTableViewCell.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -404,6 +410,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D21147A1D523145006888DF /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */,
+				0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		0DA95ABB1D485BD000509547 = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +444,7 @@
 		0DA95AC61D485BD000509547 /* grassLandNews */ = {
 			isa = PBXGroup;
 			children = (
+				0D21147A1D523145006888DF /* CustomViews */,
 				0DA95C001D487FFE00509547 /* Model */,
 				0DA95BC31D487F5500509547 /* Comment */,
 				0DA95B071D487E3500509547 /* Utils */,
@@ -486,6 +502,8 @@
 				0DA95AFC1D487AB900509547 /* LeftViewController.m */,
 				0DA95AFE1D487AD000509547 /* MidViewController.h */,
 				0DA95AFF1D487AD000509547 /* MidViewController.m */,
+				0D2114751D522E1A006888DF /* NewsListViewController.h */,
+				0D2114761D522E1A006888DF /* NewsListViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1313,6 +1331,7 @@
 				0DA95BA61D487F4C00509547 /* JFAssetHelper.m in Sources */,
 				0DA95C321D4892FE00509547 /* WXYArticleTableViewCell.m in Sources */,
 				0DA95BF11D487F5500509547 /* EasyJSWebView.m in Sources */,
+				0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */,
 				0DA95BAA1D487F4C00509547 /* JFImagePickerController.m in Sources */,
 				0DA95BB51D487F4C00509547 /* NSString+MJExtension.m in Sources */,
 				0DA95B951D487F4C00509547 /* RMCalendarCollectionViewLayout.m in Sources */,
@@ -1321,6 +1340,7 @@
 				0DA95BBC1D487F4C00509547 /* UIDevice+IdentifierAddition.m in Sources */,
 				0DA95B961D487F4C00509547 /* RMCalendarMonthHeaderView.m in Sources */,
 				0DA95C361D4892FE00509547 /* WXYNewSubListViewController.m in Sources */,
+				0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */,
 				0DA95C301D4892FE00509547 /* ViewPagerController.m in Sources */,
 				0DA95C2E1D4892FE00509547 /* JCTagCell.m in Sources */,
 			);

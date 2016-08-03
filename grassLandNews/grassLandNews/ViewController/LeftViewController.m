@@ -7,7 +7,7 @@
 //
 
 #import "LeftViewController.h"
-
+#import "NewsListViewController.h"
 typedef enum : NSUInteger {
     LeftVCListType_MyFavorites = 0, //收藏
     LeftVCListType_Setting, //设置
@@ -165,6 +165,28 @@ typedef enum : NSUInteger {
     return cell;
     
 
+}
+
+#pragma mark--UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    NSDictionary *dic = self.leftList[indexPath.row];
+    NSNumber *type =dic[@"type"];
+    switch (type.integerValue) {
+        case LeftVCListType_MyFavorites:
+        {
+            NewsListViewController *newListVC = [[NewsListViewController alloc] init];
+            newListVC.ListTitle = @"我的收藏";
+            [self presentViewController:newListVC animated:YES completion:nil];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
 }
 
 

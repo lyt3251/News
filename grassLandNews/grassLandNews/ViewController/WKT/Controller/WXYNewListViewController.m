@@ -36,10 +36,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self createCustomNavBar];
-        [self initSet];
-        [self initShadwView];
-        [self initChannelData];
+ 
     }
     return self;
 }
@@ -65,8 +62,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self createCustomNavBar];
+    [self initSet];
+    [self initShadwView];
+    [self initChannelData];
     self.customNavigationView.backgroundColor = [UIColor whiteColor];
-    [self.btnLeft setImage:[UIImage imageNamed:@"Main_leftVCIcon"] forState:UIControlStateNormal];
+    [self.btnLeft setImage:[UIImage imageNamed:@"Main_LeftVCIcon"] forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
 
 }
