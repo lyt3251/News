@@ -65,6 +65,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.customNavigationView.backgroundColor = [UIColor whiteColor];
+    [self.btnLeft setImage:[UIImage imageNamed:@"Main_leftVCIcon"] forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
 
 }
@@ -84,6 +86,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)onClickBtn:(UIButton *)sender
+{
+    if(sender.tag == TopBarButtonLeft)
+    {
+        [self presentLeftMenuViewController:sender];
+    }
+}
 #pragma mark - init
 - (void)createCustomNavBar{
     [super createCustomNavBar];
