@@ -14,6 +14,7 @@
 #import "WXYNewListViewController.h"
 #import "CustomNavigationController.h"
 #import "FeedBackViewController.h"
+#import "ChannelSortViewController.h"
 
 
 @interface AppDelegate ()
@@ -55,10 +56,12 @@
 #endif
     
     
-    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
-    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:fbVC];
+//    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
+    ChannelSortViewController *sortVC = [[ChannelSortViewController alloc] init];
+    
+    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:sortVC];
     fbNav.navigationBarHidden = YES;
-    self.window.rootViewController = fbVC;
+    self.window.rootViewController = sortVC;
     
     
     

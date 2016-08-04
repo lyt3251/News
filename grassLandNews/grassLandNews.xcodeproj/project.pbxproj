@@ -23,6 +23,7 @@
 		0D371C0A1D53224A00A41D79 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C091D53224A00A41D79 /* CoreTelephony.framework */; };
 		0D371C0C1D53225600A41D79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C0B1D53225600A41D79 /* libstdc++.tbd */; };
 		0D371C0E1D53226100A41D79 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C0D1D53226100A41D79 /* libz.tbd */; };
+		0DA0523D1D532E7F001F9F19 /* ChannelSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
@@ -183,6 +184,8 @@
 		0D371C091D53224A00A41D79 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0D371C0B1D53225600A41D79 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		0D371C0D1D53226100A41D79 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		0DA0523B1D532E7F001F9F19 /* ChannelSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelSortViewController.h; sourceTree = "<group>"; };
+		0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelSortViewController.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -567,6 +570,8 @@
 				0D2114761D522E1A006888DF /* NewsListViewController.m */,
 				0D371BB11D52DCCE00A41D79 /* FeedBackViewController.h */,
 				0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */,
+				0DA0523B1D532E7F001F9F19 /* ChannelSortViewController.h */,
+				0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1420,6 +1425,7 @@
 				0DA95BBE1D487F4C00509547 /* amrFileCodec.mm in Sources */,
 				0DA95B941D487F4C00509547 /* TicketModel.m in Sources */,
 				0DA95C381D4892FE00509547 /* ChannelButton.m in Sources */,
+				0DA0523D1D532E7F001F9F19 /* ChannelSortViewController.m in Sources */,
 				0DA95BED1D487F5500509547 /* CustomIOSAlertView.m in Sources */,
 				0DA95AC91D485BD000509547 /* main.m in Sources */,
 				0DA95B8E1D487F4C00509547 /* BUIView.m in Sources */,
