@@ -23,6 +23,10 @@
 #import "UIView+AlertView.h"
 #import "TXAsynRun.h"
 #import "TXDatePopView.h"
+#import "TXSharePopView.h"
+#import "ShareModelHelper.h"
+#import "ShareActionModel.h"
+#import "ShareActionManager.h"
 
 
 @interface BaseViewController () <TXImagePickerControllerDelegate>
@@ -702,6 +706,97 @@
 {
     return UIInterfaceOrientationPortrait;
 }
+
+#pragma mark-- share
+
+/**
+ *  分享链接
+ *
+ *  @param shareUrl    分享链接
+ *  @param titleStr    分享标题
+ *  @param subTitleStr 分享副标题
+ */
+-(void)shareUrlByLinkUrl:(NSString *)linkURLString title:(NSString *)title detailTitle:(NSString *)detailTitle localImage:(UIImage *)localImage
+{
+    NSMutableArray *array = [NSMutableArray array];
+#if (TARGET_IPHONE_SIMULATOR)
+    
+    [array addObject:@(TXShareType_WechatTimeline)];
+    [array addObject:@(TXShareType_WechatSession)];
+    [array addObject:@(TXShareType_QQ)];
+#else
+    NSArray *array1 = [[ShareModelHelper sharedInstance] getSharePlatformTypeAndIsComeInternal:NO];
+    for(int i=0;i<array1.count;i++){
+        NSNumber *num = [array1 objectAtIndex:i];
+        NSInteger a = [num integerValue];
+        if (a==kSharePlatformWXSceneSession) {
+            [array addObject:@(TXShareType_WechatTimeline)];
+            [array addObject:@(TXShareType_WechatSession)];
+        }
+        //        else if (a==kShareCopyLink){
+        //            if (isLinkCopyable==YES) {
+        //                [array addObject:@(TXShareType_CopyLink)];
+        //            }
+        //        }
+        else if(a==kSharePlatformQQFriends)
+        {
+            [array addObject:@(TXShareType_QQ)];
+        }
+    }
+#endif
+    
+    [self showShareSheetWithTypes:array clickBlock:^(TXShareType type) {
+        NSLog(@"点击了第%ld个按钮",type);
+        [self shareWithLink:linkURLString
+                      title:title
+                    content:detailTitle
+                   imageURL:nil
+                 localImage:localImage
+                       type:type];
+    }];
+    return;
+}
+
+//弹出分享视图
+- (void)showShareSheetWithTypes:(NSArray<NSNumber *> *)shareTypes
+                     clickBlock:(void(^)(TXShareType type))clickBlock
+{
+    if (!shareTypes || ![shareTypes count]) {
+        return;
+    }
+    TXSharePopView *popView = [TXSharePopView new];
+    [popView setupSharePopViewWithTypes:shareTypes clickBlock:clickBlock];
+    [popView showWithBlock:nil];
+}
+
+- (void)shareWithLink:(NSString *)urlString
+                title:(NSString *)title
+              content:(NSString *)content
+             imageURL:(NSString *)imageURL
+           localImage:(UIImage *)localImage
+                 type:(TXShareType)type
+{
+    ShareActionModel *model = [[ShareActionModel alloc] init];
+    model.shareUrl = urlString;
+    model.wxImageUrl = imageURL;
+    model.titleStr = title;
+    model.commentStr = content;
+    model.shareImageUrl = imageURL;
+    model.imageLocal = localImage;
+    if (type == TXShareType_WechatTimeline) {
+        //朋友圈
+        [[ShareActionManager shareInstance] htmlShareToPlatformType:kSharePlatformWXSceneTimeline FromViewController:self andPostShareModel:model];
+    }else if (type == TXShareType_WechatSession) {
+        //微信好友
+        [[ShareActionManager shareInstance] htmlShareToPlatformType:kSharePlatformWXSceneSession FromViewController:self andPostShareModel:model];
+    }else if (type == TXShareType_QQ) {
+        //QQ
+        [[ShareActionManager shareInstance] htmlShareToPlatformType:kSharePlatformQQFriends FromViewController:self andPostShareModel:model];
+    }else if (type == TXShareType_CopyLink) {
+        //复制链接
+        [[ShareActionManager shareInstance] htmlShareToPlatformType:kShareCopyLink FromViewController:self andPostShareModel:model];
+    }
+}
 @end
 
 @implementation CustomButton
@@ -714,6 +809,9 @@
     }
     [super setTitle:title forState:state];
 }
+
+
+
 
 @end
 

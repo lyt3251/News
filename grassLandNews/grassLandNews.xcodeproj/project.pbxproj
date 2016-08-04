@@ -10,6 +10,19 @@
 		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
 		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
 		0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */; };
+		0D371BB71D5319ED00A41D79 /* TXSharePopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB61D5319ED00A41D79 /* TXSharePopView.m */; };
+		0D371BBD1D531ADB00A41D79 /* ShareActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB91D531ADB00A41D79 /* ShareActionManager.m */; };
+		0D371BBE1D531ADB00A41D79 /* ShareModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BBB1D531ADB00A41D79 /* ShareModelHelper.m */; };
+		0D371BC31D531B0A00A41D79 /* ShareActionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BC01D531B0A00A41D79 /* ShareActionModel.m */; };
+		0D371BC41D531B0B00A41D79 /* SharePicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BC21D531B0A00A41D79 /* SharePicModel.m */; };
+		0D371C001D5321E900A41D79 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371BFF1D5321E900A41D79 /* Security.framework */; };
+		0D371C021D53221200A41D79 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C011D53221200A41D79 /* libiconv.tbd */; };
+		0D371C041D53222100A41D79 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C031D53222100A41D79 /* SystemConfiguration.framework */; };
+		0D371C061D53222C00A41D79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C051D53222C00A41D79 /* CoreGraphics.framework */; };
+		0D371C081D53223E00A41D79 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C071D53223E00A41D79 /* libsqlite3.tbd */; };
+		0D371C0A1D53224A00A41D79 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C091D53224A00A41D79 /* CoreTelephony.framework */; };
+		0D371C0C1D53225600A41D79 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C0B1D53225600A41D79 /* libstdc++.tbd */; };
+		0D371C0E1D53226100A41D79 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D371C0D1D53226100A41D79 /* libz.tbd */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
@@ -151,6 +164,25 @@
 		0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWithPhotoTableViewCell.m; sourceTree = "<group>"; };
 		0D371BB11D52DCCE00A41D79 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
 		0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
+		0D371BB51D5319ED00A41D79 /* TXSharePopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSharePopView.h; sourceTree = "<group>"; };
+		0D371BB61D5319ED00A41D79 /* TXSharePopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSharePopView.m; sourceTree = "<group>"; };
+		0D371BB81D531ADB00A41D79 /* ShareActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionManager.h; sourceTree = "<group>"; };
+		0D371BB91D531ADB00A41D79 /* ShareActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionManager.m; sourceTree = "<group>"; };
+		0D371BBA1D531ADB00A41D79 /* ShareModelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareModelHelper.h; sourceTree = "<group>"; };
+		0D371BBB1D531ADB00A41D79 /* ShareModelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareModelHelper.m; sourceTree = "<group>"; };
+		0D371BBC1D531ADB00A41D79 /* UmengShareMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UmengShareMarco.h; sourceTree = "<group>"; };
+		0D371BBF1D531B0A00A41D79 /* ShareActionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareActionModel.h; sourceTree = "<group>"; };
+		0D371BC01D531B0A00A41D79 /* ShareActionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareActionModel.m; sourceTree = "<group>"; };
+		0D371BC11D531B0A00A41D79 /* SharePicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharePicModel.h; sourceTree = "<group>"; };
+		0D371BC21D531B0A00A41D79 /* SharePicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharePicModel.m; sourceTree = "<group>"; };
+		0D371BFF1D5321E900A41D79 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		0D371C011D53221200A41D79 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		0D371C031D53222100A41D79 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0D371C051D53222C00A41D79 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0D371C071D53223E00A41D79 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		0D371C091D53224A00A41D79 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0D371C0B1D53225600A41D79 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		0D371C0D1D53226100A41D79 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -387,6 +419,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D371C0E1D53226100A41D79 /* libz.tbd in Frameworks */,
+				0D371C0C1D53225600A41D79 /* libstdc++.tbd in Frameworks */,
+				0D371C0A1D53224A00A41D79 /* CoreTelephony.framework in Frameworks */,
+				0D371C081D53223E00A41D79 /* libsqlite3.tbd in Frameworks */,
+				0D371C061D53222C00A41D79 /* CoreGraphics.framework in Frameworks */,
+				0D371C041D53222100A41D79 /* SystemConfiguration.framework in Frameworks */,
+				0D371C021D53221200A41D79 /* libiconv.tbd in Frameworks */,
+				0D371C001D5321E900A41D79 /* Security.framework in Frameworks */,
 				0DA95BC01D487F4C00509547 /* libopencore-amrnb.a in Frameworks */,
 				0DA95BC11D487F4C00509547 /* libopencore-amrwb.a in Frameworks */,
 				0DA95BBD1D487F4C00509547 /* libUMessage_Sdk_1.3.0.a in Frameworks */,
@@ -420,6 +460,24 @@
 				0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		0D371BB41D5319ED00A41D79 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				0D371BBF1D531B0A00A41D79 /* ShareActionModel.h */,
+				0D371BC01D531B0A00A41D79 /* ShareActionModel.m */,
+				0D371BC11D531B0A00A41D79 /* SharePicModel.h */,
+				0D371BC21D531B0A00A41D79 /* SharePicModel.m */,
+				0D371BB81D531ADB00A41D79 /* ShareActionManager.h */,
+				0D371BB91D531ADB00A41D79 /* ShareActionManager.m */,
+				0D371BBA1D531ADB00A41D79 /* ShareModelHelper.h */,
+				0D371BBB1D531ADB00A41D79 /* ShareModelHelper.m */,
+				0D371BBC1D531ADB00A41D79 /* UmengShareMarco.h */,
+				0D371BB51D5319ED00A41D79 /* TXSharePopView.h */,
+				0D371BB61D5319ED00A41D79 /* TXSharePopView.m */,
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 		0DA95ABB1D485BD000509547 = {
@@ -516,6 +574,7 @@
 		0DA95B071D487E3500509547 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D371BB41D5319ED00A41D79 /* Share */,
 				0DA95C4E1D489AB000509547 /* UIImageView_TXSDImage */,
 				0DA95C4B1D48980000509547 /* NSDateFormatter+TuXing.h */,
 				0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */,
@@ -961,6 +1020,14 @@
 		3798E754C1018A22EE5873BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0D371C0D1D53226100A41D79 /* libz.tbd */,
+				0D371C0B1D53225600A41D79 /* libstdc++.tbd */,
+				0D371C091D53224A00A41D79 /* CoreTelephony.framework */,
+				0D371C071D53223E00A41D79 /* libsqlite3.tbd */,
+				0D371C051D53222C00A41D79 /* CoreGraphics.framework */,
+				0D371C031D53222100A41D79 /* SystemConfiguration.framework */,
+				0D371C011D53221200A41D79 /* libiconv.tbd */,
+				0D371BFF1D5321E900A41D79 /* Security.framework */,
 				3CEAAD347289404083581572 /* libPods-grassLandNews.a */,
 				F1B2CEC1C36081C84382909E /* libPods-grassLandNewsTests.a */,
 				F89F02528381E71F95E0E708 /* libPods-grassLandNewsUITests.a */,
@@ -1075,6 +1142,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 0DA95ABB1D485BD000509547;
 			productRefGroup = 0DA95AC51D485BD000509547 /* Products */;
@@ -1285,6 +1353,7 @@
 				0DA95C3D1D4892FE00509547 /* WXYNewListTableViewCell.m in Sources */,
 				0DA95BFF1D487F5500509547 /* uploadImageView.m in Sources */,
 				0DA95BF01D487F5500509547 /* EasyJSDataFunction.m in Sources */,
+				0D371BBD1D531ADB00A41D79 /* ShareActionManager.m in Sources */,
 				0DA95BA51D487F4C00509547 /* TXProgressHUD.m in Sources */,
 				0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */,
 				0DA95C371D4892FE00509547 /* WXYSearchViewController.m in Sources */,
@@ -1301,6 +1370,7 @@
 				0DA95B001D487AD000509547 /* MidViewController.m in Sources */,
 				0DA95BA71D487F4C00509547 /* JFImageCollectionViewController.m in Sources */,
 				0DA95C441D4893ED00509547 /* UIColor+Hex.m in Sources */,
+				0D371BC41D531B0B00A41D79 /* SharePicModel.m in Sources */,
 				0DA95BB11D487F4C00509547 /* MJType.m in Sources */,
 				0DA95B9B1D487F4C00509547 /* GMAlbumsViewController.m in Sources */,
 				0DA95B9F1D487F4C00509547 /* GMGridViewController.m in Sources */,
@@ -1310,6 +1380,7 @@
 				0DA95BF91D487F5500509547 /* TXAsynRun.m in Sources */,
 				0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */,
 				0DA95BFC1D487F5500509547 /* UILabel+ContentSize.m in Sources */,
+				0D371BB71D5319ED00A41D79 /* TXSharePopView.m in Sources */,
 				0DA95C351D4892FE00509547 /* WXYNewListViewController.m in Sources */,
 				0DA95B921D487F4C00509547 /* RMCalendarLogic.m in Sources */,
 				0DA95BC21D487F4C00509547 /* TXVoiceConverter.mm in Sources */,
@@ -1327,6 +1398,7 @@
 				0DA95B8F1D487F4C00509547 /* CHSCharacterCountTextView.m in Sources */,
 				0DA95BB21D487F4C00509547 /* NSObject+MJCoding.m in Sources */,
 				0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */,
+				0D371BC31D531B0A00A41D79 /* ShareActionModel.m in Sources */,
 				0DA95BEE1D487F5500509547 /* DataUtility.m in Sources */,
 				0DA95B911D487F4C00509547 /* UIView+CustomFrame.m in Sources */,
 				0DA95C391D4892FE00509547 /* WKTSearchTableViewCell.m in Sources */,
@@ -1343,6 +1415,7 @@
 				0DA95C3B1D4892FE00509547 /* WKTSearchView.m in Sources */,
 				0DA95BFD1D487F5500509547 /* UIView+AlertView.m in Sources */,
 				0DA95BA81D487F4C00509547 /* JFImageGroupTableViewController.m in Sources */,
+				0D371BBE1D531ADB00A41D79 /* ShareModelHelper.m in Sources */,
 				0DA95BA91D487F4C00509547 /* JFImageManager.m in Sources */,
 				0DA95BBE1D487F4C00509547 /* amrFileCodec.mm in Sources */,
 				0DA95B941D487F4C00509547 /* TicketModel.m in Sources */,
@@ -1507,6 +1580,10 @@
 			baseConfigurationReference = 9F85ED0167EF1DB2BBDB5C98 /* Pods-grassLandNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/grassLandNews/grassLandNews.pch";
 				INFOPLIST_FILE = grassLandNews/Info.plist;
@@ -1517,6 +1594,9 @@
 					"$(PROJECT_DIR)/grassLandNews/Utils/UMessage_Sdk_1.3.0",
 					"$(PROJECT_DIR)/grassLandNews/Utils/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/grassLandNews/Utils/VoiceConvert/opencore-amrwb",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_5.2.1",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1528,6 +1608,10 @@
 			baseConfigurationReference = A3BDEDCE76277E9458F61F87 /* Pods-grassLandNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/grassLandNews/grassLandNews.pch";
 				INFOPLIST_FILE = grassLandNews/Info.plist;
@@ -1538,6 +1622,9 @@
 					"$(PROJECT_DIR)/grassLandNews/Utils/UMessage_Sdk_1.3.0",
 					"$(PROJECT_DIR)/grassLandNews/Utils/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/grassLandNews/Utils/VoiceConvert/opencore-amrwb",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_5.2.1",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
+					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = wjy.grassLandNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";

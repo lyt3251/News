@@ -29,6 +29,7 @@
     [self createCustomNavBar];
     self.titleStr = @"测试测试";
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
+    [self.btnRight setTitle:@"分享" forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
     
     [self setupViews];
@@ -125,6 +126,12 @@
     if(sender.tag == TopBarButtonLeft)
     {
         [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else if(sender.tag == TopBarButtonRight)
+    {
+        //分享
+        [self shareUrlByLinkUrl:@"http://www.baidu.com" title:@"标题" detailTitle:@"副标题" localImage:[UIImage imageNamed:@"Main_Back"]];
+    
     }
 }
 

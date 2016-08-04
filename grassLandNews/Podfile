@@ -21,7 +21,8 @@ def import_main_pods
 	pod 'Reachability'	
 	pod 'MJRefresh', '~> 2.4.7'
 	pod 'DateTools'
-	pod 'NJKWebViewProgress'				
+	pod 'NJKWebViewProgress'	
+	pod 'UMengSocialCOM', '~> 5.1.0'				
 end
 
 target 'grassLandNews' do
