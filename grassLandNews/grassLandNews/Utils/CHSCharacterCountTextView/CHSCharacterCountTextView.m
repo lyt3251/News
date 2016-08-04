@@ -277,4 +277,10 @@
     return YES;
 }
 
+-(BOOL)isFirstResponder
+{
+    return [messageTextView isFirstResponder];
+}
+
+
 @end

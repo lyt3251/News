@@ -109,6 +109,7 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 
 #define kColorChildhood             RGBCOLOR(0xff, 0x80, 0x62)
 #define kColorNavigationBackGroundColor RGBCOLOR(0x01, 0x8c, 0xf5)
+#define KColorBorderColor           RGBCOLOR(0xe8, 0xe8, 0xe8)
 
 //新定义字体
 #define kFontMiddle                 [UIFont systemFontOfSize:15]

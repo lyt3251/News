@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
 		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
+		0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
@@ -148,6 +149,8 @@
 		0D2114761D522E1A006888DF /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithPhotoTableViewCell.h; sourceTree = "<group>"; };
 		0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWithPhotoTableViewCell.m; sourceTree = "<group>"; };
+		0D371BB11D52DCCE00A41D79 /* FeedBackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackViewController.h; sourceTree = "<group>"; };
+		0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackViewController.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -504,6 +507,8 @@
 				0DA95AFF1D487AD000509547 /* MidViewController.m */,
 				0D2114751D522E1A006888DF /* NewsListViewController.h */,
 				0D2114761D522E1A006888DF /* NewsListViewController.m */,
+				0D371BB11D52DCCE00A41D79 /* FeedBackViewController.h */,
+				0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -989,6 +994,7 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
+				D3C238FD02000A28D76B2C6E /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1210,6 +1216,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		D3C238FD02000A28D76B2C6E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1287,6 +1308,7 @@
 				0DA95BBA1D487F4C00509547 /* TXDatePopView.m in Sources */,
 				0DA95C411D48936900509547 /* TXWebViewController.m in Sources */,
 				0DA95BF91D487F5500509547 /* TXAsynRun.m in Sources */,
+				0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */,
 				0DA95BFC1D487F5500509547 /* UILabel+ContentSize.m in Sources */,
 				0DA95C351D4892FE00509547 /* WXYNewListViewController.m in Sources */,
 				0DA95B921D487F4C00509547 /* RMCalendarLogic.m in Sources */,

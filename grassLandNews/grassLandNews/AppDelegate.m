@@ -13,6 +13,7 @@
 #import "MidViewController.h"
 #import "WXYNewListViewController.h"
 #import "CustomNavigationController.h"
+#import "FeedBackViewController.h"
 
 
 @interface AppDelegate ()
@@ -24,17 +25,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initWindows];
+    
+    return YES;
+}
+
+
+-(void)initWindows
+{
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-//    MidViewController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[MidViewController alloc] init]];
-//    MidViewController *MidViewController =  [[MidViewController alloc] init];
+    
+#if 0
     WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
     CustomNavigationController *loginNV = [[CustomNavigationController alloc]
                                            initWithRootViewController:vc];
     loginNV.navigationBarHidden = YES;
-//    [self.navigationController pushViewController:vc animated:YES];
-    
-//    MidViewController *midVC = [[MidViewController alloc] init];
     
     LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
     
@@ -43,17 +49,24 @@
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:loginNV
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:nil];
-//    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
     
-    // Make it a root controller
     //
     self.window.rootViewController = sideMenuViewController;
+#endif
+    
+    
+    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
+    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:fbVC];
+    fbNav.navigationBarHidden = YES;
+    self.window.rootViewController = fbVC;
+    
+    
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
-    
-    return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
