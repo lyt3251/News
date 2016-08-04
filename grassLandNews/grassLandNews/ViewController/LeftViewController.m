@@ -8,6 +8,9 @@
 
 #import "LeftViewController.h"
 #import "NewsListViewController.h"
+#import "SettingViewController.h"
+#import "AboutViewController.h"
+
 typedef enum : NSUInteger {
     LeftVCListType_MyFavorites = 0, //收藏
     LeftVCListType_Setting, //设置
@@ -182,7 +185,24 @@ typedef enum : NSUInteger {
             
         }
             break;
+        case LeftVCListType_Share:
+        {
+            [self shareUrlByLinkUrl:@"http://www.baidu.com" title:@"标题" detailTitle:@"副标题" localImage:nil];
+        }
+            break;
             
+        case LeftVCListType_Setting:
+        {
+            SettingViewController *settingVC = [[SettingViewController alloc] init];
+            [self presentViewController:settingVC animated:YES completion:nil];
+        }
+            break;
+        case LeftVCListType_About:
+        {
+            AboutViewController *aboutVC = [[AboutViewController alloc] init];
+            [self presentViewController:aboutVC animated:YES completion:nil];
+        }
+            break;
         default:
             break;
     }

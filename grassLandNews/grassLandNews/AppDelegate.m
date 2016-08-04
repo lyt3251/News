@@ -37,7 +37,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-#if 0
+//#if 0
     WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
     CustomNavigationController *loginNV = [[CustomNavigationController alloc]
                                            initWithRootViewController:vc];
@@ -53,15 +53,15 @@
     
     //
     self.window.rootViewController = sideMenuViewController;
-#endif
+//#endif
     
     
 //    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
-    ChannelSortViewController *sortVC = [[ChannelSortViewController alloc] init];
-    
-    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:sortVC];
-    fbNav.navigationBarHidden = YES;
-    self.window.rootViewController = sortVC;
+//    ChannelSortViewController *sortVC = [[ChannelSortViewController alloc] init];
+//    
+//    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:sortVC];
+//    fbNav.navigationBarHidden = YES;
+//    self.window.rootViewController = sortVC;
     
     
     

@@ -135,7 +135,7 @@
     _titleLb.frame = CGRectMake(0, 0,_shouldLimitTitleLabelWidth ? _customNavigationView.width_ - _btnLeft.width_ - _btnRight.width_ : _customNavigationView.width_, kNavigationHeight);
     _titleLb.center = CGPointMake(_customNavigationView.center.x, _customNavigationView.height_ - kNavigationHeight / 2);
     _titleLb.font = kFontSuperLarge_b;
-    _titleLb.textColor = kColorNavigationTitle;
+    _titleLb.textColor = [UIColor whiteColor];
     _titleLb.textAlignment = NSTextAlignmentCenter;
     [_customNavigationView addSubview:_titleLb];
     [_customNavigationView addSubview:_btnLeft];

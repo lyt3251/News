@@ -1,20 +1,18 @@
 //
-//  NewsWithPhotoTableViewCell.m
+//  NewsOnlyTextTableViewCell.m
 //  grassLandNews
 //
-//  Created by liuyuantao on 16/8/3.
+//  Created by liuyuantao on 16/8/4.
 //  Copyright © 2016年 liuyuantao. All rights reserved.
 //
 
-#import "NewsWithPhotoTableViewCell.h"
+#import "NewsOnlyTextTableViewCell.h"
 
-@interface NewsWithPhotoTableViewCell()
+@interface NewsOnlyTextTableViewCell()
 @property(nonatomic, strong)UIView *lineView;
 @end
 
-
-@implementation NewsWithPhotoTableViewCell
-
+@implementation NewsOnlyTextTableViewCell
 
 -(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,18 +27,14 @@
 - (void)awakeFromNib {
     // Initialization code
 }
-
 -(void)setupViews
 {
-
+    
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = kColorNewsTitle;
     self.titleLabel.font = kFontNewsTitle;
     self.titleLabel.numberOfLines = 2;
     [self.contentView addSubview:self.titleLabel];
-    
-    self.rightImageView = [[UIImageView alloc] init];
-    [self.contentView addSubview:self.rightImageView];
     
     self.subTitleLabel = [[UILabel alloc] init];
     self.subTitleLabel.textColor = kColorNewsChannel;
@@ -53,18 +47,12 @@
     [self.contentView addSubview:self.lineView];
     
     
-    [self.rightImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.mas_equalTo(-15);
-        make.top.mas_equalTo(10);
-        make.size.mas_equalTo(CGSizeMake(135, 80));
-    }];
-    
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
-        make.top.mas_equalTo(self.rightImageView);
-        make.right.mas_equalTo(self.rightImageView.mas_left).with.offset(-20);
+        make.top.mas_equalTo(10);
+        make.right.mas_equalTo(-15);
     }];
-
+    
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.and.right.and.bottom.mas_equalTo(0);
         make.height.mas_equalTo(0.5f);
@@ -75,10 +63,8 @@
         make.bottom.mas_equalTo(-10);
     }];
     
-
+    
 }
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

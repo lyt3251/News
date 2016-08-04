@@ -8,6 +8,7 @@
 
 #import "NewsListViewController.h"
 #import "NewsWithPhotoTableViewCell.h"
+#import "NewsOnlyTextTableViewCell.h"
 
 @interface NewsListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
@@ -82,7 +83,7 @@
 {
     UITableViewCell *cell = nil;
     
-    if(1)
+    if(indexPath.row%2 == 0)
     {
         static NSString *identifier = @"NewsWithPhotoTableViewCell";
         NewsWithPhotoTableViewCell *newsWithPhotoCell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -91,16 +92,30 @@
             newsWithPhotoCell = [[NewsWithPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
-        newsWithPhotoCell.titleLabel.text = @"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题";
+        [newsWithPhotoCell.titleLabel setTextByStr:@"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题" WithSpace:7.0f];
         newsWithPhotoCell.subTitleLabel.text = @"标签标签标签标签";
-//        [newsWithPhotoCell.rightImageView TX_setImageWithURL:[NSURL URLWithString:@"http://n.sinaimg.cn/news/20160803/6f47-fxupmws1661759.jpg"] placeholderImage:[UIImage imageNamed:@"Left_Header"]];
-//        [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:@"http://n.sinaimg.cn/news/20160803/6f47-fxupmws1661759.jpg"]];
         
         [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:@"http://n.sinaimg.cn/news/20160803/6f47-fxupmws1661759.jpg"] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
         }];
         cell = newsWithPhotoCell;
     }
+    else
+    {
+        static NSString *identifier = @"NewsOnlyTextTableViewCell";
+        NewsOnlyTextTableViewCell *newsOnlyTextCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if(!newsOnlyTextCell)
+        {
+            newsOnlyTextCell = [[NewsOnlyTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+        
+//        newsOnlyTextCell.titleLabel.text = @"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题";
+        [newsOnlyTextCell.titleLabel setTextByStr:@"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题" WithSpace:7.0f];
+        newsOnlyTextCell.subTitleLabel.text = @"标签标签标签标签";
+        
+        cell = newsOnlyTextCell;
+    }
+    
     return cell;
 }
 

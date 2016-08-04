@@ -38,7 +38,7 @@
 #define kNavigationHeight       52.f    //导航栏高度
 #define kScreenWidth            [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight           [UIScreen mainScreen].bounds.size.height
-#define kEdgeInsetsLeft         10
+#define kEdgeInsetsLeft         15
 #define kLineHeight             0.5f
 #define kTabBarHeight           50.f
 
@@ -64,11 +64,11 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 //新定义颜色
 #define kColorType              RGBCOLOR(65,195,255)
 #define kColorType1             RGBCOLOR(50,170,226)
-#define kColorBackground        RGBCOLOR(243,243,243)
+#define kColorBackground        RGBCOLOR(0xf6,0xf6,0xf6)
 #define kColorOrange            RGBCOLOR(255,147,61)
 #define kColorBlack             KColorNewTitleTxt              //黑色字体
 #define kColorLightBlack        RGBCOLOR(96,96,96)              //浅黑色字体
-#define kColorLine              RGBCOLOR(216,216,216)           //分割线颜色
+#define kColorLine              RGBCOLOR(0xea, 0xea, 0xea)           //分割线颜色
 
 
 #define kColorClear                 [UIColor clearColor]
@@ -104,12 +104,16 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 #define KColorNewLine               RGBCOLOR(0xe5, 0xe5, 0xe5)
 #define KColorResourceLine          RGBCOLOR(225, 225, 225)
 
-#define KColorAppMain               RGBCOLOR(0x41, 0xc3, 0xff) //app主色调
+#define KColorAppMain               RGBCOLOR(0x44, 0x99, 0x69) //app主色调
 #define KColorAppMainP              RGBCOLOR(0x32, 0xaa, 0xe2) //app主色调按下效果
 
 #define kColorChildhood             RGBCOLOR(0xff, 0x80, 0x62)
 #define kColorNavigationBackGroundColor RGBCOLOR(0x01, 0x8c, 0xf5)
 #define KColorBorderColor           RGBCOLOR(0xe8, 0xe8, 0xe8)
+
+#define kColorNewsTitle             RGBCOLOR(0x22, 0x22, 0x22)
+#define kColorNewsChannel           RGBCOLOR(0x99, 0x99, 0x99)
+
 
 //新定义字体
 #define kFontMiddle                 [UIFont systemFontOfSize:15]
@@ -145,6 +149,10 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 
 #define KNavFontSize (ISSMALLIPHONE?kFontMiddle_1_b:kFontSuper_b)
 
+
+#define kFontNewsTitle          [UIFont systemFontOfSize:18]
+#define kFontNewsSubTitle       [UIFont systemFontOfSize:14]
+#define kFontNewsChannel        [UIFont systemFontOfSize:12]
 
 
 /**
