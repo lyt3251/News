@@ -16,6 +16,7 @@
 @property(nonatomic, strong)UITableView *rightTableView;
 @property(nonatomic, strong)NSMutableArray *leftTitles;
 @property(nonatomic, strong)NSMutableArray *rightTitles;
+@property(nonatomic, strong)UIImageView *screenshot;
 @end
 
 @implementation ChannelSortViewController
@@ -25,6 +26,7 @@
     // Do any additional setup after loading the view.
     [self createCustomNavBar];
     self.titleStr = @"测试测试";
+//    [self.btnRight setTitle:@"测试截屏" forState:UIControlStateNormal];
     [self initTitles];
     [self setupViews];
     
@@ -79,6 +81,27 @@
 }
 
 
+-(void)onClickBtn:(UIButton *)sender
+{
+    if(sender.tag == TopBarButtonRight)
+    {
+//        [self captureScreenshot];
+    }
+
+}
+
+
+-(void)captureScreenshot
+{
+
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0);
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    _screenshot.image = image;
+    NSString *homePath = NSHomeDirectory();
+    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"%@/Documents/a.png", homePath] atomically:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
