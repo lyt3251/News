@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D12C8061D56C7DB00115311 /* PushMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C8051D56C7DB00115311 /* PushMsgViewController.m */; };
 		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
 		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
 		0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */; };
@@ -163,6 +164,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D12C8041D56C7DB00115311 /* PushMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMsgViewController.h; sourceTree = "<group>"; };
+		0D12C8051D56C7DB00115311 /* PushMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMsgViewController.m; sourceTree = "<group>"; };
 		0D2114751D522E1A006888DF /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		0D2114761D522E1A006888DF /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithPhotoTableViewCell.h; sourceTree = "<group>"; };
@@ -599,6 +602,8 @@
 				0D463B421D5370AE00BA1200 /* SettingViewController.m */,
 				0D463B441D53827A00BA1200 /* AboutViewController.h */,
 				0D463B451D53827A00BA1200 /* AboutViewController.m */,
+				0D12C8041D56C7DB00115311 /* PushMsgViewController.h */,
+				0D12C8051D56C7DB00115311 /* PushMsgViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1094,6 +1099,7 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
+				CE62EE058F1CE182614E6B98 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1316,6 +1322,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		CE62EE058F1CE182614E6B98 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1413,6 +1434,7 @@
 				0DA95BB81D487F4C00509547 /* RDVTabBarItem.m in Sources */,
 				0DA95C2D1D4892FE00509547 /* JCCollectionViewTagFlowLayout.m in Sources */,
 				0DA95BA01D487F4C00509547 /* GMImagePickerController.m in Sources */,
+				0D12C8061D56C7DB00115311 /* PushMsgViewController.m in Sources */,
 				0DA95BEC1D487F5500509547 /* CustomAlertView.m in Sources */,
 				0DA95BB41D487F4C00509547 /* NSObject+MJProperty.m in Sources */,
 				0DA95B8F1D487F4C00509547 /* CHSCharacterCountTextView.m in Sources */,
