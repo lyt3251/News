@@ -237,7 +237,7 @@
     CGFloat width = 0;
     //50 图标位置
     
-    UIImage *image = [UIImage imageNamed:@"wxyAdd"];
+    UIImage *image = [UIImage imageNamed:@"Main_Add"];
     width = kScreenWidth-image.size.height-14;
     
     
@@ -910,7 +910,7 @@
         self.tabsView = [[UIScrollView alloc] initWithFrame:CGRectMake(0.0, 0.0, kScreenWidth - 70, [self.tabHeight floatValue])];
         self.tabsView.delegate = self;
         self.tabsView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        self.tabsView.backgroundColor = [UIColor colorWithHexStr:@"f4f5f6"];//self.tabsViewBackgroundColor
+        self.tabsView.backgroundColor = KColorAppMain;//self.tabsViewBackgroundColor
         self.tabsView.scrollsToTop = NO;
         self.tabsView.showsHorizontalScrollIndicator = NO;
         self.tabsView.showsVerticalScrollIndicator = NO;
@@ -929,7 +929,7 @@
         self.leftTabView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"home_navigation_mask_right"]];
         self.leftTabView.hidden = YES;
         [self.view addSubview:self.rightTabView];
-        UIImage *imageAdd = [UIImage imageNamed:@"wxyAdd"];
+        UIImage *imageAdd = [UIImage imageNamed:@"Main_Add"];
         UIImage *rightImage = [UIImage imageNamed:@"home_navigation_mask_right"];
         if(IOS_VERSION_7){
             self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 64+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);

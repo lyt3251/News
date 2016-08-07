@@ -67,9 +67,9 @@
     [self initShadwView];
     [self initChannelData];
     self.customNavigationView.backgroundColor = [UIColor whiteColor];
-    [self.btnLeft setImage:[UIImage imageNamed:@"Main_LeftVCIcon"] forState:UIControlStateNormal];
+    [self.btnLeft setImage:[UIImage imageNamed:@"Main_leftVCIcon"] forState:UIControlStateNormal];
+    [self setNeedsReloadColors];
     // Do any additional setup after loading the view.
-
 }
 
 - (void)dealloc{
@@ -98,17 +98,29 @@
 - (void)createCustomNavBar{
     [super createCustomNavBar];
     
-    self.titleStr = @"测试";
-    [self.btnRight setImage:[UIImage imageNamed:@"wxySearch"]  forState:UIControlStateNormal];
+    UIImageView *appLogo = [[UIImageView alloc] init];
+    appLogo.image = [UIImage imageNamed:@"Main_AppIcon"];
+    [self.customNavigationView addSubview:appLogo];
+    CGFloat topMargin = 20 + (self.customNavigationView.maxY - 20 - appLogo.image.size.height)/2;
+    
+    [appLogo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.size.mas_equalTo(appLogo.image.size);
+        make.top.mas_equalTo(topMargin);
+    }];
+    
+    
+    [self.btnRight setImage:[UIImage imageNamed:@"Main_Search"]  forState:UIControlStateNormal];
     [self.btnRight addTarget:self action:@selector(searchPress:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIImage *image = [UIImage imageNamed:@"wxyAdd"];
+    UIImage *image = [UIImage imageNamed:@"Main_Add"];
     UIButton *sortBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-
+    sortBtn.tag = 0x10000+1;
     if (IOS_VERSION_7) {
-        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,72+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
+        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,74+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
+        [sortBtn setBackgroundColor: KColorAppMain];
     }else{
-        [sortBtn setBackgroundColor:[UIColor colorWithHexStr:@"f4f5f6"]];
+        [sortBtn setBackgroundColor:KColorAppMain];
         [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,44+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
     }
 
@@ -117,6 +129,18 @@
     [sortBtn setImage:image forState:UIControlStateHighlighted];
     [sortBtn addTarget:self action:@selector(sortBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sortBtn];
+    
+//    UIView *maskView = [[UIView alloc] init];
+//    maskView.backgroundColor = RGBACOLOR(0x44, 0x99, 0x69, 0.6f);
+//    maskView.tag = 0x10000;
+//    [self.view addSubview:maskView];
+//    [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.height.mas_equalTo(sortBtn);
+//        make.right.mas_equalTo(sortBtn.mas_left);
+//        make.width.mas_equalTo(10);
+//        make.centerY.mas_equalTo(sortBtn);
+//    }];
+    
 }
 
 - (void)initSet{
@@ -129,7 +153,8 @@
 
 - (void)initShadwView{
     self.iShadowView = [[UIView alloc] initWithFrame:CGRectMake(0, self.customNavigationView.maxY, self.view.frame.size.width, self.view.frame.size.height)];
-    self.iShadowView.backgroundColor = self.view.backgroundColor;
+//    self.iShadowView.backgroundColor = self.view.backgroundColor;
+    self.iShadowView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.iShadowView];
 }
 
@@ -312,7 +337,7 @@
         case ViewPagerIndicator:
             return [UIColor clearColor];
         case ViewPagerTabsView:
-            return viewBackgroundColor;
+            return KColorAppMain;
         case ViewPagerContent:
             return viewBackgroundColor;
         default:
@@ -329,13 +354,13 @@
 
 - (UIView *)viewPager:(ViewPagerController *)viewPager viewForTabAtIndex:(NSUInteger)index {
     UILabel *label = [UILabel new];
-    label.backgroundColor = [UIColor clearColor];
-    UIFont *font = [UIFont systemFontOfSize:14.0];
+    label.backgroundColor = kColorClear;
+    UIFont *font = [UIFont systemFontOfSize:15.0];
     [label setFont:font];
     NSDictionary *dict = [self.iChannleArr objectAtIndex:index];
     label.text = [dict objectForKey:@"channelName"];
     label.textAlignment = NSTextAlignmentCenter;
-    label.textColor = [UIColor colorWithHexStr:@"444444"];//未点击颜色;
+    label.textColor = kColorWhite;//未点击颜色;
     [label sizeToFit];
     
     return label;
