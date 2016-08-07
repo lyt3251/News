@@ -25,7 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self createCustomNavBar];
-    self.titleStr = @"测试测试";
+    self.customNavigationView.backgroundColor = KColorAppMain;
+    self.titleStr = @"栏目导航";
 //    [self.btnRight setTitle:@"测试截屏" forState:UIControlStateNormal];
     [self initTitles];
     [self setupViews];
@@ -70,6 +71,7 @@
     self.rightTableView.delegate = self;
     self.rightTableView.rowHeight = KCellHight;
     self.rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.rightTableView.backgroundColor = RGBCOLOR(0xf6, 0xf6, 0xf6);
     [self.view addSubview:self.rightTableView];
     [self.rightTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(kScreenWidth/2);
@@ -147,6 +149,8 @@
         
         UILabel *titleLabel = [[UILabel alloc] init];
         titleLabel.tag = KCellTagBase + 1;
+        titleLabel.font = kFontMiddle;
+        titleLabel.textColor = kColorNewsTitle;
         titleLabel.frame = CGRectMake(15, 7.5, kScreenWidth-15-20-15, 30);
         [cell.contentView addSubview:titleLabel];
     
@@ -168,11 +172,15 @@
 
     if(tableView == self.rightTableView)
     {
+        titleLabel.frame = CGRectMake(20, 7.5, kScreenWidth-15-20-20, 30);
         titleLabel.text = self.rightTitles[indexPath.row];
+        cell.backgroundColor = RGBCOLOR(0xf6, 0xf6, 0xf6);
     }
     else if(tableView == self.leftTableView)
     {
         titleLabel.text = self.leftTitles[indexPath.row];
+        cell.backgroundColor = kColorWhite;
+        titleLabel.frame = CGRectMake(15, 7.5, kScreenWidth-15-20-15, 30);
     }
 
     return cell;
