@@ -20,8 +20,9 @@
 #define G_DefaultTintColor  [UIColor greenColor]//[UIColor colorWithRed:35.0f/255.0f green:136.0f/255.0f blue:219.0f/255.0f alpha:1.0]
 #define G_DefaultViewColor  [UIColor greenColor]//[UIColor colorWithRed:239.0f/255.0f green:239.0f/255.0f blue:244.0f/255.0f alpha:1.0]
 #define G_DefaultTitleColor [UIColor colorWithHexStr:@"ffc001"] //导航条文字颜色
-#define G_UnselectedTitleColor [UIColor colorWithHexStr:@"444444"]//频道切换未选中时TitleColor
-#define G_selectedTitleColor [UIColor colorWithHexStr:@"ff933d"]
+#define G_UnselectedTitleColor [UIColor colorWithHexStr:@"ffffff"]//频道切换未选中时TitleColor
+//#define G_selectedTitleColor [UIColor colorWithHexStr:@"ff933d"]
+#define G_selectedTitleColor [UIColor colorWithHexStr:@"ffffff"]
 #define navBarBackgroundColor RGBACOLOR(0, 0, 0, 0.3)
 
 #define kTabHeight 33.0
@@ -77,6 +78,7 @@
 @interface TabView : UIView
 @property (nonatomic, getter = isSelected) BOOL selected;
 @property (nonatomic) UIColor *indicatorColor;
+@property(nonatomic, strong)UIView *selectdView;
 @end
 
 @implementation TabView
@@ -84,13 +86,29 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        _selectdView = [[UIView alloc] init];
+        _selectdView.backgroundColor = kColorWhite;
+        [self addSubview:_selectdView];
+        _selectdView.hidden = YES;
     }
     return self;
 }
+
+-(void)updateSelectedViewWidth:(CGFloat)selectedViewWidth
+{
+    [self.selectdView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self);
+        make.width.mas_equalTo(selectedViewWidth);
+        make.bottom.mas_equalTo(self);
+        make.height.mas_equalTo(3);
+    }];
+}
+
 - (void)setSelected:(BOOL)selected {
     _selected = selected;
     // Update view as state changed
     [self setNeedsDisplay];
+    _selectdView.hidden = !_selected;
 }
 - (void)drawRect:(CGRect)rect {
     
@@ -422,14 +440,17 @@
     
     //点击时改变字体颜色
     for (UIView *view in activeTabView.subviews) {
-        if ([view isKindOfClass:[UILabel class]]) {
-            UILabel *label = (id)view;
-            label.backgroundColor = [UIColor clearColor];
-            label.textColor = G_selectedTitleColor;//点击时颜色
-            UIFont *font = [UIFont boldSystemFontOfSize:16.0];
-            [label setFont:font];
-            [label setFrame:CGRectMake(0,0,activeTabView.frame.size.width,activeTabView.frame.size.height)];
-        }
+        
+        
+        
+//        if ([view isKindOfClass:[UILabel class]]) {
+//            UILabel *label = (id)view;
+//            label.backgroundColor = [UIColor clearColor];
+//            label.textColor = G_selectedTitleColor;//点击时颜色
+//            UIFont *font = [UIFont boldSystemFontOfSize:16.0];
+//            [label setFont:font];
+//            [label setFrame:CGRectMake(0,0,activeTabView.frame.size.width,activeTabView.frame.size.height)];
+//        }
     }
     
     // Set current activeTabIndex
@@ -932,7 +953,7 @@
         UIImage *imageAdd = [UIImage imageNamed:@"Main_Add"];
         UIImage *rightImage = [UIImage imageNamed:@"home_navigation_mask_right"];
         if(IOS_VERSION_7){
-            self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 64+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
+            self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 72+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
         }else{
             self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 44+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
         }
@@ -1047,6 +1068,7 @@
         [tabView addSubview:tabViewContent];
         [tabView setClipsToBounds:YES];
         [tabView setIndicatorColor:self.indicatorColor];
+        [tabView updateSelectedViewWidth:tabViewContent.width_];
         
         tabViewContent.center = tabView.center;
         

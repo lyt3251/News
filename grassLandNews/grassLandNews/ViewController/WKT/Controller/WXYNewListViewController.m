@@ -68,7 +68,7 @@
     [self initChannelData];
     self.customNavigationView.backgroundColor = [UIColor whiteColor];
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_leftVCIcon"] forState:UIControlStateNormal];
-    [self setNeedsReloadColors];
+//    [self setNeedsReloadColors];
     // Do any additional setup after loading the view.
 }
 
@@ -322,7 +322,7 @@
         case ViewPagerOptionTabHeight:
             return ViewPageTabHeight;
         case ViewPagerOptionTabWidth://间隔
-            return (13*4+14*2);
+            return (15*4+15*2);
         case ViewPagerOptionFixFormerTabsPositions:
             return 0.0;
         case ViewPagerOptionFixLatterTabsPositions:

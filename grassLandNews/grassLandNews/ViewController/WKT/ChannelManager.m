@@ -43,7 +43,7 @@ NSString *channelProfile = @"channelProfile.plist";
         array = [NSMutableArray new];
         for(NSInteger i = 0; i < 10; i++)
         {
-            NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"Name%@", @(i)]};
+            NSDictionary *dic = @{@"channelId":@(i), @"channelName":[NSString stringWithFormat:@"测试测试%@", @(i)]};
             [array addObject:dic];
         }
         [array writeToFile:localFilePath atomically:YES];
