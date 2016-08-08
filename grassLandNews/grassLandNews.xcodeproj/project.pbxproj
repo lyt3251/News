@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D12C8061D56C7DB00115311 /* PushMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C8051D56C7DB00115311 /* PushMsgViewController.m */; };
 		0D12C8091D56CEEB00115311 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C8081D56CEEB00115311 /* NewsDetailViewController.m */; };
+		0D12C80C1D57313000115311 /* NewsSubListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C80B1D57313000115311 /* NewsSubListViewController.m */; };
+		0D12C8101D5731D000115311 /* KDCycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C80F1D5731D000115311 /* KDCycleBannerView.m */; };
 		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
 		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
 		0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */; };
@@ -169,6 +171,10 @@
 		0D12C8051D56C7DB00115311 /* PushMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMsgViewController.m; sourceTree = "<group>"; };
 		0D12C8071D56CEEB00115311 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		0D12C8081D56CEEB00115311 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
+		0D12C80A1D57313000115311 /* NewsSubListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSubListViewController.h; sourceTree = "<group>"; };
+		0D12C80B1D57313000115311 /* NewsSubListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSubListViewController.m; sourceTree = "<group>"; };
+		0D12C80E1D5731D000115311 /* KDCycleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDCycleBannerView.h; sourceTree = "<group>"; };
+		0D12C80F1D5731D000115311 /* KDCycleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDCycleBannerView.m; sourceTree = "<group>"; };
 		0D2114751D522E1A006888DF /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		0D2114761D522E1A006888DF /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithPhotoTableViewCell.h; sourceTree = "<group>"; };
@@ -474,6 +480,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D12C80D1D5731D000115311 /* KDCycleBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				0D12C80E1D5731D000115311 /* KDCycleBannerView.h */,
+				0D12C80F1D5731D000115311 /* KDCycleBannerView.m */,
+			);
+			path = KDCycleBannerView;
+			sourceTree = "<group>";
+		};
 		0D21147A1D523145006888DF /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -616,6 +631,7 @@
 		0DA95B071D487E3500509547 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D12C80D1D5731D000115311 /* KDCycleBannerView */,
 				0D463B3D1D536DA000BA1200 /* UILabelExtra */,
 				0D371BB41D5319ED00A41D79 /* Share */,
 				0DA95C4E1D489AB000509547 /* UIImageView_TXSDImage */,
@@ -1014,6 +1030,8 @@
 				0DA95C1C1D4892FE00509547 /* WXYNewSubListViewController.m */,
 				0DA95C1D1D4892FE00509547 /* WXYSearchViewController.h */,
 				0DA95C1E1D4892FE00509547 /* WXYSearchViewController.m */,
+				0D12C80A1D57313000115311 /* NewsSubListViewController.h */,
+				0D12C80B1D57313000115311 /* NewsSubListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1463,11 +1481,13 @@
 				0DA95BAD1D487F4C00509547 /* JFPhotoView.m in Sources */,
 				0DA95C3B1D4892FE00509547 /* WKTSearchView.m in Sources */,
 				0DA95BFD1D487F5500509547 /* UIView+AlertView.m in Sources */,
+				0D12C80C1D57313000115311 /* NewsSubListViewController.m in Sources */,
 				0DA95BA81D487F4C00509547 /* JFImageGroupTableViewController.m in Sources */,
 				0D371BBE1D531ADB00A41D79 /* ShareModelHelper.m in Sources */,
 				0DA95BA91D487F4C00509547 /* JFImageManager.m in Sources */,
 				0DA95BBE1D487F4C00509547 /* amrFileCodec.mm in Sources */,
 				0DA95B941D487F4C00509547 /* TicketModel.m in Sources */,
+				0D12C8101D5731D000115311 /* KDCycleBannerView.m in Sources */,
 				0DA95C381D4892FE00509547 /* ChannelButton.m in Sources */,
 				0DA0523D1D532E7F001F9F19 /* ChannelSortViewController.m in Sources */,
 				0DA95BED1D487F5500509547 /* CustomIOSAlertView.m in Sources */,

@@ -1033,8 +1033,8 @@
 - (TabView *)tabViewAtIndex:(NSUInteger)index {
     //left right shadow show
     float x = self.tabsView.contentOffset.x;
-    float startOffset = 29.5;
-    float offsetX = 29.5 + 60 *(self.tabs.count - 4 - 1);
+    float startOffset = 15.0f;
+    float offsetX = 15.0f + 60 *(self.tabs.count - 4 - 1);
     //    NSLog(@"~~~~~~x~~~~%f",x);
     if (x < startOffset) {
         self.leftTabView.hidden = YES;
