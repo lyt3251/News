@@ -35,6 +35,7 @@
     self.inputText.delegate = self;
     self.inputText.backgroundColor = RGBCOLOR(49, 120, 75);
     self.inputText.textColor = kColorWhite;
+    self.inputText.returnKeyType = UIReturnKeySearch;
     [self.inputText setTintColor:kColorBlue];
     [self.customNavigationView addSubview:self.inputText];
     [self.inputText mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -55,6 +56,14 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, 0, 0));
     }];
+}
+
+-(void)onClickBtn:(UIButton *)sender
+{
+    if(sender.tag == TopBarButtonLeft)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 
@@ -99,6 +108,12 @@
     
     return newsOnlyTextCell;
 }
-
+#pragma mark-- UITextFieldDelegate
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.inputText resignFirstResponder];
+    return YES;
+    
+}
 
 @end
