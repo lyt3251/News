@@ -11,6 +11,7 @@
 		0D12C8091D56CEEB00115311 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C8081D56CEEB00115311 /* NewsDetailViewController.m */; };
 		0D12C80C1D57313000115311 /* NewsSubListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C80B1D57313000115311 /* NewsSubListViewController.m */; };
 		0D12C8101D5731D000115311 /* KDCycleBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C80F1D5731D000115311 /* KDCycleBannerView.m */; };
+		0D12C8131D58530E00115311 /* SearchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D12C8121D58530E00115311 /* SearchListViewController.m */; };
 		0D2114771D522E1A006888DF /* NewsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2114761D522E1A006888DF /* NewsListViewController.m */; };
 		0D21147D1D523164006888DF /* NewsWithPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */; };
 		0D371BB31D52DCCE00A41D79 /* FeedBackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D371BB21D52DCCE00A41D79 /* FeedBackViewController.m */; };
@@ -175,6 +176,8 @@
 		0D12C80B1D57313000115311 /* NewsSubListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSubListViewController.m; sourceTree = "<group>"; };
 		0D12C80E1D5731D000115311 /* KDCycleBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDCycleBannerView.h; sourceTree = "<group>"; };
 		0D12C80F1D5731D000115311 /* KDCycleBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDCycleBannerView.m; sourceTree = "<group>"; };
+		0D12C8111D58530E00115311 /* SearchListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchListViewController.h; sourceTree = "<group>"; };
+		0D12C8121D58530E00115311 /* SearchListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchListViewController.m; sourceTree = "<group>"; };
 		0D2114751D522E1A006888DF /* NewsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsListViewController.h; sourceTree = "<group>"; };
 		0D2114761D522E1A006888DF /* NewsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsListViewController.m; sourceTree = "<group>"; };
 		0D21147B1D523164006888DF /* NewsWithPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithPhotoTableViewCell.h; sourceTree = "<group>"; };
@@ -1032,6 +1035,8 @@
 				0DA95C1E1D4892FE00509547 /* WXYSearchViewController.m */,
 				0D12C80A1D57313000115311 /* NewsSubListViewController.h */,
 				0D12C80B1D57313000115311 /* NewsSubListViewController.m */,
+				0D12C8111D58530E00115311 /* SearchListViewController.h */,
+				0D12C8121D58530E00115311 /* SearchListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1451,6 +1456,7 @@
 				0DA95BC21D487F4C00509547 /* TXVoiceConverter.mm in Sources */,
 				0DA95BFB1D487F5500509547 /* UIImage+extension.m in Sources */,
 				0DA95BFA1D487F5500509547 /* TXCustomAlertWindow.m in Sources */,
+				0D12C8131D58530E00115311 /* SearchListViewController.m in Sources */,
 				0DA95BF31D487F5500509547 /* README.md in Sources */,
 				0DA95BBB1D487F4C00509547 /* TXImagePickerController.m in Sources */,
 				0DA95C311D4892FE00509547 /* WKTSortViewController.m in Sources */,

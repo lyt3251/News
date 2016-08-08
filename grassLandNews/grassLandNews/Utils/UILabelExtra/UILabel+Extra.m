@@ -17,9 +17,10 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     
     [paragraphStyle setLineSpacing:space];//调整行间距
-    
+    paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
     [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
     self.attributedText = attributedString;
+    
 }
 
 

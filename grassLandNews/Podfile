@@ -22,7 +22,8 @@ def import_main_pods
 	pod 'MJRefresh', '~> 2.4.7'
 	pod 'DateTools'
 	pod 'NJKWebViewProgress'	
-	pod 'UMengSocialCOM', '~> 5.1.0'				
+	pod 'UMengSocialCOM', '~> 5.1.0'		
+	pod 'AFNetworking'		
 end
 
 target 'grassLandNews' do
