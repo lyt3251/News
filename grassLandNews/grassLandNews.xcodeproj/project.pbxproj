@@ -145,6 +145,7 @@
 		0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */; };
 		0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */; };
 		0DA95C541D49F7FA00509547 /* ChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C531D49F7FA00509547 /* ChannelManager.m */; };
+		44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */; };
 		C2A3CCE09322772BDBD522C9 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 652C31D19CDB0BA07D27B20E /* libPods-grassLandNewsUITests.a */; };
 		EB398F6454065319E34ED827 /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1C68E2C36CCC2E5C17C14C /* libPods-grassLandNews.a */; };
 		ECA6E74BC8809FF5BE7078B4 /* libPods-grassLandNewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DCA84440E803C748F361F87 /* libPods-grassLandNewsTests.a */; };
@@ -435,6 +436,8 @@
 		0DA95C531D49F7FA00509547 /* ChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelManager.m; sourceTree = "<group>"; };
 		1DCA84440E803C748F361F87 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284E456F9E7D706F4B98AA93 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		44D464D81D58BCAA00BB763A /* SearchTxtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTxtTableViewCell.h; sourceTree = "<group>"; };
+		44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTxtTableViewCell.m; sourceTree = "<group>"; };
 		5DD731A28D0DAA235B8CD900 /* Pods-grassLandNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		652C31D19CDB0BA07D27B20E /* libPods-grassLandNewsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A79093255C12512EBB3E8D9 /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 				0D21147C1D523164006888DF /* NewsWithPhotoTableViewCell.m */,
 				0D463B3A1D53655000BA1200 /* NewsOnlyTextTableViewCell.h */,
 				0D463B3B1D53655000BA1200 /* NewsOnlyTextTableViewCell.m */,
+				44D464D81D58BCAA00BB763A /* SearchTxtTableViewCell.h */,
+				44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1467,6 +1472,7 @@
 				0D12C8061D56C7DB00115311 /* PushMsgViewController.m in Sources */,
 				0DA95BEC1D487F5500509547 /* CustomAlertView.m in Sources */,
 				0DA95BB41D487F4C00509547 /* NSObject+MJProperty.m in Sources */,
+				44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */,
 				0DA95B8F1D487F4C00509547 /* CHSCharacterCountTextView.m in Sources */,
 				0DA95BB21D487F4C00509547 /* NSObject+MJCoding.m in Sources */,
 				0D463B3C1D53655000BA1200 /* NewsOnlyTextTableViewCell.m in Sources */,

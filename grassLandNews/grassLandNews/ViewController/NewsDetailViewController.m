@@ -120,7 +120,14 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        [self.navigationController popViewControllerAnimated:YES];
+        if([self.webView canGoBack])
+        {
+            [self.webView goBack];
+        }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
