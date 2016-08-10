@@ -9,7 +9,7 @@
 #import "NewsWithPhotoTableViewCell.h"
 
 @interface NewsWithPhotoTableViewCell()
-@property(nonatomic, strong)UIView *lineView;
+
 @end
 
 

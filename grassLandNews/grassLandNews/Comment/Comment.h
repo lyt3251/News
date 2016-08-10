@@ -113,6 +113,7 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 
 #define kColorNewsTitle             RGBCOLOR(0x22, 0x22, 0x22)
 #define kColorNewsChannel           RGBCOLOR(0x99, 0x99, 0x99)
+#define kColorNewsRoll              RGBCOLOR(0x66, 0x66, 0x66)
 
 
 //新定义字体
