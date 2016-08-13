@@ -23,7 +23,8 @@ def import_main_pods
 	pod 'DateTools'
 	pod 'NJKWebViewProgress'	
 	pod 'UMengSocialCOM', '~> 5.1.0'		
-	pod 'AFNetworking'		
+	pod 'AFNetworking'
+	pod 'SDVersion', '~> 3.2'			
 end
 
 target 'grassLandNews' do

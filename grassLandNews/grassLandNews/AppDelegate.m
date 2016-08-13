@@ -19,10 +19,14 @@
 #import "TXWebViewController.h"
 #import "NewsDetailViewController.h"
 #import "SearchListViewController.h"
+#import "CustomTabBarController.h"
+#import "RDVTabBar.h"
+#import "RDVTabBarItem.h"
+#import <SDVersion.h>
 
 
 @interface AppDelegate ()
-
+@property (nonatomic,strong) RDVTabBarController *viewController;
 @end
 
 @implementation AppDelegate
@@ -43,15 +47,26 @@
     
     
     WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
-    CustomNavigationController *loginNV = [[CustomNavigationController alloc]
-                                           initWithRootViewController:vc];
-    loginNV.navigationBarHidden = YES;
+    
+    ChannelSortViewController *channelSortVC = [[ChannelSortViewController alloc] init];
+    
+    PushMsgViewController *pushVC = [[PushMsgViewController alloc] init];
+    
+    CustomTabBarController *tabBarController = [[CustomTabBarController alloc] init];
+    [tabBarController setViewControllers:@[vc, channelSortVC, pushVC]];
+    self.viewController = tabBarController;
+    
+    [self customizeTabBarForController:tabBarController];
+    
+    CustomNavigationController *navigationController = [[CustomNavigationController alloc] initWithRootViewController:self.viewController];
+    navigationController.navigationBarHidden = YES;
+    
     
     LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
     
     // Create side menu controller
     //
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:loginNV
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:nil];
     
@@ -72,6 +87,71 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+}
+
+- (void)createTabBarView{
+
+    WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
+    
+    ChannelSortViewController *channelSortVC = [[ChannelSortViewController alloc] init];
+
+    PushMsgViewController *pushVC = [[PushMsgViewController alloc] init];
+    
+    CustomTabBarController *tabBarController = [[CustomTabBarController alloc] init];
+    [tabBarController setViewControllers:@[vc, channelSortVC, pushVC]];
+    self.viewController = tabBarController;
+    
+    [self customizeTabBarForController:tabBarController];
+    
+    CustomNavigationController *navigationController = [[CustomNavigationController alloc] initWithRootViewController:self.viewController];
+    navigationController.navigationBarHidden = YES;
+    self.window.rootViewController = navigationController;
+}
+- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
+    NSArray *tabBarItemImages = @[@{@"title":@"首页",@"img":@"Nav_Main"}, @{@"title":@"频道",@"img":@"Nav_Channel"}, @{@"title":@"推送",@"img":@"Nav_Push"}];
+    
+    NSInteger index = 0;
+    [tabBarController.tabBar setHeight:kTabBarHeight];
+    tabBarController.tabBar.backgroundView.backgroundColor = kColorWhite;
+    [tabBarController.tabBar addSubview:[[UIView alloc] initLineWithFrame:CGRectMake(0, 0, kScreenWidth, kLineHeight)]];
+    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
+        NSDictionary *dic = [tabBarItemImages objectAtIndex:index];
+//        [item setTitle:dic[@"title"]];
+        if (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+            item.unselectedTitleAttributes = @{
+                                               NSFontAttributeName: [UIFont systemFontOfSize:12],
+                                               NSForegroundColorAttributeName: kColorItem,
+                                               };
+            item.selectedTitleAttributes = @{
+                                             NSFontAttributeName: [UIFont systemFontOfSize:12],
+                                             NSForegroundColorAttributeName: kColorType,
+                                             };
+        } else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_7_0
+            item.unselectedTitleAttributes = @{
+                                               UITextAttributeFont: [UIFont systemFontOfSize:12],
+                                               UITextAttributeTextColor: kColorItem,
+                                               };
+            item.selectedTitleAttributes = @{
+                                             UITextAttributeFont: [UIFont systemFontOfSize:12],
+                                             UITextAttributeTextColor: kColorType,
+                                             };
+#endif
+        }
+        [item setBadgeBackgroundColor:RGBCOLOR(255, 0, 0)];
+        item.badgePositionAdjustment = UIOffsetMake(-4, 3);
+        if ([SDVersion deviceSize] == Screen4Dot7inch ||
+            [SDVersion deviceSize] == Screen5Dot5inch){
+            [item setBadgeTextFont:[UIFont systemFontOfSize:4.5f]];
+        }else{
+            [item setBadgeTextFont:[UIFont systemFontOfSize:3.f]];
+        }
+        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_selected",dic[@"img"]]];
+        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",dic[@"img"]]];
+        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
+        
+        index++;
+    }
 }
 
 

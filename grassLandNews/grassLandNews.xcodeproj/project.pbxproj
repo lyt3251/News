@@ -32,6 +32,7 @@
 		0D463B401D536DD200BA1200 /* UILabel+Extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D463B3F1D536DD200BA1200 /* UILabel+Extra.m */; };
 		0D463B431D5370AE00BA1200 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D463B421D5370AE00BA1200 /* SettingViewController.m */; };
 		0D463B461D53827A00BA1200 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D463B451D53827A00BA1200 /* AboutViewController.m */; };
+		0D870ED91D5F55DD00B3FC18 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */; };
 		0DA0523D1D532E7F001F9F19 /* ChannelSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
@@ -213,6 +214,8 @@
 		0D463B421D5370AE00BA1200 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0D463B441D53827A00BA1200 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		0D463B451D53827A00BA1200 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		0D870ED71D5F55DD00B3FC18 /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
+		0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
 		0DA0523B1D532E7F001F9F19 /* ChannelSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelSortViewController.h; sourceTree = "<group>"; };
 		0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelSortViewController.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -540,6 +543,15 @@
 			path = UILabelExtra;
 			sourceTree = "<group>";
 		};
+		0D870ED61D5F55DD00B3FC18 /* CustomTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				0D870ED71D5F55DD00B3FC18 /* CustomTabBarController.h */,
+				0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */,
+			);
+			path = CustomTabbar;
+			sourceTree = "<group>";
+		};
 		0DA95ABB1D485BD000509547 = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +656,7 @@
 		0DA95B071D487E3500509547 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0D870ED61D5F55DD00B3FC18 /* CustomTabbar */,
 				0D12C80D1D5731D000115311 /* KDCycleBannerView */,
 				0D463B3D1D536DA000BA1200 /* UILabelExtra */,
 				0D371BB41D5319ED00A41D79 /* Share */,
@@ -1495,6 +1508,7 @@
 				0DA95B981D487F4C00509547 /* DAProgressOverlayView.m in Sources */,
 				0DA95BB01D487F4C00509547 /* MJProperty.m in Sources */,
 				0DA95B931D487F4C00509547 /* RMCalendarModel.m in Sources */,
+				0D870ED91D5F55DD00B3FC18 /* CustomTabBarController.m in Sources */,
 				0DA95BAD1D487F4C00509547 /* JFPhotoView.m in Sources */,
 				0DA95C3B1D4892FE00509547 /* WKTSearchView.m in Sources */,
 				0DA95BFD1D487F5500509547 /* UIView+AlertView.m in Sources */,
