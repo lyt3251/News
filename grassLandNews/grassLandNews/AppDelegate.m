@@ -15,6 +15,10 @@
 #import "CustomNavigationController.h"
 #import "FeedBackViewController.h"
 #import "ChannelSortViewController.h"
+#import "PushMsgViewController.h"
+#import "TXWebViewController.h"
+#import "NewsDetailViewController.h"
+#import "SearchListViewController.h"
 
 
 @interface AppDelegate ()
@@ -27,6 +31,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [self initWindows];
+    NSLog(@"home:%@", NSHomeDirectory());
     
     return YES;
 }
@@ -37,7 +42,6 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     
-//#if 0
     WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
     CustomNavigationController *loginNV = [[CustomNavigationController alloc]
                                            initWithRootViewController:vc];
@@ -53,11 +57,11 @@
     
     //
     self.window.rootViewController = sideMenuViewController;
-//#endif
     
     
-//    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
-//    ChannelSortViewController *sortVC = [[ChannelSortViewController alloc] init];
+////    FeedBackViewController *fbVC = [[FeedBackViewController alloc] init];
+//    SearchListViewController *sortVC = [[SearchListViewController alloc] init];
+//    
 //    
 //    CustomNavigationController *fbNav = [[CustomNavigationController alloc] initWithRootViewController:sortVC];
 //    fbNav.navigationBarHidden = YES;

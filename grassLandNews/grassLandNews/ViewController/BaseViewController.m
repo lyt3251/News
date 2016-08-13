@@ -108,8 +108,8 @@
     _btnLeft.adjustsImageWhenHighlighted = NO;
     _btnLeft.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     _btnLeft.titleLabel.font = kFontMiddle;
-    _btnLeft.titleEdgeInsets = UIEdgeInsetsMake(0, kEdgeInsetsLeft - 4, 0, 0);
-    _btnLeft.imageEdgeInsets = UIEdgeInsetsMake(0, kEdgeInsetsLeft, 0, 0);
+    _btnLeft.titleEdgeInsets = UIEdgeInsetsMake(0, 10 - 4, 0, 0);
+    _btnLeft.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
     _btnLeft.exclusiveTouch = YES;
     //[_btnLeft setTitle:@"返回" forState:UIControlStateNormal];
     [_btnLeft setImage:[UIImage imageNamed:@"nav_icon_back_nor"] forState:UIControlStateNormal];
@@ -124,8 +124,8 @@
     _btnRight.adjustsImageWhenHighlighted = NO;
     _btnRight.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     _btnRight.titleLabel.font = kFontMiddle;
-    _btnRight.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, kEdgeInsetsLeft);
-    _btnRight.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, kEdgeInsetsLeft);
+    _btnRight.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
+    _btnRight.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10);
     _btnRight.exclusiveTouch = YES;
     [_btnRight addTarget:self action:@selector(onClickBtn:) forControlEvents:UIControlEventTouchUpInside];
     [_btnRight setTitleColor:kColorNavigationTitle forState:UIControlStateNormal];

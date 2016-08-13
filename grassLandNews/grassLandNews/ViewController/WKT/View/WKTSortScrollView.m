@@ -82,8 +82,8 @@
     self.isEdit = NO;
     self.userInteractionEnabled = YES;
     self.showsVerticalScrollIndicator = NO;
-    self.backgroundColor = [UIColor colorWithHexStr:@"f4f5f6"];
-    self.alpha = 0.97;
+    self.backgroundColor = KColorAppMain;
+    self.alpha = 0.96;
 }
 
 #pragma mark - 设置频道button
@@ -145,7 +145,7 @@
         //2.设置selectButton的Frame buttonMargin
         CGFloat marginX = (kScreenWidth - self.buttonMarginForDevice * 2 - self.totalCol * self.buttonW) / (self.totalCol - 1);
         CGFloat marginY = 21;
-        CGFloat selectButtonStartY = CGRectGetMaxY(self.iTopView.frame) + 20;//选择频道的Y值得开始位置
+        CGFloat selectButtonStartY = CGRectGetMaxY(self.iTopView.frame) + 25;//选择频道的Y值得开始位置
         for (NSInteger i = 0; i < self.selectButtonArray.count; i++) {
             NSInteger row = i / self.totalCol;
             NSInteger col = i % self.totalCol;
@@ -163,12 +163,12 @@
 #pragma mark - 根据不同分辨率屏幕进行不同参数的设置
 
 -(NSInteger)buttonW{
-    _buttonW = 69;
+    _buttonW = 90;
     return _buttonW;
 }
 
 -(NSInteger)buttonH{
-    _buttonH = 25;
+    _buttonH = 35;
     return _buttonH;
 }
 
@@ -176,16 +176,16 @@
     
     UIWindow *windwow = [UIApplication sharedApplication].keyWindow;
     if (windwow.frame.size.width==320.0) {
-        _buttonMarginForDevice = 10;
+        _buttonMarginForDevice = kEdgeInsetsLeft;
     }else{
-        _buttonMarginForDevice = 18;
+        _buttonMarginForDevice = kEdgeInsetsLeft;
     }
     
     return _buttonMarginForDevice;
 }
 
 -(NSInteger)totalCol{
-    _totalCol = 4;
+    _totalCol = 3;
     return _totalCol;
 }
 
@@ -297,7 +297,7 @@
     
     CGFloat marginX = (kScreenWidth - self.buttonMarginForDevice * 2 - self.totalCol * self.buttonW) / (self.totalCol - 1);
     CGFloat marginY = 21;
-    CGFloat selectButtonStartY = CGRectGetMaxY(self.iTopView.frame) + 20;//选择频道的Y值得开始位置
+    CGFloat selectButtonStartY = CGRectGetMaxY(self.iTopView.frame) + 25;//选择频道的Y值得开始位置
     [UIView animateWithDuration:0.3 animations:^{
         for (NSInteger i = 0; i < self.selectButtonArray.count; i++) {
             if (i == index) {

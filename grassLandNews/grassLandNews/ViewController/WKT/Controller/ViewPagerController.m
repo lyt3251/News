@@ -238,7 +238,7 @@
     
     CGFloat topLayoutGuide = 0.0;
     if (IOS_VERSION_7) {
-        topLayoutGuide = 74.0;
+        topLayoutGuide = 72.0;
         //        if (self.navigationController && !self.navigationController.navigationBarHidden) {
         //            topLayoutGuide += self.navigationController.navigationBar.frame.size.height;
         //        }
@@ -953,7 +953,7 @@
         UIImage *imageAdd = [UIImage imageNamed:@"Main_Add"];
         UIImage *rightImage = [UIImage imageNamed:@"home_navigation_mask_right"];
         if(IOS_VERSION_7){
-            self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 72+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
+            self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, self.customNavigationView.maxY+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
         }else{
             self.rightTabView.frame = CGRectMake(kScreenWidth-imageAdd.size.width-rightImage.size.width-10, 44+(40-rightImage.size.height)/2.0,rightImage.size.width,rightImage.size.height);
         }

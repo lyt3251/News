@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "Reachability.h"
 #import "NewsSubListViewController.h"
+#import "SearchListViewController.h"
 
 #define ViewPageTabHeight 40.0
 #define viewBackgroundColor [UIColor colorWithHexStr:@"f4f5f6"]
@@ -118,7 +119,7 @@
     UIButton *sortBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     sortBtn.tag = 0x10000+1;
     if (IOS_VERSION_7) {
-        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-14-image.size.width,74+(ViewPageTabHeight-40)/2, image.size.width+14,40)];
+        [sortBtn setFrame:CGRectMake(self.view.frame.size.width-kEdgeInsetsLeft-image.size.width,self.customNavigationView.maxY+(ViewPageTabHeight-40)/2, image.size.width+kEdgeInsetsLeft,40)];
         [sortBtn setBackgroundColor: KColorAppMain];
     }else{
         [sortBtn setBackgroundColor:KColorAppMain];
@@ -130,17 +131,6 @@
     [sortBtn setImage:image forState:UIControlStateHighlighted];
     [sortBtn addTarget:self action:@selector(sortBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:sortBtn];
-    
-//    UIView *maskView = [[UIView alloc] init];
-//    maskView.backgroundColor = RGBACOLOR(0x44, 0x99, 0x69, 0.6f);
-//    maskView.tag = 0x10000;
-//    [self.view addSubview:maskView];
-//    [maskView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.height.mas_equalTo(sortBtn);
-//        make.right.mas_equalTo(sortBtn.mas_left);
-//        make.width.mas_equalTo(10);
-//        make.centerY.mas_equalTo(sortBtn);
-//    }];
     
 }
 
@@ -423,8 +413,11 @@
 }
 
 - (void)searchPress:(id)sender{
-    WXYSearchViewController *v = [[WXYSearchViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+//    WXYSearchViewController *v = [[WXYSearchViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:v animated:YES];
+    SearchListViewController *searchVC = [[SearchListViewController alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
+    
 }
 
 #pragma mark - 截图

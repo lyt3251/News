@@ -22,17 +22,17 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
-        self.backgroundColor = [UIColor colorWithHexStr:@"f5f6f6"];
+        self.backgroundColor = kColorClear;
         UILabel *textLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        textLabel.textColor = [UIColor colorWithHexStr:@"444444"];
+        textLabel.textColor = kColorWhite;
         textLabel.adjustsFontSizeToFitWidth = YES;
-        textLabel.font = [UIFont systemFontOfSize:14.0];
+        textLabel.font = [UIFont systemFontOfSize:16.0];
         textLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:textLabel];
         
-        self.layer.cornerRadius = 4.0;
+        self.layer.cornerRadius = 12.0;
         self.layer.borderWidth = 0.5;
-        self.layer.borderColor = [UIColor colorWithHexStr:@"cccccc"].CGColor;
+        self.layer.borderColor = kColorWhite.CGColor;
         self.clipsToBounds = YES;
         self.textLabel = textLabel;
     }
@@ -58,18 +58,18 @@
 -(void)setBtnDrag:(BOOL)btnDrag{
     _btnDrag = btnDrag;
     if (_btnDrag) {
-        self.textLabel.layer.borderColor = [UIColor colorWithRed:39.0/255.f green:128.0/255.f blue:248.0/255.f alpha:100.0/100.f].CGColor;
+        self.textLabel.layer.borderColor = kColorWhite.CGColor;
     }else{
-        self.textLabel.layer.borderColor = [UIColor colorWithRed:205.0/255.f green:205.0/255.f blue:205.0/255.f alpha:100.0/100.f].CGColor;
+        self.textLabel.layer.borderColor = kColorWhite.CGColor;
     }
 }
 
 -(void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
     [super setUserInteractionEnabled:userInteractionEnabled];
     if (!userInteractionEnabled) {
-        self.textLabel.textColor = [UIColor colorWithHexStr:@"ff933d"];
-        self.textLabel.font = [UIFont boldSystemFontOfSize:15.0];
-        self.layer.borderWidth = 0;
+        self.textLabel.textColor = kColorWhite;
+        self.textLabel.font = [UIFont systemFontOfSize:16.0];
+//        self.layer.borderWidth = 0;
     }else{
         if (self.btnSelect) {
             [self setBtnSelect:YES];

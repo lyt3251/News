@@ -69,7 +69,7 @@
 
 -(void)onClickBtn:(UIButton *)sender
 {
-    if(sender.tag == TopBarButtonLeft)
+    if(sender.tag == TopBarButtonRight)
     {
         [self.navigationController popViewControllerAnimated:YES];
     }

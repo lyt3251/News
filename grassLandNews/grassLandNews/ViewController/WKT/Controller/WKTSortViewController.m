@@ -64,11 +64,24 @@
 - (void)createCustomNavBar{
     [super createCustomNavBar];
     
-    self.fd_interactivePopDisabled = YES;//禁止手势返回
-    self.titleStr = @"微学园";
-    [self.btnLeft addTarget:self action:@selector(popToRootController:) forControlEvents:UIControlEventTouchUpInside];
-    [self.btnRight setImage:[UIImage imageNamed:@"wxySearch"]  forState:UIControlStateNormal];
+    UIImageView *appLogo = [[UIImageView alloc] init];
+    appLogo.image = [UIImage imageNamed:@"Main_AppIcon"];
+    [self.customNavigationView addSubview:appLogo];
+    CGFloat topMargin = 20 + (self.customNavigationView.maxY - 20 - appLogo.image.size.height)/2;
+    
+    [appLogo mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(0);
+        make.size.mas_equalTo(appLogo.image.size);
+        make.top.mas_equalTo(topMargin);
+    }];
+    
+    
+    [self.btnRight setImage:[UIImage imageNamed:@"Main_Search"]  forState:UIControlStateNormal];
     [self.btnRight addTarget:self action:@selector(searchPress:) forControlEvents:UIControlEventTouchUpInside];
+    self.customNavigationView.backgroundColor = [UIColor whiteColor];
+    [self.btnLeft setImage:[UIImage imageNamed:@"Main_leftVCIcon"] forState:UIControlStateNormal];
+    
+        
 }
 
 - (void)initSet{
@@ -76,33 +89,27 @@
 }
 
 - (void)initTopView{
-    CGFloat y = 0;
-    if (IOS_VERSION_7) {
-        y = 64;
-    }else{
-        y = 44;
-    }
-    self.iTopView = [[UIView alloc] initWithFrame:CGRectMake(0,y, self.view.frame.size.width,37)];
-    self.iTopView.backgroundColor = [UIColor colorWithHexStr:@"f4f5f6"];
-    self.iTopView.alpha = 0.97;
+    self.iTopView = [[UIView alloc] initWithFrame:CGRectMake(0,self.customNavigationView.maxY, self.view.frame.size.width,37)];
+    self.iTopView.backgroundColor = KColorAppMain;
+    self.iTopView.alpha = 0.96;
     [self.view addSubview:self.iTopView];
     
-    CGFloat x;
-    UIWindow *windwow = [UIApplication sharedApplication].keyWindow;
-    if (windwow.frame.size.width==320.0) {
-        x = 10.0;
-    }else{
-        x = 18.0;
-    }
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x,(self.iTopView.frame.size.height-14.0)/2,100, 14)];
+//    CGFloat x;
+//    UIWindow *windwow = [UIApplication sharedApplication].keyWindow;
+//    if (windwow.frame.size.width==320.0) {
+//        x = 10.0;
+//    }else{
+//        x = 18.0;
+//    }
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kEdgeInsetsLeft,14,100, 14)];
     label.backgroundColor = [UIColor clearColor];
-    label.text = @"拖动排序";
-    [label setFont:[UIFont systemFontOfSize:14.0]];
-    label.textColor = [UIColor colorWithHexStr:@"999999"];
+    label.text = @"切换栏目";
+    [label setFont:[UIFont systemFontOfSize:15.0]];
+    label.textColor = kColorWhite;
     [self.iTopView addSubview:label];
     
     self.iCloseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *image = [UIImage imageNamed:@"wxyAdd"];
+    UIImage *image = [UIImage imageNamed:@"Main_Add"];
     [self.iCloseBtn setImage:image forState:UIControlStateNormal];
     [self.iCloseBtn addTarget:self action:@selector(closeBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.iCloseBtn setFrame:CGRectMake(self.view.frame.size.width-image.size.width-10+2, (self.iTopView.frame.size.height-image.size.height)/2+1, image.size.width, image.size.height)];
@@ -111,7 +118,7 @@
 
 - (void)initSortScrollView{
     __weak WKTSortViewController *weself = self;
-    self.iSortBtnScrollView = [[WKTSortScrollView alloc] initWithFrame:CGRectMake(0,-kScreenHeight-self.iTopView.frame.size.height,kScreenWidth,kScreenHeight-64)];
+    self.iSortBtnScrollView = [[WKTSortScrollView alloc] initWithFrame:CGRectMake(0,-kScreenHeight-self.iTopView.frame.size.height ,kScreenWidth,kScreenHeight-64)];
     self.iSortBtnScrollView.wBlock = ^(NSString *selectName){
         NSLog(@"%@",selectName);
         //便利NSUserDefault中数组，找到对应channelId
@@ -178,7 +185,7 @@
         //下拉
         [UIView animateWithDuration:0.5 animations:^{
             if (IOS_VERSION_7) {
-                self.iSortBtnScrollView.frame = CGRectMake(0.0,64.0+self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-64-self.iTopView.frame.size.height);
+                self.iSortBtnScrollView.frame = CGRectMake(0.0,self.customNavigationView.maxY+self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-64-self.iTopView.frame.size.height);
             }else{
                 self.iSortBtnScrollView.frame = CGRectMake(0.0,44.0+self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-44-self.iTopView.frame.size.height);
             }
@@ -197,7 +204,7 @@
         [UIView animateWithDuration:0.1 animations:^{
             
             if (IOS_VERSION_7) {
-                self.iSortBtnScrollView.frame = CGRectMake(0.0, -kScreenHeight-self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-64-self.iTopView.frame.size.height);
+                self.iSortBtnScrollView.frame = CGRectMake(0.0, -kScreenHeight-self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-self.customNavigationView.maxY-self.iTopView.frame.size.height);
             }else{
             self.iSortBtnScrollView.frame = CGRectMake(0.0, -kScreenHeight-self.iTopView.frame.size.height, kScreenWidth, kScreenHeight-44-self.iTopView.frame.size.height);
             }
