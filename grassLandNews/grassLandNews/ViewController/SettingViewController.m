@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "FeedBackViewController.h"
+#import "NewsFileManger.h"
 
 #define KCellHight 45.0f
 #define KCellHeaderHight 5.0f
@@ -130,7 +131,9 @@ typedef enum : NSUInteger {
     titleLabel.text = dic[@"title"];
     if(type.integerValue == SettingType_Cache)
     {
-        subTitleLabel.text = @"0.0MB";
+        unsigned long long size = [[NewsFileManger shareInstance] getCacheFileSize];
+        CGFloat sizeByM = size/(1000*1000.0f);
+        subTitleLabel.text = [NSString stringWithFormat:@"%.02fMB", sizeByM];
         subTitleLabel.hidden = NO;
         lineView.hidden = NO;
     }

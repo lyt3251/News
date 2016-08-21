@@ -14,4 +14,5 @@
 
 -(void)requestFileById:(int64_t)newsId onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
+-(NSInteger)getCacheFileSize;
 @end

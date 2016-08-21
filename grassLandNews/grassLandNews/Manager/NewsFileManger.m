@@ -77,4 +77,38 @@ NSString *FileCache = @"LocalFileCache/";
     return filePath;
 }
 
+-(NSInteger)getCacheFileSize
+{
+    NSInteger size = 0;
+
+    NSString *path = [self getPath];
+    
+    return [self fileSizePath:path];
+}
+- (unsigned long long)fileSizePath:(NSString *)path
+{
+    // 总大小
+    unsigned long long size = 0;
+    NSFileManager *manager = [NSFileManager defaultManager];
+    
+    BOOL isDir = NO;
+    BOOL exist = [manager fileExistsAtPath:path isDirectory:&isDir];
+    
+    // 判断路径是否存在
+    if (!exist) return size;
+    if (isDir) { // 是文件夹
+        NSDirectoryEnumerator *enumerator = [manager enumeratorAtPath:path];
+        for (NSString *subPath in enumerator) {
+            NSString *fullPath = [path stringByAppendingPathComponent:subPath];
+            size += [manager attributesOfItemAtPath:fullPath error:nil].fileSize;
+            
+        }
+    }else{ // 是文件
+        size += [manager attributesOfItemAtPath:path error:nil].fileSize;
+    }
+    return size;
+}
+
+
+
 @end
