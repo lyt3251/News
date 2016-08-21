@@ -28,6 +28,16 @@
  *  UI 相关的常量
  */
 
+
+/**
+ *  通知
+ */
+
+
+#define TX_PUSH_SCREENCHANGED               @"Push_ScreenChanged" //背景图改变
+
+
+
 //距离
 #define kErrorMessage                           @"MESSAGE"
 #define KMaxVerifyCode 6  //校验验证码的最大长度
@@ -164,35 +174,7 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
  *  请求相关的常量
  */
 
-static  NSString *TX_REQUEST_Base_Url = @"http://192.168.10.201:8080"; //请求服务器地址
 
-static NSString *TX_REQUEST_VerifyCode_Url = @"/api/sendVerificationCode"; //发送验证码
-static NSString *TX_REQUEST_Login_Url = @"/api/login"; //登录
-static NSString *TX_REQUEST_MsgList_Url = @"/api/listSysMessage"; //消息列表
-static NSString *TX_REQUEST_DelMsg_Url = @"/api/deleteSysMessage"; //删除消息
-static NSString *TX_REQUEST_MarkReadStatusMsg_Url = @"/api/readMessage"; //设置消息为已读
-static NSString *TX_REQUEST_ClearMsg_Url = @"/api/clearMessage"; //清空消息
-static NSString *TX_REQUEST_UserInfo_Url = @"/api/userInfo"; //个人信息
-static NSString *TX_REQUEST_ModifyUserName_Url = @"/api/changeUserName"; //修改昵称
-static NSString *TX_REQUEST_ModifyPhoneNumber_Url = @"/api/changeMobile"; //修改手机号
-static NSString *TX_REQUEST_ListOrders_Url = @"/api/listOrders"; //获取我的订单
-static NSString *TX_REQUEST_DelOrder_Url = @"/api/deleteOrder"; //删除订单
-static NSString *TX_REQUEST_ChildList_Url = @"/api/listChildren"; //获取孩子列表
-static NSString *TX_REQUEST_UpdateChildrenInfo_Url = @"/api/updateChildrenInfo"; //修改孩子信息
-static NSString *TX_REQUEST_FollowChild_Url = @"/api/followChild"; //关注孩子
-static NSString *TX_REQUEST_UnFollowChild_Url = @"/api/unfollowChild"; //取消关注孩子
-static NSString *TX_REQUEST_ListContacts_Url = @"/api/listContacts"; //获取联系人列表
-static NSString *TX_REQUEST_ContactInfo_Url = @"/api/contactInfo"; //获取联系人详情
-static NSString *TX_REQUEST_ListFeedback_Url = @"/api/listFeedback"; //获取意见反馈列表
-static NSString *TX_REQUEST_FeedbackInfo_Url = @"/api/feedbackInfo"; //获取意见反馈详情
-static NSString *TX_REQUEST_AddFeedback_Url = @"/api/addFeedback"; //添加意见反馈
-static NSString *TX_REQUEST_CourseList_Url = @"/api/listCourses"; //课程列表
-static NSString *TX_REQUEST_CourseDetail_Url = @"/api/course"; //课程详情
-static NSString *TX_REQUEST_TaskList_Url = @"/api/listClassHomework"; //作业列表
-static NSString *TX_REQUEST_CalentarMonth_Url = @"/api/listMonthCourse";//按月获取课程日历
-static NSString *TX_REQUEST_CalentarDay_Url = @"/api/listDayCourse";//按天获取日历详情
-static NSString *TX_REQUEST_TeacherInfo_Url = @"/api/teacherInfo";//教师详情
-static NSString *TX_REQUEST_ListClass_Url = @"/api/listClasses"; //班级列表
 
 
 //错误信息
@@ -218,6 +200,7 @@ static NSString *TX_REQUEST_ListClass_Url = @"/api/listClasses"; //班级列表
 #define TX_PROFILE_KEY_CURRENT_USERNAME                 @"_current.userame"
 #define TX_PROFILE_KEY_CURRENT_TOKEN                    @"_current.token"
 #define TX_APP_CONTEXT_FILE_NAME                        @"appContext.plist" //缓存文件名
+
 
 /**
  *  常用操作宏

@@ -92,10 +92,27 @@
 -(void)onClickBtn:(UIButton *)sender
 {
     if(sender.tag == TopBarButtonLeft)
-    {
+    {        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self captureScreenshot];
+        });
+        
         [self presentLeftMenuViewController:sender];
     }
 }
+
+-(void)captureScreenshot
+{
+    
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, YES, 0);
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSString *homePath = NSHomeDirectory();
+    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"%@/Documents/Screen.png", homePath] atomically:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TX_PUSH_SCREENCHANGED object:nil];
+}
+
 #pragma mark - init
 - (void)createCustomNavBar{
     [super createCustomNavBar];
