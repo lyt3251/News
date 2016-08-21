@@ -204,6 +204,7 @@
     
     for (int i=0; i<weself.iChannleArr.count; i++) {
         NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
+        w.channelInfo = self.iChannleArr[i];
 //        NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
 //        NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
 //        [w loadData:channelId];
@@ -385,11 +386,14 @@
 //        [detailVc setShareUrl:model.shareUrl];
 //        [weself.navigationController pushViewController:detailVc animated:YES];
 //    };
+    [v reloadAllDatas];
     return v;
 }
 
 - (void)viewPager:(ViewPagerController *)viewPager didChangeTabToIndex:(NSUInteger)index{
     NSLog(@"%lu",(unsigned long)index);
+
+    
 }
 
 #pragma mark - UITouch
@@ -413,6 +417,7 @@
         [weself.iViewControllersArray removeAllObjects];
         for (int i=0; i<weself.iChannleArr.count; i++) {
             NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
+            w.channelInfo = self.iChannleArr[i];
 //            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
 //            NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
 //            [w loadData:channelId];

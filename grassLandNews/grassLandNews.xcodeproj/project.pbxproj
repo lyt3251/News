@@ -155,6 +155,7 @@
 		0DD9F0761D69964C002CA852 /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0751D69964C002CA852 /* ChannelModel.m */; };
 		0DD9F0791D69CA8A002CA852 /* FavoritesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0781D69CA8A002CA852 /* FavoritesManager.m */; };
 		0DD9F07C1D69CF45002CA852 /* NewsFileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F07B1D69CF45002CA852 /* NewsFileManger.m */; };
+		0DD9F0801D69FEA3002CA852 /* MutilTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F07F1D69FEA3002CA852 /* MutilTextLabel.m */; };
 		443D79E51D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D79E41D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m */; };
 		44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */; };
 		C2A3CCE09322772BDBD522C9 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 652C31D19CDB0BA07D27B20E /* libPods-grassLandNewsUITests.a */; };
@@ -465,6 +466,8 @@
 		0DD9F0781D69CA8A002CA852 /* FavoritesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesManager.m; sourceTree = "<group>"; };
 		0DD9F07A1D69CF45002CA852 /* NewsFileManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsFileManger.h; sourceTree = "<group>"; };
 		0DD9F07B1D69CF45002CA852 /* NewsFileManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsFileManger.m; sourceTree = "<group>"; };
+		0DD9F07E1D69FEA3002CA852 /* MutilTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutilTextLabel.h; sourceTree = "<group>"; };
+		0DD9F07F1D69FEA3002CA852 /* MutilTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutilTextLabel.m; sourceTree = "<group>"; };
 		1DCA84440E803C748F361F87 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284E456F9E7D706F4B98AA93 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		443D79E31D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithMultiPhotosTableViewCell.h; sourceTree = "<group>"; };
@@ -684,6 +687,7 @@
 		0DA95B071D487E3500509547 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0DD9F07D1D69FEA3002CA852 /* MutilText */,
 				0D870ED61D5F55DD00B3FC18 /* CustomTabbar */,
 				0D12C80D1D5731D000115311 /* KDCycleBannerView */,
 				0D463B3D1D536DA000BA1200 /* UILabelExtra */,
@@ -1159,6 +1163,15 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		0DD9F07D1D69FEA3002CA852 /* MutilText */ = {
+			isa = PBXGroup;
+			children = (
+				0DD9F07E1D69FEA3002CA852 /* MutilTextLabel.h */,
+				0DD9F07F1D69FEA3002CA852 /* MutilTextLabel.m */,
+			);
+			path = MutilText;
+			sourceTree = "<group>";
+		};
 		3798E754C1018A22EE5873BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1572,6 +1585,7 @@
 				0D870ED91D5F55DD00B3FC18 /* CustomTabBarController.m in Sources */,
 				0DA95BAD1D487F4C00509547 /* JFPhotoView.m in Sources */,
 				0DA95C3B1D4892FE00509547 /* WKTSearchView.m in Sources */,
+				0DD9F0801D69FEA3002CA852 /* MutilTextLabel.m in Sources */,
 				0DA95BFD1D487F5500509547 /* UIView+AlertView.m in Sources */,
 				0D12C80C1D57313000115311 /* NewsSubListViewController.m in Sources */,
 				0DA95BA81D487F4C00509547 /* JFImageGroupTableViewController.m in Sources */,

@@ -11,6 +11,7 @@
 #import "SearchTxtTableViewCell.h"
 #import "NewsManager.h"
 #import "NewsModel.h"
+#import "NewsDetailViewController.h"
 
 @interface SearchListViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITextField *inputText;
@@ -52,6 +53,7 @@
     [self.inputText setTintColor:kColorBlue];
     self.inputText.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 30)];
     self.inputText.leftViewMode = UITextFieldViewModeAlways;
+    self.inputText.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.customNavigationView addSubview:self.inputText];
     [self.inputText mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(kEdgeInsetsLeft);
@@ -222,11 +224,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(self.isSearching)
     {
-    
+        NSDictionary *newsInfo = self.newsList[indexPath.row];
+        NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+        [self.navigationController pushViewController:newsDetailVC animated:YES];
     }
     else
     {
         self.inputText.text = self.recommandList[indexPath.row];
+        self.isSearching = YES;
+        [self searchNewsByKeyword];
     }
     
 }

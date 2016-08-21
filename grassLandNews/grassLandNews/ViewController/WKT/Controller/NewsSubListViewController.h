@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface NewsSubListViewController : BaseViewController
-
+@property(nonatomic, strong)NSDictionary *channelInfo;
+-(void)reloadAllDatas;
 @end

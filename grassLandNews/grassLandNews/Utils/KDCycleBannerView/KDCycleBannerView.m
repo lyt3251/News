@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) CompleteBlock completeBlock;
 @property (strong, nonatomic) UIView *bottomView;
+@property (strong, nonatomic) UILabel *titleLabel;
 
 @end
 
@@ -149,7 +150,8 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     textLabel.textColor = kColorWhite;
     textLabel.font = kFontLarge;
     [_bottomView addSubview:textLabel];
-    textLabel.text = @"测试测试测试测试测试测试测试";
+    textLabel.text = @"";
+    self.titleLabel = textLabel;
     [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
         make.centerY.mas_equalTo(_bottomView);
@@ -299,6 +301,12 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     }else {
         [self moveToTargetPosition:CGRectGetWidth(_scrollView.frame) * page withAnimated:animated];
     }
+
+    if([_datasource respondsToSelector:@selector(titleAtIndex:)])
+    {
+        self.titleLabel.text = [_datasource titleAtIndex:page];
+    }
+    
     
     [self scrollViewDidScroll:_scrollView];
 }
