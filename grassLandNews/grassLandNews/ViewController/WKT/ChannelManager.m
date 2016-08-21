@@ -93,7 +93,7 @@ NSString *channelProfile = @"channelProfile.plist";
     {
         [self.channels enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             NSDictionary *channelDic = (NSDictionary *)obj;
-            NSNumber *parentId = channelDic[@"ParentId"];
+            NSNumber *parentId = channelDic[@"NodeID"];
             if(parentId.integerValue == childId.integerValue)
             {
                 [childArray addObject:channelDic];

@@ -67,7 +67,7 @@
 
 -(id)requestNewsById:(int64_t)newsId onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-    return [self requestByUrl:REQUEST_News_Url requestParameters:@{@"id":@(newsId)} progress:nil onCompleted:onCompleted];
+    return [self requestByUrl:[NSString stringWithFormat:@"%@/%@", REQUEST_News_Url, @(newsId)] requestParameters:nil progress:nil onCompleted:onCompleted];
 }
 
 -(id)requestNewsListBySearchWords:(NSString *)searchWord onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted

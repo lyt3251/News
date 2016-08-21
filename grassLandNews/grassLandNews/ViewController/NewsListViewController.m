@@ -11,6 +11,8 @@
 #import "NewsOnlyTextTableViewCell.h"
 #import "NewsManager.h"
 #import "ChannelManager.h"
+#import "FavoritesManager.h"
+#import "NewsDetailViewController.h"
 
 @interface NewsListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
@@ -143,13 +145,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSDictionary *newsInfo = self.list[indexPath.row];
+    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+    if(self.listType ==  NewsListType_Favorites)
+    {
+        [self presentViewController:newsDetailVC animated:YES completion:nil];
+    }
+    else
+    {
+        [self.navigationController pushViewController:newsDetailVC animated:YES];
+    }
 }
 
 -(void)requestList
 {
     if(self.listType == NewsListType_Favorites)
     {
-    
+        NSArray *array = [[FavoritesManager shareInstance] getFavoritesList];
+        self.list = [NSMutableArray arrayWithArray:array];
     }
     else if(self.listType == NewsListType_SubChannel)
     {

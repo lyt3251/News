@@ -182,7 +182,7 @@ static NSString *REQUEST_ALLType_Url = @"/api/GetAllType"; //文章类型列表
 static NSString *REQUEST_CircleList_Url = @"/api/GetFirstPhoto"; //滚动图片列表
 static NSString *REQUEST_RollList_Url = @"/api/GetFirstRoll"; //滚动新闻列表
 static NSString *REQUEST_NewsList_Url = @"/api/GetArticle"; //新闻列表
-static NSString *REQUEST_News_Url = @"/api/GetArticle/id"; //新闻
+static NSString *REQUEST_News_Url = @"/api/Info"; //新闻
 static NSString *REQUEST_Searchwords_Url = @"/api/Searchwords"; //搜索关键词
 static NSString *REQUEST_Update_Url = @"/api/VersionUpdate"; //升级
 
@@ -212,6 +212,7 @@ static NSString *REQUEST_Update_Url = @"/api/VersionUpdate"; //升级
 #define TX_PROFILE_KEY_CURRENT_USERNAME                 @"_current.userame"
 #define TX_PROFILE_KEY_CURRENT_TOKEN                    @"_current.token"
 #define TX_APP_CONTEXT_FILE_NAME                        @"appContext.plist" //缓存文件名
+#define TX_SETTING_FONT                                 @"setting_font" //字体配置
 
 
 /**

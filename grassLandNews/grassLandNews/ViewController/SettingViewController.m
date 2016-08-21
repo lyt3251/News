@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
 @interface SettingViewController()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)NSArray *list;
+@property(nonatomic, strong)NSString *fontStr;
 @end
 
 
@@ -135,7 +136,9 @@ typedef enum : NSUInteger {
     }
     else if(type.integerValue == SettingType_Font)
     {
-        subTitleLabel.text = @"大";
+        NSString *font = [[NSUserDefaults standardUserDefaults] valueForKey:TX_SETTING_FONT];
+        
+        subTitleLabel.text = font.length > 0?font:@"中";
         subTitleLabel.hidden = NO;
         lineView.hidden = YES;
     }
@@ -185,6 +188,42 @@ typedef enum : NSUInteger {
         }
             break;
             
+        case SettingType_Font:
+        {
+            NSArray *list = @[@"大", @"中", @"小"];
+            NSString * font = [[NSUserDefaults standardUserDefaults] valueForKey:TX_SETTING_FONT];
+            NSArray *hightList = nil;
+            NSUInteger index = 0;
+            if(font.length <= 0)
+            {
+                font = @"中";
+            }
+            hightList = @[font];
+            index = [list indexOfObject:font];
+            NSArray *firstList = nil;
+            if(index != 0)
+            {
+                firstList = [list subarrayWithRange:NSMakeRange(0, index)];
+            }
+            NSArray *secList = nil;
+            if(index != list.count-1)
+            {
+                secList = [list subarrayWithRange:NSMakeRange(index+1, list.count - index -1)];
+            }
+            
+            @weakify(self);
+            [self showHighlightedSheetWithTitle:nil normalItems:firstList highlightedItems:hightList otherItems:secList clickHandler:^(NSInteger index) {
+                @strongify(self);
+                NSString *selectedFont = list[index];
+                [[NSUserDefaults standardUserDefaults] setObject:selectedFont forKey:TX_SETTING_FONT];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.tableView reloadData];
+            } completion:^{
+                
+            }];
+        
+        }
+            break;
         default:
             break;
     } ;

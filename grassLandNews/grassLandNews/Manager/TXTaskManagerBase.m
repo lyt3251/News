@@ -12,6 +12,7 @@
 #import "UIDevice+IdentifierAddition.h"
 #import <AdSupport/ASIdentifierManager.h>
 #import <AFNetworking.h>
+#import "Comment.h"
 
 
 @implementation TXTaskManagerBase
@@ -41,12 +42,19 @@
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSString *postUrl = [NSString stringWithFormat:@"%@%@", REQUEST_Base_Url, requestUrl];
 
-//    NSDictionary *parametersDic = @{@"parameters":(requestParameters != nil?requestParameters:@"")};
-    
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:postUrl parameters:nil error:nil];
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
-//    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    if([requestUrl containsString:REQUEST_News_Url])
+    {
+        [req setValue:@"*/*" forHTTPHeaderField:@"Accept"];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    }
+    else
+    {
+        [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+        manager.responseSerializer = [AFJSONResponseSerializer serializer];
+        
+    }
     
     NSError *error;
     //添加 公用参数
@@ -75,11 +83,9 @@
     }
     
     
-//    NSString *jsonString = [[NSString alloc] initWithData:[bodyStr da] encoding:NSUTF8StringEncoding];
     [req setHTTPBody:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
     
     
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     __block NSURLSessionDataTask *task = [manager dataTaskWithRequest:req uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
         
     } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {

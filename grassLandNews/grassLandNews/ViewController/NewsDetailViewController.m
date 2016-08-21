@@ -7,6 +7,8 @@
 //
 
 #import "NewsDetailViewController.h"
+#import "NewsFileManger.h"
+#import "FavoritesManager.h"
 
 
 #define KBottomBarHight  55.0f
@@ -14,20 +16,23 @@
 
 @interface NewsDetailViewController ()<UIWebViewDelegate>
 @property(nonatomic, strong)UIWebView *webView;
-@property(nonatomic, strong)NSString *urlStr;
+//@property(nonatomic, strong)NSString *urlStr;
+@property(nonatomic, strong)NSDictionary *newsDicInfo;
 @end
 
 @implementation NewsDetailViewController
 
--(id)initWithUrl:(NSString *)url
+
+-(id)initWithNewsId:(NSDictionary *)newsDic
 {
     self = [super init];
     if(self)
     {
-        _urlStr = url;
+        _newsDicInfo = newsDic;
     }
     return self;
 }
+
 
 
 - (void)viewDidLoad {
@@ -38,17 +43,20 @@
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
     
     [self setupViews];
-    
+    [self requestFileData];
 }
 
 -(void)setupViews
 {
     self.webView = [[UIWebView alloc] init];
     self.webView.delegate = self;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
+//    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, -KBottomBarHight, 0));
+//        make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, -KBottomBarHight, 0));
+        make.left.and.right.mas_equalTo(self.view);
+        make.top.mas_equalTo(self.customNavigationView.maxY);
+        make.bottom.mas_equalTo(-KBottomBarHight);
     }];
     
     
@@ -86,7 +94,16 @@
         }
         else if(i == 1)
         {
-            iconName = @"Detail_Favorites";
+            NSNumber *newsId = self.newsDicInfo[@"GeneralID"];
+            BOOL isFavorites = [[FavoritesManager shareInstance] isFavoritesByNewsId:newsId.longLongValue];
+            if(isFavorites)
+            {
+                iconName = @"Detail_Favorites";
+            }
+            else
+            {
+                iconName = @"Detail_UnFavorites";
+            }
         }
         else if (i == 2)
         {
@@ -97,6 +114,20 @@
     
     }
     
+}
+
+-(void)requestFileData
+{
+    NSNumber *newsId = self.newsDicInfo[@"GeneralID"];
+    @weakify(self);
+    [[NewsFileManger shareInstance] requestFileById:newsId.longLongValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        if(responseObject)
+        {
+            [self.webView loadData:(NSData *)responseObject MIMEType:@"text/html" textEncodingName:@"utf-8"  baseURL:[NSURL URLWithString:@""]];
+        }
+    }];
+
 }
 
 
@@ -126,7 +157,14 @@
         }
         else
         {
-            [self.navigationController popViewControllerAnimated:YES];
+            if(self.navigationController)
+            {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+            else
+            {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
         }
     }
 }
@@ -136,11 +174,61 @@
 {
     if(button.tag == KButtonTagBase)
     {
-        NSLog(@"字体被按下");
+        NSArray *list = @[@"大", @"中", @"小"];
+        NSString * font = [[NSUserDefaults standardUserDefaults] valueForKey:TX_SETTING_FONT];
+        NSArray *hightList = nil;
+        NSUInteger index = 0;
+        if(font.length <= 0)
+        {
+            font = @"中";
+        }
+        hightList = @[font];
+        index = [list indexOfObject:font];
+        NSArray *firstList = nil;
+        if(index != 0)
+        {
+            firstList = [list subarrayWithRange:NSMakeRange(0, index)];
+        }
+        NSArray *secList = nil;
+        if(index != list.count-1)
+        {
+            secList = [list subarrayWithRange:NSMakeRange(index+1, list.count - index -1)];
+        }
+        
+        [self showHighlightedSheetWithTitle:nil normalItems:firstList highlightedItems:hightList otherItems:secList clickHandler:^(NSInteger index) {
+            NSString *selectedFont = list[index];
+            [[NSUserDefaults standardUserDefaults] setObject:selectedFont forKey:TX_SETTING_FONT];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } completion:^{
+            
+        }];
+        
+        
     }
     else if(button.tag == KButtonTagBase + 1)
     {
-        NSLog(@"收藏被按下");
+        NSNumber *newsId = self.newsDicInfo[@"GeneralID"];
+        BOOL isFavorites = [[FavoritesManager shareInstance] isFavoritesByNewsId:newsId.longLongValue];
+        if(isFavorites)
+        {
+            [[FavoritesManager shareInstance] removeFavoritesByNewsId:newsId.longLongValue];
+        }
+        else
+        {
+            [[FavoritesManager shareInstance] addNewsFavorites:self.newsDicInfo];
+        }
+        isFavorites = !isFavorites;
+        if(isFavorites)
+        {
+            [button setImage:[UIImage imageNamed:@"Detail_Favorites"] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [button setImage:[UIImage imageNamed:@"Detail_UnFavorites"] forState:UIControlStateNormal];
+        }
+    
+        
+        
     }
     else if(button.tag == KButtonTagBase + 2)
     {

@@ -9,5 +9,8 @@
 #import "BaseViewController.h"
 
 @interface NewsDetailViewController : BaseViewController
--(id)initWithUrl:(NSString *)url;
+//-(id)initWithUrl:(NSString *)url;
+
+-(id)initWithNewsId:(NSDictionary *)newsDic;
+
 @end
