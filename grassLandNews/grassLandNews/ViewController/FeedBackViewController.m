@@ -8,6 +8,7 @@
 
 #import "FeedBackViewController.h"
 #import "CHSCharacterCountTextView.h"
+#import "FeedBackManager.h"
 
 @interface FeedBackViewController ()<UIScrollViewDelegate, UITextFieldDelegate>
 {
@@ -27,9 +28,10 @@
     [super viewDidLoad];
     [self addNotification];
     [self createCustomNavBar];
-    self.titleStr = @"测试测试";
+    self.customNavigationView.backgroundColor = KColorAppMain;
+    self.titleStr = @"我要反馈";
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
-    [self.btnRight setTitle:@"分享" forState:UIControlStateNormal];
+    [self.btnRight setTitle:@"发送" forState:UIControlStateNormal];
     // Do any additional setup after loading the view.
     
     [self setupViews];
@@ -56,8 +58,8 @@
     
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = RGBCOLOR(0x22, 0x22, 0x22);
-    self.titleLabel.font = [UIFont systemFontOfSize:16.0f];
-    self.titleLabel.text = @"测试测试测试";
+    self.titleLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.titleLabel.text = @"请输入您的意见和建议:";
     [_contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
@@ -78,7 +80,7 @@
     }];
     
 
-    self.inputTextView = [[CHSCharacterCountTextView alloc] initWithMaxNumber:1000 placeHoder:@"啊啊啊啊啊啊啊"];
+    self.inputTextView = [[CHSCharacterCountTextView alloc] initWithMaxNumber:500 placeHoder:@"我们会认真记录并在后续的版本中作出针对性的优化和改进~"];
     self.inputTextView.backgroundColor = [UIColor clearColor];
     [inputBackView addSubview:self.inputTextView];
     [self.inputTextView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -87,8 +89,8 @@
     
     self.subTitleLabel = [[UILabel alloc] init];
     self.subTitleLabel.textColor = RGBCOLOR(0x22, 0x22, 0x22);
-    self.subTitleLabel.font = [UIFont systemFontOfSize:16.0f];
-    self.subTitleLabel.text = @"测试测试测试";
+    self.subTitleLabel.font = [UIFont systemFontOfSize:14.0f];
+    self.subTitleLabel.text = @"请输入您的联系方式:";
     [_contentView addSubview:self.subTitleLabel];
     [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.titleLabel);
@@ -97,11 +99,12 @@
     }];
     
     self.addressTextView = [[UITextField alloc] init];
-    self.addressTextView.placeholder = @"测试测试";
+    self.addressTextView.placeholder = @"QQ/电话/邮箱均可";
     self.addressTextView.layer.borderColor = KColorBorderColor.CGColor;
     self.addressTextView.layer.borderWidth = 0.5f;
     self.addressTextView.backgroundColor = [UIColor whiteColor];
     self.addressTextView.delegate = self;
+    self.addressTextView.font = [UIFont systemFontOfSize:14];
     [_contentView addSubview:self.addressTextView];
     [self.addressTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.subTitleLabel);
@@ -129,8 +132,48 @@
     }
     else if(sender.tag == TopBarButtonRight)
     {
-        //分享
-        [self shareUrlByLinkUrl:@"http://www.baidu.com" title:@"标题" detailTitle:@"副标题" localImage:[UIImage imageNamed:@"Main_Back"]];
+        
+        NSString *content = [self.inputTextView getContent];
+        NSString *contact = [self.addressTextView text];
+        
+        if(contact.length <= 0)
+        {
+            [self showSuccessHudWithTitle:@"请输入反馈内容"];
+            return;
+        }
+        if(contact.length <= 0)
+        {
+            [self showSuccessHudWithTitle:@"请输入联系方式"];
+            return;
+        }
+        
+        
+        FeedBackManager *feedManager = [[FeedBackManager alloc] init];
+        @weakify(self);
+        [feedManager sendFeedInfoByContent:content withContact:contact onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+            @strongify(self);
+            NSDictionary *dic = (NSDictionary *)responseObject;
+            NSNumber *status = dic[@"status"];
+            if(status.integerValue > 0)
+            {
+                [self showSuccessHudWithTitle:@"反馈成功"];
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }
+            else
+            {
+                if(error)
+                {
+                    [self showFailedHudWithError:error];
+                }
+                else
+                {
+                    [self showFailedHudWithTitle:dic[@"msg"]];
+                }
+            }
+            
+            
+        }];
+        
     
     }
 }

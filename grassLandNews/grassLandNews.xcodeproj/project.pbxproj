@@ -146,6 +146,11 @@
 		0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C4C1D48980000509547 /* NSDateFormatter+TuXing.m */; };
 		0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */; };
 		0DA95C541D49F7FA00509547 /* ChannelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95C531D49F7FA00509547 /* ChannelManager.m */; };
+		0DD9F0641D692760002CA852 /* RequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0631D692760002CA852 /* RequestManager.m */; };
+		0DD9F0671D6927CE002CA852 /* TXTaskManagerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0661D6927CE002CA852 /* TXTaskManagerBase.m */; };
+		0DD9F06A1D6927E8002CA852 /* FeedBackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0691D6927E8002CA852 /* FeedBackManager.m */; };
+		0DD9F06D1D693FA0002CA852 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F06C1D693FA0002CA852 /* NewsManager.m */; };
+		0DD9F0701D6946D8002CA852 /* UpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F06F1D6946D8002CA852 /* UpdateManager.m */; };
 		443D79E51D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D79E41D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m */; };
 		44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */; };
 		C2A3CCE09322772BDBD522C9 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 652C31D19CDB0BA07D27B20E /* libPods-grassLandNewsUITests.a */; };
@@ -438,6 +443,16 @@
 		0DA95C501D489AB000509547 /* UIImageView+TXSDImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+TXSDImage.m"; sourceTree = "<group>"; };
 		0DA95C521D49F7FA00509547 /* ChannelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelManager.h; sourceTree = "<group>"; };
 		0DA95C531D49F7FA00509547 /* ChannelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelManager.m; sourceTree = "<group>"; };
+		0DD9F0621D692760002CA852 /* RequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestManager.h; sourceTree = "<group>"; };
+		0DD9F0631D692760002CA852 /* RequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestManager.m; sourceTree = "<group>"; };
+		0DD9F0651D6927CE002CA852 /* TXTaskManagerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXTaskManagerBase.h; sourceTree = "<group>"; };
+		0DD9F0661D6927CE002CA852 /* TXTaskManagerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXTaskManagerBase.m; sourceTree = "<group>"; };
+		0DD9F0681D6927E8002CA852 /* FeedBackManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedBackManager.h; sourceTree = "<group>"; };
+		0DD9F0691D6927E8002CA852 /* FeedBackManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedBackManager.m; sourceTree = "<group>"; };
+		0DD9F06B1D693FA0002CA852 /* NewsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsManager.h; sourceTree = "<group>"; };
+		0DD9F06C1D693FA0002CA852 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
+		0DD9F06E1D6946D8002CA852 /* UpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateManager.h; sourceTree = "<group>"; };
+		0DD9F06F1D6946D8002CA852 /* UpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateManager.m; sourceTree = "<group>"; };
 		1DCA84440E803C748F361F87 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284E456F9E7D706F4B98AA93 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		443D79E31D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithMultiPhotosTableViewCell.h; sourceTree = "<group>"; };
@@ -577,6 +592,7 @@
 		0DA95AC61D485BD000509547 /* grassLandNews */ = {
 			isa = PBXGroup;
 			children = (
+				0DD9F0611D692739002CA852 /* Manager */,
 				0D21147A1D523145006888DF /* CustomViews */,
 				0DA95C001D487FFE00509547 /* Model */,
 				0DA95BC31D487F5500509547 /* Comment */,
@@ -1106,6 +1122,23 @@
 			path = UIImageView_TXSDImage;
 			sourceTree = "<group>";
 		};
+		0DD9F0611D692739002CA852 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				0DD9F0651D6927CE002CA852 /* TXTaskManagerBase.h */,
+				0DD9F0661D6927CE002CA852 /* TXTaskManagerBase.m */,
+				0DD9F0621D692760002CA852 /* RequestManager.h */,
+				0DD9F0631D692760002CA852 /* RequestManager.m */,
+				0DD9F0681D6927E8002CA852 /* FeedBackManager.h */,
+				0DD9F0691D6927E8002CA852 /* FeedBackManager.m */,
+				0DD9F06B1D693FA0002CA852 /* NewsManager.h */,
+				0DD9F06C1D693FA0002CA852 /* NewsManager.m */,
+				0DD9F06E1D6946D8002CA852 /* UpdateManager.h */,
+				0DD9F06F1D6946D8002CA852 /* UpdateManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		3798E754C1018A22EE5873BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1435,6 +1468,7 @@
 				0DA95C3C1D4892FE00509547 /* WKTSortScrollView.m in Sources */,
 				0DA95BF61D487F5500509547 /* NSDateFormatter+Utils.m in Sources */,
 				0DA95B031D487D9900509547 /* BaseViewController.m in Sources */,
+				0DD9F0671D6927CE002CA852 /* TXTaskManagerBase.m in Sources */,
 				0DA95BFE1D487F5500509547 /* UIView+Utils.m in Sources */,
 				0D463B431D5370AE00BA1200 /* SettingViewController.m in Sources */,
 				0DA95B0B1D487E3500509547 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
@@ -1450,6 +1484,7 @@
 				0DA95C511D489AB000509547 /* UIImageView+TXSDImage.m in Sources */,
 				0DA95C371D4892FE00509547 /* WXYSearchViewController.m in Sources */,
 				0DA95B9E1D487F4C00509547 /* GMGridViewCell.m in Sources */,
+				0DD9F06A1D6927E8002CA852 /* FeedBackManager.m in Sources */,
 				0DA95BB31D487F4C00509547 /* NSObject+MJKeyValue.m in Sources */,
 				0DA95B061D487DC400509547 /* CustomNavigationController.m in Sources */,
 				0DA95BF71D487F5500509547 /* NSString+Utils.m in Sources */,
@@ -1468,6 +1503,7 @@
 				0DA95B9F1D487F4C00509547 /* GMGridViewController.m in Sources */,
 				0D12C8091D56CEEB00115311 /* NewsDetailViewController.m in Sources */,
 				0DA95C4A1D4894C900509547 /* NSDate+TuXing.m in Sources */,
+				0DD9F0641D692760002CA852 /* RequestManager.m in Sources */,
 				0DA95BBA1D487F4C00509547 /* TXDatePopView.m in Sources */,
 				0DA95C411D48936900509547 /* TXWebViewController.m in Sources */,
 				0DA95BF91D487F5500509547 /* TXAsynRun.m in Sources */,
@@ -1478,6 +1514,7 @@
 				0DA95B921D487F4C00509547 /* RMCalendarLogic.m in Sources */,
 				0DA95BC21D487F4C00509547 /* TXVoiceConverter.mm in Sources */,
 				0DA95BFB1D487F5500509547 /* UIImage+extension.m in Sources */,
+				0DD9F0701D6946D8002CA852 /* UpdateManager.m in Sources */,
 				0DA95BFA1D487F5500509547 /* TXCustomAlertWindow.m in Sources */,
 				0D12C8131D58530E00115311 /* SearchListViewController.m in Sources */,
 				0DA95BF31D487F5500509547 /* README.md in Sources */,
@@ -1494,6 +1531,7 @@
 				0DA95B8F1D487F4C00509547 /* CHSCharacterCountTextView.m in Sources */,
 				0DA95BB21D487F4C00509547 /* NSObject+MJCoding.m in Sources */,
 				0D463B3C1D53655000BA1200 /* NewsOnlyTextTableViewCell.m in Sources */,
+				0DD9F06D1D693FA0002CA852 /* NewsManager.m in Sources */,
 				0DA95C4D1D48980000509547 /* NSDateFormatter+TuXing.m in Sources */,
 				0D371BC31D531B0A00A41D79 /* ShareActionModel.m in Sources */,
 				0DA95BEE1D487F5500509547 /* DataUtility.m in Sources */,

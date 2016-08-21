@@ -170,11 +170,21 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
  *  网络请求相关
  */
 
+
 /**
  *  请求相关的常量
  */
 
+static  NSString *REQUEST_Base_Url = @"http://gnapi.huilianonline.com"; //请求服务器地址
 
+static NSString *REQUEST_FeedBack_Url = @"/api/Feedback"; //意见反馈
+static NSString *REQUEST_ALLType_Url = @"/api/GetAllType"; //文章类型列表
+static NSString *REQUEST_CircleList_Url = @"/api/GetFirstPhoto"; //滚动图片列表
+static NSString *REQUEST_RollList_Url = @"/api/GetFirstRoll"; //滚动新闻列表
+static NSString *REQUEST_NewsList_Url = @"/api/GetArticle"; //新闻列表
+static NSString *REQUEST_News_Url = @"/api/GetArticle/id"; //新闻
+static NSString *REQUEST_Searchwords_Url = @"/api/Searchwords"; //搜索关键词
+static NSString *REQUEST_Update_Url = @"/api/VersionUpdate"; //升级
 
 
 //错误信息
@@ -192,6 +202,8 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
 #define TX_STATUS_TIMEOUT_DESC                          @"请求超时，请重试"
 #define TX_STATUS_LOCAL_USER_EXPIRED_DESC               @"本地登录态已经失效"
 #define TX_STATUS_PARAMETER_ERROR                       @"参数错误"
+
+#define KPageNumber                                       20 //每页条数
 
 /**
  *  配置文件

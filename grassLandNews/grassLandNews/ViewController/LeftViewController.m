@@ -70,51 +70,51 @@ typedef enum : NSUInteger {
     });
     self.screenView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
 
-//    self.view.backgroundColor = RGBACOLOR(0x44, 0x99, 0x69, 0.85);
-//    self.view.backgroundColor = KColorAppMain;
-//    self.view.alpha = 0.85;
-    self.view.backgroundColor = kColorClear;
+    self.view.backgroundColor = RGBACOLOR(0x44, 0x99, 0x69, 0.85);
+    self.view.backgroundColor = KColorAppMain;
+    self.view.alpha = 0.85;
+//    self.view.backgroundColor = kColorClear;
     
     
     
 //    self.headerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [self.headerBtn setImage:[UIImage imageNamed:@"Left_Header"] forState:UIControlStateNormal];
-//    self.headerBtn = [[UIImageView alloc] init];
-//    [self.headerBtn setImage:[UIImage imageNamed:@"Left_Header"]];
-//    [self.view addSubview:self.headerBtn];
-//    [self.headerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(30);
-//        make.top.mas_equalTo(125);
-//        make.size.mas_equalTo(CGSizeMake(35*2, 35*2));
-//    }];
-//
-//    self.appNameLabel = [[UILabel alloc] init];
-//    self.appNameLabel.text = @"中国草原网";
-//    self.appNameLabel.font = [UIFont systemFontOfSize:20];
-//    self.appNameLabel.textColor = [UIColor whiteColor];
-//    [self.view addSubview:self.appNameLabel];
-//    [self.appNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.mas_equalTo(self.headerBtn.mas_right).with.offset(10);
-//        make.centerY.mas_equalTo(self.headerBtn);
-//        make.size.mas_equalTo(CGSizeMake(100, 50));
-//    }];
-//    
-//    
-//    self.tableView = [[UITableView alloc] init];
-//    
-//    self.tableView.delegate = self;
-//    self.tableView.backgroundColor = [UIColor clearColor];
-//    self.tableView.dataSource = self;
-//    self.tableView.scrollEnabled = NO;
-//    self.tableView.rowHeight = KCellHight;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    [self.view addSubview:self.tableView];
-//    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(self.headerBtn.mas_bottom).with.offset(80);
-//        make.left.mas_equalTo(0);
-//        make.width.mas_equalTo(200);
-//        make.height.mas_equalTo(self.leftList.count*KCellHight);
-//    }];
+    self.headerBtn = [[UIImageView alloc] init];
+    [self.headerBtn setImage:[UIImage imageNamed:@"Left_Header"]];
+    [self.view addSubview:self.headerBtn];
+    [self.headerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(30);
+        make.top.mas_equalTo(125);
+        make.size.mas_equalTo(CGSizeMake(35*2, 35*2));
+    }];
+
+    self.appNameLabel = [[UILabel alloc] init];
+    self.appNameLabel.text = @"中国草原网";
+    self.appNameLabel.font = [UIFont systemFontOfSize:20];
+    self.appNameLabel.textColor = [UIColor whiteColor];
+    [self.view addSubview:self.appNameLabel];
+    [self.appNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.headerBtn.mas_right).with.offset(10);
+        make.centerY.mas_equalTo(self.headerBtn);
+        make.size.mas_equalTo(CGSizeMake(100, 50));
+    }];
+    
+    
+    self.tableView = [[UITableView alloc] init];
+    
+    self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.dataSource = self;
+    self.tableView.scrollEnabled = NO;
+    self.tableView.rowHeight = KCellHight;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.headerBtn.mas_bottom).with.offset(80);
+        make.left.mas_equalTo(0);
+        make.width.mas_equalTo(200);
+        make.height.mas_equalTo(self.leftList.count*KCellHight);
+    }];
     
 }
 
@@ -266,7 +266,7 @@ typedef enum : NSUInteger {
 -(void)refreshBKImage
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.screenView.image = [self creatBlurBackgound:[UIImage imageWithContentsOfFile:[self photoPath]] blurRadius:100];
+//        self.screenView.image = [self creatBlurBackgound:[UIImage imageWithContentsOfFile:[self photoPath]] blurRadius:100];
     });
 }
 

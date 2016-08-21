@@ -7,6 +7,7 @@
 //
 
 #import "SettingViewController.h"
+#import "FeedBackViewController.h"
 
 #define KCellHight 45.0f
 #define KCellHeaderHight 5.0f
@@ -175,6 +176,18 @@ typedef enum : NSUInteger {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSNumber *type = self.list[indexPath.section][indexPath.row][@"type"];
+    switch (type.integerValue) {
+        case SettingType_FeedBack:
+        {
+            FeedBackViewController *feedbackVC = [[FeedBackViewController alloc] init];
+            [self presentViewController:feedbackVC animated:YES completion:nil];
+        }
+            break;
+            
+        default:
+            break;
+    } ;
 }
 
 

@@ -128,7 +128,7 @@
     [messageTextView setTextColor:KPlacehoderTextColor];
 	
 	messageTextView.delegate = self;
-	[messageTextView setFont:[UIFont systemFontOfSize:16]];
+	[messageTextView setFont:[UIFont systemFontOfSize:14]];
 	[self addSubview:messageTextView];
 	
 	// Set the max character count
