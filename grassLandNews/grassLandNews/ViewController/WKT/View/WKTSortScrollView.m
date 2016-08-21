@@ -100,7 +100,7 @@
         
         NSDictionary *dict = self.selectChannelDataArray[i];
         ChannelButton  *btn = [[ChannelButton alloc] init];
-        btn.text = [dict objectForKey:@"channelName"];
+        btn.text = [dict objectForKey:@"NodeName"];
         //添加拖拽手势
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
         [btn addGestureRecognizer:pan];
@@ -328,7 +328,7 @@
         NSString *channelText = [selectChannelArray objectAtIndex:i];
         for (int j=0; j<oldChannelArr.count; j++) {
             NSDictionary *dict = [oldChannelArr objectAtIndex:j];
-            NSString *oldText = [dict objectForKey:@"channelName"];
+            NSString *oldText = [dict objectForKey:@"NodeName"];
             if ([channelText isEqualToString:oldText]) {
                 [newChannelArr addObject:dict];
                 break;

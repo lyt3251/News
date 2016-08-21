@@ -151,6 +151,8 @@
 		0DD9F06A1D6927E8002CA852 /* FeedBackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0691D6927E8002CA852 /* FeedBackManager.m */; };
 		0DD9F06D1D693FA0002CA852 /* NewsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F06C1D693FA0002CA852 /* NewsManager.m */; };
 		0DD9F0701D6946D8002CA852 /* UpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F06F1D6946D8002CA852 /* UpdateManager.m */; };
+		0DD9F0731D694EC1002CA852 /* NewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0721D694EC1002CA852 /* NewsModel.m */; };
+		0DD9F0761D69964C002CA852 /* ChannelModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F0751D69964C002CA852 /* ChannelModel.m */; };
 		443D79E51D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D79E41D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m */; };
 		44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */; };
 		C2A3CCE09322772BDBD522C9 /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 652C31D19CDB0BA07D27B20E /* libPods-grassLandNewsUITests.a */; };
@@ -453,6 +455,10 @@
 		0DD9F06C1D693FA0002CA852 /* NewsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsManager.m; sourceTree = "<group>"; };
 		0DD9F06E1D6946D8002CA852 /* UpdateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateManager.h; sourceTree = "<group>"; };
 		0DD9F06F1D6946D8002CA852 /* UpdateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateManager.m; sourceTree = "<group>"; };
+		0DD9F0711D694EC1002CA852 /* NewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsModel.h; sourceTree = "<group>"; };
+		0DD9F0721D694EC1002CA852 /* NewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsModel.m; sourceTree = "<group>"; };
+		0DD9F0741D69964C002CA852 /* ChannelModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelModel.h; sourceTree = "<group>"; };
+		0DD9F0751D69964C002CA852 /* ChannelModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelModel.m; sourceTree = "<group>"; };
 		1DCA84440E803C748F361F87 /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		284E456F9E7D706F4B98AA93 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		443D79E31D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsWithMultiPhotosTableViewCell.h; sourceTree = "<group>"; };
@@ -1039,6 +1045,10 @@
 				0DA95C461D48945600509547 /* WXYArticle.m */,
 				0DA95C011D487FFE00509547 /* UploadImageStatus.h */,
 				0DA95C021D487FFE00509547 /* UploadImageStatus.m */,
+				0DD9F0711D694EC1002CA852 /* NewsModel.h */,
+				0DD9F0721D694EC1002CA852 /* NewsModel.m */,
+				0DD9F0741D69964C002CA852 /* ChannelModel.h */,
+				0DD9F0751D69964C002CA852 /* ChannelModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1475,6 +1485,7 @@
 				0DA95C031D487FFE00509547 /* UploadImageStatus.m in Sources */,
 				0DA95C2F1D4892FE00509547 /* JCTagListView.m in Sources */,
 				0D463B401D536DD200BA1200 /* UILabel+Extra.m in Sources */,
+				0DD9F0731D694EC1002CA852 /* NewsModel.m in Sources */,
 				0DA95C3D1D4892FE00509547 /* WXYNewListTableViewCell.m in Sources */,
 				0DA95BFF1D487F5500509547 /* uploadImageView.m in Sources */,
 				0DA95BF01D487F5500509547 /* EasyJSDataFunction.m in Sources */,
@@ -1554,6 +1565,7 @@
 				0DA95BA81D487F4C00509547 /* JFImageGroupTableViewController.m in Sources */,
 				0D371BBE1D531ADB00A41D79 /* ShareModelHelper.m in Sources */,
 				0DA95BA91D487F4C00509547 /* JFImageManager.m in Sources */,
+				0DD9F0761D69964C002CA852 /* ChannelModel.m in Sources */,
 				0DA95BBE1D487F4C00509547 /* amrFileCodec.mm in Sources */,
 				0DA95B941D487F4C00509547 /* TicketModel.m in Sources */,
 				0D12C8101D5731D000115311 /* KDCycleBannerView.m in Sources */,

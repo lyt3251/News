@@ -7,8 +7,16 @@
 //
 
 #import "BaseViewController.h"
+typedef NS_ENUM(NSInteger, NewsListType)
+{
+    NewsListType_Favorites = 0,
+    NewsListType_SubChannel,
+};
+
+
 
 @interface NewsListViewController : BaseViewController
 @property(nonatomic, strong)NSString *ListTitle;
-@property(nonatomic, assign)int64_t ListId;
+@property(nonatomic, strong)NSDictionary *channelDic;
+@property(nonatomic, assign)NewsListType listType;
 @end

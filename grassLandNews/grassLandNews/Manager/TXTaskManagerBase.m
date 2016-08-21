@@ -45,7 +45,7 @@
     
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:postUrl parameters:nil error:nil];
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
-    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+//    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     NSError *error;
@@ -57,11 +57,26 @@
 //    [req setValue:systemJsonString forHTTPHeaderField:@"x-mobile-info"];
     
     //添加http体
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:requestParameters
-                                                       options:0
-                                                         error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:requestParameters
+//                                                       options:0
+//                                                         error:&error];
+    NSMutableString *bodyStr = [[NSMutableString alloc] init];
+    for(NSString *key in [requestParameters allKeys])
+    {
+        id value = requestParameters[key];
+        if(bodyStr.length > 0)
+        {
+            [bodyStr appendFormat:@"&%@=%@", key, value];
+        }
+        else
+        {
+            [bodyStr appendFormat:@"%@=%@", key, value];
+        }
+    }
+    
+    
+//    NSString *jsonString = [[NSString alloc] initWithData:[bodyStr da] encoding:NSUTF8StringEncoding];
+    [req setHTTPBody:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
     
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];

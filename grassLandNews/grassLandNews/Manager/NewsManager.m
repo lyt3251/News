@@ -9,24 +9,25 @@
 #import "NewsManager.h"
 
 @implementation NewsManager
-
-///api/GetAllType
-
-//-(id)sendFeedInfoByContent:(NSString *)content withContact:(NSString *)contact onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
-//{
-//    if(content.length <= 0 || contact.length <= 0)
-//    {
-//        onCompleted(nil, nil, [NSError errorWithDomain:TX_STATUS_PARAMETER_ERROR code:TX_STATUS_PARAMETER_ERROR_CODE userInfo:nil]);
-//        return nil;
-//    }
-//    
-//    return [self requestByUrl:REQUEST_FeedBack_Url requestParameters:@{@"content":contact, @"deviceType":@(1), @"contact":contact} progress:nil onCompleted:onCompleted];
-//}
-
 -(id)requestNewsTypesByNodeId:(int32_t)nodeId parentId:(int32_t)parentId depth:(int32_t)depth onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
     
-    return [self requestByUrl:REQUEST_ALLType_Url requestParameters:@{@"nodeId":@(nodeId), @"parentId":@(parentId), @"depth":@(depth)} progress:nil onCompleted:onCompleted];
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    if(nodeId > 0)
+    {
+        [dic setValue:@(nodeId) forKey:@"nodeId"];
+    }
+    if(depth > 0)
+    {
+        [dic setValue:@(depth) forKey:@"depth"];
+    }
+    if(parentId > 0)
+    {
+        [dic setValue:@(parentId) forKey:@"parentId"];
+    }
+    
+    
+    return [self requestByUrl:REQUEST_ALLType_Url requestParameters:dic progress:nil onCompleted:onCompleted];
 
 }
 
@@ -71,7 +72,7 @@
 
 -(id)requestNewsListBySearchWords:(NSString *)searchWord onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-    return [self requestByUrl:REQUEST_Searchwords_Url requestParameters:@{@"words":searchWord, @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
+    return [self requestByUrl:REQUEST_Searchwords_Url requestParameters:@{@"words":searchWord.length > 0?searchWord:@"", @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
 }
 
 

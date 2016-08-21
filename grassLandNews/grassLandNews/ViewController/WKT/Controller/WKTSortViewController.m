@@ -152,7 +152,7 @@
     NSArray *array = [[ChannelManager shareInstance] getChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
-        NSString *selectId = [dict objectForKey:@"channelId"];
+        NSString *selectId = [dict objectForKey:@"NodeID"];
         if ([aSelectId isEqualToString:selectId]) {
             return i;
         }
@@ -167,7 +167,7 @@
     NSArray *array = [[ChannelManager shareInstance] getChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
-        NSString *channelName = [dict objectForKey:@"channelName"];
+        NSString *channelName = [dict objectForKey:@"NodeName"];
         if ([aChannelName isEqualToString:channelName]) {
             return i;
         }

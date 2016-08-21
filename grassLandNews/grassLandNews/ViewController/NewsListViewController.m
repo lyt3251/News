@@ -9,9 +9,12 @@
 #import "NewsListViewController.h"
 #import "NewsWithPhotoTableViewCell.h"
 #import "NewsOnlyTextTableViewCell.h"
+#import "NewsManager.h"
+#import "ChannelManager.h"
 
 @interface NewsListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
+@property(nonatomic, strong)NSMutableArray *list;
 @end
 
 @implementation NewsListViewController
@@ -22,10 +25,18 @@
     self.customNavigationView.backgroundColor = RGBCOLOR(0x44, 0x99, 0x69);
     self.titleLb.textColor = [UIColor whiteColor];
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
-    self.titleStr = self.ListTitle;
+    if(self.ListTitle.length > 0)
+    {
+        self.titleStr = self.ListTitle;
+    }
+    else
+    {
+        self.titleStr = self.channelDic[@"NodeName"];
+    }
     // Do any additional setup after loading the view.
+    self.list = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
-    
+    [self requestList];
     
 }
 
@@ -49,7 +60,14 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        if(self.listType == NewsListType_Favorites)
+        {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 
@@ -73,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.list.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -82,8 +100,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
+    NSDictionary *newsDic = self.list[indexPath.row];
+    NSString *picUrl = newsDic[@"DefaultPicUrl"];
     
-    if(indexPath.row%2 == 0)
+    if(picUrl.length > 0)
     {
         static NSString *identifier = @"NewsWithPhotoTableViewCell";
         NewsWithPhotoTableViewCell *newsWithPhotoCell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -92,10 +112,10 @@
             newsWithPhotoCell = [[NewsWithPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
-        [newsWithPhotoCell.titleLabel setTextByStr:@"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题" WithSpace:7.0f];
-        newsWithPhotoCell.subTitleLabel.text = @"标签标签标签标签";
+        [newsWithPhotoCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
+        newsWithPhotoCell.subTitleLabel.text = newsDic[@"NodeName"];
         
-        [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:@"http://n.sinaimg.cn/news/20160803/6f47-fxupmws1661759.jpg"] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
         }];
         cell = newsWithPhotoCell;
@@ -109,9 +129,9 @@
             newsOnlyTextCell = [[NewsOnlyTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         
-//        newsOnlyTextCell.titleLabel.text = @"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题";
-        [newsOnlyTextCell.titleLabel setTextByStr:@"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题" WithSpace:7.0f];
-        newsOnlyTextCell.subTitleLabel.text = @"标签标签标签标签";
+        
+        [newsOnlyTextCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
+        newsOnlyTextCell.subTitleLabel.text = newsDic[@"NodeName"];
         
         cell = newsOnlyTextCell;
     }
@@ -124,6 +144,42 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+-(void)requestList
+{
+    if(self.listType == NewsListType_Favorites)
+    {
+    
+    }
+    else if(self.listType == NewsListType_SubChannel)
+    {
+        NewsManager *newsManager = [[NewsManager alloc] init];
+        NSNumber *noteId = self.channelDic[@"NodeID"];
+        @weakify(self);
+        [newsManager requestNewsListByPage:1 nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+            @strongify(self);
+            NSNumber *status = responseObject[@"status"];
+            if(error || status.integerValue == 0)
+            {
+                if(error)
+                {
+                    [self showFailedHudWithError:error];
+                }
+                else
+                {
+                    [self showFailedHudWithTitle:responseObject[@"msg"]];
+                }
+            }
+            else
+            {
+                [self.list addObjectsFromArray:responseObject[@"data"]];
+                [self.tableView reloadData];
+            }
+        }];
+        
+    }
+}
+
 
 
 @end

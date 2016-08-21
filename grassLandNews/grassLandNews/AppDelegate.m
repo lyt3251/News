@@ -23,6 +23,7 @@
 #import "RDVTabBar.h"
 #import "RDVTabBarItem.h"
 #import <SDVersion.h>
+#import "ChannelManager.h"
 
 
 @interface AppDelegate ()
@@ -36,7 +37,7 @@
     // Override point for customization after application launch.
     [self initWindows];
     NSLog(@"home:%@", NSHomeDirectory());
-    
+    [[ChannelManager shareInstance] requestChannelFromServer];
     return YES;
 }
 

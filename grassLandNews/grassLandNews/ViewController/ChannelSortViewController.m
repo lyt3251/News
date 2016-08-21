@@ -7,6 +7,8 @@
 //
 
 #import "ChannelSortViewController.h"
+#import "ChannelManager.h"
+#import "NewsListViewController.h"
 
 #define KCellHight 45.0f
 #define KCellTagBase 0x1000
@@ -36,17 +38,24 @@
 -(void)initTitles
 {
     self.leftTitles = [NSMutableArray array];
-    for(NSInteger i = 0; i < 10; i++)
-    {
-        [self.leftTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
-    }
+//    for(NSInteger i = 0; i < 10; i++)
+//    {
+//        [self.leftTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
+//    }
+    [self.leftTitles addObjectsFromArray:[[ChannelManager shareInstance] getChannels]];
+    
     
     self.rightTitles = [NSMutableArray array];
-    for(NSInteger i = 0; i < 5; i++)
-    {
-        [self.rightTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
-    }
+//    for(NSInteger i = 0; i < 5; i++)
+//    {
+//        [self.rightTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
+//    }
     
+    if(self.leftTitles.count > 0)
+    {
+        NSDictionary *dic = self.leftTitles[0];
+        [self.rightTitles addObjectsFromArray:[[ChannelManager shareInstance] getSubChannelsByChildList:dic[@"arrChildId"]]];
+    }
 }
 
 
@@ -173,12 +182,12 @@
     if(tableView == self.rightTableView)
     {
         titleLabel.frame = CGRectMake(20, 7.5, kScreenWidth-15-20-20, 30);
-        titleLabel.text = self.rightTitles[indexPath.row];
+        titleLabel.text = self.rightTitles[indexPath.row][@"NodeName"];
         cell.backgroundColor = RGBCOLOR(0xf6, 0xf6, 0xf6);
     }
     else if(tableView == self.leftTableView)
     {
-        titleLabel.text = self.leftTitles[indexPath.row];
+        titleLabel.text = self.leftTitles[indexPath.row][@"NodeName"];
         cell.backgroundColor = kColorWhite;
         titleLabel.frame = CGRectMake(15, 7.5, kScreenWidth-15-20-15, 30);
     }
@@ -193,16 +202,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(tableView == self.leftTableView)
     {
-        self.rightTitles = [NSMutableArray array];
-        for(NSInteger i = 0; i < indexPath.row + 1; i++)
-        {
-            [self.rightTitles addObject:[NSString stringWithFormat:@"测试刷新%@", @(i)]];
-        }
+        NSDictionary *dic = self.leftTitles[indexPath.row];
+        [self.rightTitles removeAllObjects];
+        [self.rightTitles addObjectsFromArray:[[ChannelManager shareInstance] getSubChannelsByChildList:dic[@"arrChildId"]]];
         [self.rightTableView reloadData];
     }
     else
     {
-    
+         NSDictionary *dic = self.rightTitles[indexPath.row];
+        NewsListViewController *newsListVC = [[NewsListViewController alloc] init];
+        newsListVC.listType = NewsListType_SubChannel;
+        newsListVC.channelDic = dic;
+        [self.navigationController pushViewController:newsListVC animated:YES];
     }
 }
 

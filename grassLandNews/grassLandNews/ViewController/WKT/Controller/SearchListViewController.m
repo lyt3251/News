@@ -9,11 +9,15 @@
 #import "SearchListViewController.h"
 #import "NewsOnlyTextTableViewCell.h"
 #import "SearchTxtTableViewCell.h"
+#import "NewsManager.h"
+#import "NewsModel.h"
 
 @interface SearchListViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITextField *inputText;
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, assign)BOOL isSearching;
+@property(nonatomic, strong)NSMutableArray *newsList;
+@property(nonatomic, strong)NSMutableArray *recommandList;
 @end
 
 @implementation SearchListViewController
@@ -23,7 +27,10 @@
     // Do any additional setup after loading the view.
     self.isSearching = NO;
     [self createCustomNavBar];
+    self.newsList = [NSMutableArray arrayWithCapacity:1];
+    self.recommandList = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
+    [self searchRecommandList];
     
 }
 
@@ -95,7 +102,12 @@
 #pragma mark-- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    if(self.isSearching)
+    {
+        return self.newsList.count;
+    }
+    
+    return self.recommandList.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -113,8 +125,10 @@
         {
             newsOnlyTextCell = [[NewsOnlyTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        [newsOnlyTextCell.titleLabel setTextByStr:@"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题标题测试标题测试标题标题测试标题测试标题标题测试标题测试标题" WithSpace:7.0f];
-        newsOnlyTextCell.subTitleLabel.text = @"标签标签标签标签";
+        NewsModel *newsModel = self.newsList[indexPath.row];
+        
+        [newsOnlyTextCell.titleLabel setTextByStr:newsModel.title WithSpace:7.0f];
+        newsOnlyTextCell.subTitleLabel.text = newsModel.nodeName;
         cell = newsOnlyTextCell;
     }
     else
@@ -123,7 +137,6 @@
         {
             static NSString *identifier = @"UITableViewCell";
             cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-//            const NSInteger cellTagBase = 0x1000;
             if(!cell)
             {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
@@ -178,7 +191,7 @@
             {
                 searchTxtCell = [[SearchTxtTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
             }
-            searchTxtCell.titleLabel.text = @"测试测试测试测试测试测试";
+            searchTxtCell.titleLabel.text = self.recommandList[indexPath.row];
             cell = searchTxtCell;
         }
     }
@@ -207,17 +220,147 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(self.isSearching)
+    {
+    
+    }
+    else
+    {
+        self.inputText.text = self.recommandList[indexPath.row];
+    }
+    
 }
 
 
 #pragma mark-- UITextFieldDelegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.inputText resignFirstResponder];
     self.isSearching = YES;
-    [self.tableView reloadData];
+    [self searchNewsByKeyword];
+    
     return YES;
     
 }
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    self.isSearching = NO;
+    [self.tableView reloadData];
+    
+    return YES;
+}
+
+
+-(void)searchRecommandList
+{
+//    NSString *searchKey = self.inputText.text;
+//    if(searchKey.length <= 0)
+//    {
+//        [self showFailedHudWithTitle:@"请输入搜索关键字"];
+//        return;
+//    }
+
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [TXProgressHUD showHUDAddedTo:self.view animated:YES];
+    [newsManager requestNewsListBySearchWords:nil onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        [TXProgressHUD hideHUDForView:self.view animated:YES];
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(error || status.integerValue <= 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:dic[@"msg"]];
+            }
+            
+        }
+        else
+        {
+            [self updateByDicList:dic[@"data"]];
+            [self.tableView reloadData];
+        }
+    }];
+    
+}
+
+-(void)updateByDicList:(NSArray *)array
+{
+    
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:1];
+    for(NSDictionary *newsDic in array)
+    {
+        [mutableArray addObject:newsDic[@"Text"]];
+    }
+    
+    [self.recommandList removeAllObjects];
+    [self.recommandList addObjectsFromArray:mutableArray];
+}
+
+
+-(void)searchNewsByKeyword
+{
+        NSString *searchKey = self.inputText.text;
+        if(searchKey.length <= 0)
+        {
+            [self showFailedHudWithTitle:@"请输入搜索关键字"];
+            return;
+        }
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [TXProgressHUD showHUDAddedTo:self.view animated:YES];
+    [newsManager requestNewsListByPage:1 nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        [TXProgressHUD hideHUDForView:self.view animated:YES];
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(error || status.integerValue <= 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:dic[@"msg"]];
+            }
+            
+        }
+        else
+        {
+            [self updateNewsByDicList:dic[@"data"]];
+            [self.inputText resignFirstResponder];
+            [self.tableView reloadData];
+        }
+    }];
+    
+}
+
+-(void)updateNewsByDicList:(NSArray *)array
+{
+    NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:1];
+    for(NSDictionary *newsDic in array)
+    {
+            NSError *error;
+            NewsModel *news = [MTLJSONAdapter modelOfClass:NewsModel.class fromJSONDictionary:newsDic error:&error];
+            if(news)
+            {
+                [mutableArray addObject:news];
+            }
+    }
+    
+    [self.newsList removeAllObjects];
+    [self.newsList addObjectsFromArray:mutableArray];
+}
+
+
+
+
+
 
 @end

@@ -244,6 +244,9 @@ userInfo:@{ @"FILE" : @(__FILE__),                              \
 
 
 
+
+#define KSaveStr(value) (value.length > 0?value:@"")
+
 #define TX_TIMETOINT64(time) ([(time) timeIntervalSince1970]*1000)
 
 #endif /* Comment_h */

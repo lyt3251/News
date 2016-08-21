@@ -27,4 +27,8 @@
  */
 -(void)updateChannels:(NSArray *)array;
 
+-(void)requestChannelFromServer;
+
+-(NSArray *)getSubChannelsByChildList:(NSString *)childIds;
+
 @end

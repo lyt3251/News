@@ -53,7 +53,7 @@
     NSArray *array = [[ChannelManager shareInstance] getChannels];
     NSInteger i = 0;
     for(NSDictionary *dict in array){
-        NSString *channelID = [dict objectForKey:@"channelId"];
+        NSString *channelID = [dict objectForKey:@"NodeID"];
         if ([aChannelID isEqualToString:channelID]) {
             return i;
         }
@@ -186,7 +186,7 @@
 //        for (int i=0; i<weself.iChannleArr.count; i++) {
 //            WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];
 //            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-//            NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+//            NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
 //            [w loadData:channelId];
 //            [weself.iViewControllersArray addObject:w];
 //        }
@@ -205,7 +205,7 @@
     for (int i=0; i<weself.iChannleArr.count; i++) {
         NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
 //        NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-//        NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+//        NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
 //        [w loadData:channelId];
         [weself.iViewControllersArray addObject:w];
     }
@@ -248,20 +248,20 @@
 //        for (int i=0; i<arrayOld.count; i++) {
 //            
 //            NSDictionary *dictOld = [arrayOld objectAtIndex:i];
-//            NSInteger oldId = [[dictOld objectForKey:@"channelId"] integerValue];
+//            NSInteger oldId = [[dictOld objectForKey:@"NodeId"] integerValue];
 //            NSString *oldName = [dictOld objectForKey:@"channelName"];
 //            for (int j=0; j<aNewArr.count; j++) {
 //                TXPBTag *modelNew = [aNewArr objectAtIndex:j];
 //                if (oldId==modelNew.id) {
 //                    if ([oldName isEqualToString:modelNew.name]) {
 //                        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//                        [dict setObject:[NSString stringWithFormat:@"%ld",(long)oldId] forKey:@"channelId"];
+//                        [dict setObject:[NSString stringWithFormat:@"%ld",(long)oldId] forKey:@"NodeId"];
 //                        [dict setObject:oldName forKey:@"channelName"];
 //                        [arrayNew addObject:dict];
 //                        break;
 //                    }else{
 //                        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//                        [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"channelId"];
+//                        [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"NodeId"];
 //                        [dict setObject:modelNew.name forKey:@"channelName"];
 //                        [arrayNew addObject:dict];
 //                        break;
@@ -277,7 +277,7 @@
 //                int k = 0;
 //                for (int j=0; j<arrayOld.count; j++) {
 //                    NSDictionary *modelOld = [arrayOld objectAtIndex:j];
-//                    NSInteger modelOldId = [[modelOld objectForKey:@"channelId"] integerValue];
+//                    NSInteger modelOldId = [[modelOld objectForKey:@"NodeId"] integerValue];
 //                    if (modelNew.id==modelOldId) {
 //                        k = 1;
 //                        break;
@@ -285,7 +285,7 @@
 //                }
 //                if (k==0) {
 //                    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//                    [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"channelId"];
+//                    [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"NodeId"];
 //                    [dict setObject:modelNew.name forKey:@"channelName"];
 //                    [arrayNew addObject:dict];
 //                }
@@ -303,7 +303,7 @@
 //        for (int i=0; i<aNewArr.count; i++) {
 //            TXPBTag *modelNew = [aNewArr objectAtIndex:i];
 //            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//            [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"channelId"];
+//            [dict setObject:[NSString stringWithFormat:@"%lld",modelNew.id] forKey:@"NodeId"];
 //            [dict setObject:modelNew.name forKey:@"channelName"];
 //            [arrayNew addObject:dict];
 //        }
@@ -366,7 +366,7 @@
     UIFont *font = [UIFont systemFontOfSize:15.0];
     [label setFont:font];
     NSDictionary *dict = [self.iChannleArr objectAtIndex:index];
-    label.text = [dict objectForKey:@"channelName"];
+    label.text = [dict objectForKey:@"NodeName"];
     label.textAlignment = NSTextAlignmentCenter;
     label.textColor = kColorWhite;//未点击颜色;
     [label sizeToFit];
@@ -406,7 +406,7 @@
     UIImage *image = [self getImage];
     WKTSortViewController *s = [[WKTSortViewController alloc] init];
     s.bgContentImage = image;
-    s.iSelectId =  [[channelDict objectForKey:@"channelId"] integerValue];
+    s.iSelectId =  [[channelDict objectForKey:@"NodeID"] integerValue];
     s.delegate = ^(NSInteger selectIndex,NSArray *array){
         [weself.iChannleArr removeAllObjects];
         weself.iChannleArr = [[NSMutableArray alloc] initWithArray:array];
@@ -414,7 +414,7 @@
         for (int i=0; i<weself.iChannleArr.count; i++) {
             NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
 //            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-//            NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+//            NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
 //            [w loadData:channelId];
             [weself.iViewControllersArray addObject:w];
         }
