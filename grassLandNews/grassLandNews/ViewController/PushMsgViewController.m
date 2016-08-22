@@ -7,6 +7,7 @@
 //
 
 #import "PushMsgViewController.h"
+#import "NewsManager.h"
 
 #define KCellHight 72.0f
 #define KCellHeaderHight 5.0f
@@ -14,7 +15,10 @@
 
 @interface PushMsgViewController()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
-@property(nonatomic, strong)NSArray *list;
+@property(nonatomic, strong)NSMutableArray *list;
+@property(nonatomic, assign)NSInteger currentPage;
+@property(nonatomic, assign)NSInteger totalPage;
+
 @end
 
 @implementation PushMsgViewController
@@ -25,8 +29,10 @@
     // Do any additional setup after loading the view.
     self.customNavigationView.backgroundColor = KColorAppMain;
     self.titleStr = @"消息推送";
+    self.list = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
-    
+    [self requestList];
+    [self setupRefresh];
     
 }
 
@@ -62,7 +68,7 @@
 #pragma mark-- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.list.count;
 }
 
 
@@ -126,9 +132,11 @@
     UILabel *timeLabel = [cell.contentView viewWithTag:KCellTagBase + 2];
     UILabel *titleLabel = [cell.contentView viewWithTag:KCellTagBase + 3];
     
+    NSDictionary *systemMsg = self.list[indexPath.row];
+    
     fromUserLabel.text = @"系统管理员";
-    timeLabel.text = @"2017-08-08";
-    titleLabel.text = @"测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试";
+    timeLabel.text = systemMsg[@"pushTime"];
+    titleLabel.text = systemMsg[@"title"];
     
     
     return cell;
@@ -162,6 +170,90 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self requestList];
+    }];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self requestNextPage];
+    }];
+    
+    MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.tableView.footer;
+    [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+}
+
+-(void)requestList
+{
+    self.currentPage = 1;
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [newsManager requestPushMsgsByPage:self.currentPage onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSNumber *status = responseObject[@"status"];
+        if(error || status.integerValue == 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:responseObject[@"msg"]];
+            }
+        }
+        else
+        {
+            self.currentPage++;
+            //                self.totalPage = responseObject[@""];
+            [self.list removeAllObjects];
+            [self.list addObjectsFromArray:responseObject[@"data"]];
+            [self.tableView reloadData];
+        }
+        [self.tableView.header endRefreshing];
+    }];
+    
+}
+
+-(void)requestNextPage
+{
+    
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [newsManager requestPushMsgsByPage:self.currentPage onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSNumber *status = responseObject[@"status"];
+        if(error || status.integerValue == 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:responseObject[@"msg"]];
+            }
+        }
+        else
+        {
+            self.currentPage++;
+            //                self.totalPage = responseObject[@""];
+            [self.list removeAllObjects];
+            [self.list addObjectsFromArray:responseObject[@"data"]];
+            [self.tableView reloadData];
+        }
+        [self.tableView.footer endRefreshing];
+    }];
+
 }
 
 

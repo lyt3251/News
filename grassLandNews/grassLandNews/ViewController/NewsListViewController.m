@@ -17,6 +17,8 @@
 @interface NewsListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)NSMutableArray *list;
+@property(nonatomic, assign)NSInteger currentPage;
+@property(nonatomic, assign)NSInteger totalPage;
 @end
 
 @implementation NewsListViewController
@@ -39,7 +41,7 @@
     self.list = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
     [self requestList];
-    
+    [self setupRefresh];
 }
 
 -(void)setupViews
@@ -159,6 +161,7 @@
 
 -(void)requestList
 {
+    self.currentPage = 1;
     if(self.listType == NewsListType_Favorites)
     {
         NSArray *array = [[FavoritesManager shareInstance] getFavoritesList];
@@ -169,7 +172,7 @@
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
         @weakify(self);
-        [newsManager requestNewsListByPage:1 nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
             @strongify(self);
             NSNumber *status = responseObject[@"status"];
             if(error || status.integerValue == 0)
@@ -185,6 +188,72 @@
             }
             else
             {
+                self.currentPage++;
+//                self.totalPage = responseObject[@""];
+                [self.list removeAllObjects];
+                [self.list addObjectsFromArray:responseObject[@"data"]];
+                [self.tableView reloadData];
+            }
+            [self.tableView.header endRefreshing];
+        }];
+        
+    }
+}
+
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self requestList];
+    }];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self requestNextPage];
+    }];
+    
+    MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.tableView.footer;
+    [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+}
+
+
+-(void)requestNextPage
+{
+    if(self.listType == NewsListType_Favorites)
+    {
+        [self.tableView.footer endRefreshing];
+    }
+    else if(self.listType == NewsListType_SubChannel)
+    {
+//        if(self.currentPage >= self.totalPage)
+//        {
+//            return;
+//        }
+        NewsManager *newsManager = [[NewsManager alloc] init];
+        NSNumber *noteId = self.channelDic[@"NodeID"];
+        @weakify(self);
+        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+            @strongify(self);
+            [self.tableView.footer endRefreshing];
+            NSNumber *status = responseObject[@"status"];
+            if(error || status.integerValue == 0)
+            {
+                if(error)
+                {
+                    [self showFailedHudWithError:error];
+                }
+                else
+                {
+                    [self showFailedHudWithTitle:responseObject[@"msg"]];
+                }
+            }
+            else
+            {
+                self.currentPage++;
                 [self.list addObjectsFromArray:responseObject[@"data"]];
                 [self.tableView reloadData];
             }
@@ -192,6 +261,10 @@
         
     }
 }
+
+
+
+
 
 
 

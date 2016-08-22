@@ -199,6 +199,22 @@
             NSString *selectedFont = list[index];
             [[NSUserDefaults standardUserDefaults] setObject:selectedFont forKey:TX_SETTING_FONT];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            NSString *changeValue = @"";
+            if(index == 0)
+            {
+                changeValue = @"120";
+            }
+            else if(index == 1)
+            {
+                changeValue = @"100";
+            }
+            else if(index == 2)
+            {
+                changeValue = @"80";
+            }
+            
+            NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@%%'", changeValue];
+            [self.webView stringByEvaluatingJavaScriptFromString:str];
         } completion:^{
             
         }];

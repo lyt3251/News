@@ -23,12 +23,15 @@
     UIScrollView *_scrollView;
     UIView *_contentView;//滚动条内的view;
 }
+@property(nonatomic, strong)UIScrollView *scrollView;
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)KDCycleBannerView *topView;
 @property (nonatomic,strong) NSArray *bannerArr;
 @property(nonatomic, strong)UIView *rollViewBackGround;
 @property(nonatomic, strong)MutilTextLabel *rollLabel;
 @property(nonatomic, strong)NSMutableArray *newsList;
+@property(nonatomic, assign)NSInteger currentPage;
+@property(nonatomic, assign)NSInteger totalPage;
 @end
 
 @implementation NewsSubListViewController
@@ -39,9 +42,19 @@
     self.newsList = [NSMutableArray arrayWithCapacity:1];
     [self initBanner];
     [self setupViews];
-    [self requestCycleList];
-    [self requestRollNewsList];
+    
+    NSNumber *cycleNumber = self.channelInfo[@"ImgNum"];
+    if(cycleNumber.integerValue > 0)
+    {
+        [self requestCycleList];
+    }
+    NSNumber *rollNumber = self.channelInfo[@"rollNum"];
+    if(rollNumber.intValue > 0)
+    {
+        [self requestRollNewsList];
+    }
     [self requestNewsList];
+    [self setupRefresh];
 }
 
 
@@ -65,8 +78,17 @@
         make.width.equalTo(_scrollView);
     }];
     
-    [self initTopCycleView];
-    [self initRollView];
+    NSNumber *cycleNumber = self.channelInfo[@"ImgNum"];
+    if(cycleNumber.integerValue > 0)
+    {
+        [self initTopCycleView];
+    }
+    NSNumber *rollNumber = self.channelInfo[@"rollNum"];
+    
+    if(rollNumber.intValue > 0)
+    {
+        [self initRollView];
+    }
     [self initTableView];
     
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -146,7 +168,18 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
         make.width.mas_equalTo(kScreenWidth);
-        make.top.mas_equalTo(_rollViewBackGround.mas_bottom).with.offset(5);
+        if(_rollViewBackGround)
+        {
+            make.top.mas_equalTo(_rollViewBackGround.mas_bottom).with.offset(5);
+        }
+        else if(_topView)
+        {
+            make.top.mas_equalTo(_topView.mas_bottom).with.offset(5);
+        }
+        else
+        {
+            make.top.mas_equalTo(0);
+        }
         make.height.mas_equalTo([self getTablewHight]);
     }];
     
@@ -400,10 +433,11 @@
 
 -(void)requestNewsList
 {
+    self.currentPage = 1;
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    [newsM requestNewsListByPage:1 nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
@@ -414,7 +448,54 @@
                 make.height.mas_equalTo([self getTablewHight]);
             }];
             [self.tableView reloadData];
+            self.currentPage ++;
         }
+        [self.scrollView.header endRefreshing];
+        
+    }];
+}
+
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    @weakify(self);
+    self.scrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self requestNewsList];
+    }];
+    
+    self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self requestNextPage];
+    }];
+    
+    MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.scrollView.footer;
+    [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+}
+
+
+-(void)requestNextPage
+{
+    NewsManager *newsM = [[NewsManager alloc] init];
+    @weakify(self);
+    NSNumber *nodeId = self.channelInfo[@"NodeID"];
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSNumber *status = responseObject[@"status"];
+        if(status.integerValue > 0)
+        {
+            [self.newsList addObjectsFromArray:responseObject[@"data"]];
+            [UIView animateWithDuration:0.3f animations:^{
+                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.height.mas_equalTo([self getTablewHight]);
+                }];
+                [self.tableView reloadData];
+            }];
+            self.currentPage ++;
+        }
+        [self.scrollView.footer endRefreshing];
     }];
 }
 

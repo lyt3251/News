@@ -25,4 +25,6 @@
 
 -(id)requestNewsListBySearchWords:(NSString *)searchWord onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
+
+-(id)requestPushMsgsByPage:(NSInteger)page onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 @end

@@ -76,6 +76,11 @@
 }
 
 
+-(id)requestPushMsgsByPage:(NSInteger)page onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+{
+    return [self requestByUrl:REQUEST_PushMsg_Url requestParameters:@{@"pi":@(page), @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
+}
+
 
 
 

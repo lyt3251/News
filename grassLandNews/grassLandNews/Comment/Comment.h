@@ -185,6 +185,7 @@ static NSString *REQUEST_NewsList_Url = @"/api/GetArticle"; //新闻列表
 static NSString *REQUEST_News_Url = @"/api/Info"; //新闻
 static NSString *REQUEST_Searchwords_Url = @"/api/Searchwords"; //搜索关键词
 static NSString *REQUEST_Update_Url = @"/api/VersionUpdate"; //升级
+static NSString *REQUEST_PushMsg_Url = @"/api/GetMsgList";  //推送消息
 
 
 //错误信息
