@@ -12,6 +12,7 @@
 #import "NewsManager.h"
 #import "NewsModel.h"
 #import "NewsDetailViewController.h"
+#import "NewsWithPhotoTableViewCell.h"
 
 @interface SearchListViewController ()<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITextField *inputText;
@@ -19,6 +20,10 @@
 @property(nonatomic, assign)BOOL isSearching;
 @property(nonatomic, strong)NSMutableArray *newsList;
 @property(nonatomic, strong)NSMutableArray *recommandList;
+@property(nonatomic, assign)NSInteger currentPage;
+@property(nonatomic, assign)NSInteger totalPage;
+@property(nonatomic, assign)NSInteger recommandCurrentPage;
+@property(nonatomic, assign)NSInteger recommandTotalPage;
 @end
 
 @implementation SearchListViewController
@@ -32,7 +37,7 @@
     self.recommandList = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
     [self searchRecommandList];
-    
+    [self setupRefresh];
 }
 
 -(void)createCustomNavBar
@@ -121,17 +126,41 @@
     
     if(self.isSearching)
     {
-        static NSString *identifier = @"NewsOnlyTextTableViewCell";
-        NewsOnlyTextTableViewCell *newsOnlyTextCell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if(!newsOnlyTextCell)
-        {
-            newsOnlyTextCell = [[NewsOnlyTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }
-        NewsModel *newsModel = self.newsList[indexPath.row];
+        NSDictionary *newsDic = self.newsList[indexPath.row];
+        NSString *picUrl = newsDic[@"DefaultPicUrl"];
         
-        [newsOnlyTextCell.titleLabel setTextByStr:newsModel.title WithSpace:7.0f];
-        newsOnlyTextCell.subTitleLabel.text = newsModel.nodeName;
-        cell = newsOnlyTextCell;
+        if(picUrl.length > 0)
+        {
+            static NSString *identifier = @"NewsWithPhotoTableViewCell";
+            NewsWithPhotoTableViewCell *newsWithPhotoCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if(!newsWithPhotoCell)
+            {
+                newsWithPhotoCell = [[NewsWithPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            
+            [newsWithPhotoCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
+            newsWithPhotoCell.subTitleLabel.text = newsDic[@"NodeName"];
+            
+            [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
+            }];
+            cell = newsWithPhotoCell;
+        }
+        else
+        {
+            static NSString *identifier = @"NewsOnlyTextTableViewCell";
+            NewsOnlyTextTableViewCell *newsOnlyTextCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if(!newsOnlyTextCell)
+            {
+                newsOnlyTextCell = [[NewsOnlyTextTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            
+            
+            [newsOnlyTextCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
+            newsOnlyTextCell.subTitleLabel.text = newsDic[@"NodeName"];
+            
+            cell = newsOnlyTextCell;
+        }
     }
     else
     {
@@ -265,13 +294,15 @@
 //        [self showFailedHudWithTitle:@"请输入搜索关键字"];
 //        return;
 //    }
+    self.recommandCurrentPage = 1;
 
     NewsManager *newsManager = [[NewsManager alloc] init];
     @weakify(self);
     [TXProgressHUD showHUDAddedTo:self.view animated:YES];
-    [newsManager requestNewsListBySearchWords:nil onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsManager requestNewsListBySearchWords:nil page:self.recommandCurrentPage onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         [TXProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.header endRefreshing];
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSNumber *status = dic[@"status"];
         if(error || status.integerValue <= 0)
@@ -289,6 +320,7 @@
         else
         {
             [self updateByDicList:dic[@"data"]];
+            self.recommandCurrentPage ++;
             [self.tableView reloadData];
         }
     }];
@@ -317,12 +349,14 @@
             [self showFailedHudWithTitle:@"请输入搜索关键字"];
             return;
         }
+    self.currentPage = 1;
     NewsManager *newsManager = [[NewsManager alloc] init];
     @weakify(self);
     [TXProgressHUD showHUDAddedTo:self.view animated:YES];
-    [newsManager requestNewsListByPage:1 nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         [TXProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.header endRefreshing];
         NSDictionary *dic = (NSDictionary *)responseObject;
         NSNumber *status = dic[@"status"];
         if(error || status.integerValue <= 0)
@@ -339,7 +373,9 @@
         }
         else
         {
-            [self updateNewsByDicList:dic[@"data"]];
+            [self.newsList removeAllObjects];
+            [self.newsList addObjectsFromArray:dic[@"data"]];
+            self.currentPage ++;
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
         }
@@ -347,23 +383,128 @@
     
 }
 
--(void)updateNewsByDicList:(NSArray *)array
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
 {
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        if(self.isSearching)
+        {
+            [self searchNewsByKeyword];
+        }
+        else
+        {
+            [self searchRecommandList];
+        }
+    }];
+    
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        if(self.isSearching)
+        {
+            [self searchNextNewsByKeyword];
+        }
+        else
+        {
+            [self searchNextRecommandList];
+        }
+    }];
+    
+    MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.tableView.footer;
+    [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+}
+
+
+-(void)searchNextRecommandList
+{
+
+    
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [TXProgressHUD showHUDAddedTo:self.view animated:YES];
+    [newsManager requestNewsListBySearchWords:nil page:self.recommandCurrentPage onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        [TXProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.footer endRefreshing];
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(error || status.integerValue <= 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:dic[@"msg"]];
+            }
+            
+        }
+        else
+        {
+            [self updateByNextDicList:dic[@"data"]];
+            self.recommandCurrentPage++;
+            [self.tableView reloadData];
+        }
+    }];
+    
+}
+
+-(void)updateByNextDicList:(NSArray *)array
+{
+    
     NSMutableArray *mutableArray = [NSMutableArray arrayWithCapacity:1];
     for(NSDictionary *newsDic in array)
     {
-            NSError *error;
-            NewsModel *news = [MTLJSONAdapter modelOfClass:NewsModel.class fromJSONDictionary:newsDic error:&error];
-            if(news)
-            {
-                [mutableArray addObject:news];
-            }
+        [mutableArray addObject:newsDic[@"Text"]];
     }
     
-    [self.newsList removeAllObjects];
-    [self.newsList addObjectsFromArray:mutableArray];
+    [self.recommandList addObjectsFromArray:mutableArray];
 }
 
+
+-(void)searchNextNewsByKeyword
+{
+    NSString *searchKey = self.inputText.text;
+    if(searchKey.length <= 0)
+    {
+        [self showFailedHudWithTitle:@"请输入搜索关键字"];
+        return;
+    }
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [TXProgressHUD showHUDAddedTo:self.view animated:YES];
+    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        [TXProgressHUD hideHUDForView:self.view animated:YES];
+        [self.tableView.footer endRefreshing];
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(error || status.integerValue <= 0)
+        {
+            if(error)
+            {
+                [self showFailedHudWithError:error];
+            }
+            else
+            {
+                [self showFailedHudWithTitle:dic[@"msg"]];
+            }
+            
+        }
+        else
+        {
+            [self.newsList addObjectsFromArray:dic[@"data"]];
+            self.currentPage++;
+            [self.inputText resignFirstResponder];
+            [self.tableView reloadData];
+        }
+    }];
+    
+}
 
 
 

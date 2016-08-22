@@ -70,9 +70,9 @@
     return [self requestByUrl:[NSString stringWithFormat:@"%@/%@", REQUEST_News_Url, @(newsId)] requestParameters:nil progress:nil onCompleted:onCompleted];
 }
 
--(id)requestNewsListBySearchWords:(NSString *)searchWord onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+-(id)requestNewsListBySearchWords:(NSString *)searchWord page:(NSInteger)page onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-    return [self requestByUrl:REQUEST_Searchwords_Url requestParameters:@{@"words":searchWord.length > 0?searchWord:@"", @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
+    return [self requestByUrl:REQUEST_Searchwords_Url requestParameters:@{@"pi":@(page), @"words":searchWord.length > 0?searchWord:@"", @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
 }
 
 

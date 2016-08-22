@@ -40,6 +40,9 @@
     // Do any additional setup after loading the view.
     [self createCustomNavBar];
     self.customNavigationView.backgroundColor = KColorAppMain;
+//    _titleLb.frame = CGRectMake(0, 0,_shouldLimitTitleLabelWidth ? _customNavigationView.width_ - _btnLeft.width_ - _btnRight.width_ : _customNavigationView.width_, kNavigationHeight);
+//    _titleLb.center = CGPointMake(_customNavigationView.center.x, _customNavigationView.height_ - kNavigationHeight / 2);
+    self.titleLb.frame = CGRectMake(50, self.btnLeft.minY, kScreenWidth - (50*2), kNavigationHeight);
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
     
     [self setupViews];
@@ -199,22 +202,7 @@
             NSString *selectedFont = list[index];
             [[NSUserDefaults standardUserDefaults] setObject:selectedFont forKey:TX_SETTING_FONT];
             [[NSUserDefaults standardUserDefaults] synchronize];
-            NSString *changeValue = @"";
-            if(index == 0)
-            {
-                changeValue = @"120";
-            }
-            else if(index == 1)
-            {
-                changeValue = @"100";
-            }
-            else if(index == 2)
-            {
-                changeValue = @"80";
-            }
-            
-            NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@%%'", changeValue];
-            [self.webView stringByEvaluatingJavaScriptFromString:str];
+            [self changeFont];
         } completion:^{
             
         }];
@@ -267,7 +255,36 @@
 {
     NSString *documentTitleString = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     self.titleStr = documentTitleString;
+    [self changeFont];
 }
 
+
+
+-(void)changeFont
+{
+    NSArray *list = @[@"大", @"中", @"小"];
+    NSString *selectFont = [[NSUserDefaults standardUserDefaults] valueForKey:TX_SETTING_FONT];
+    if(selectFont.length <= 0)
+    {
+        selectFont = @"中";
+    }
+    NSInteger  index = [list indexOfObject:selectFont];
+    NSString *changeValue = @"";
+    if(index == 0)
+    {
+        changeValue = @"120";
+    }
+    else if(index == 1)
+    {
+        changeValue = @"100";
+    }
+    else if(index == 2)
+    {
+        changeValue = @"80";
+    }
+    
+    NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@%%'", changeValue];
+    [self.webView stringByEvaluatingJavaScriptFromString:str];
+}
 
 @end
