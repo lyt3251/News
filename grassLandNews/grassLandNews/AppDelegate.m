@@ -27,7 +27,7 @@
 
 
 @interface AppDelegate ()
-@property (nonatomic,strong) RDVTabBarController *viewController;
+
 @end
 
 @implementation AppDelegate
@@ -64,11 +64,13 @@
     
     
     LeftViewController *leftMenuViewController = [[LeftViewController alloc] init];
+    CustomNavigationController *leftNavigationController = [[CustomNavigationController alloc] initWithRootViewController:leftMenuViewController];
+    leftNavigationController.navigationBarHidden = YES;
     
     // Create side menu controller
     //
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
-                                                                    leftMenuViewController:leftMenuViewController
+                                                                    leftMenuViewController:leftNavigationController
                                                                    rightMenuViewController:nil];
     
     //

@@ -10,6 +10,9 @@
 #import "NewsListViewController.h"
 #import "SettingViewController.h"
 #import "AboutViewController.h"
+#import "AppDelegate.h"
+#import "RDVTabBarController.h"
+#import <UIViewController+RESideMenu.h>
 
 typedef enum : NSUInteger {
     LeftVCListType_MyFavorites = 0, //收藏
@@ -217,13 +220,16 @@ typedef enum : NSUInteger {
     
     NSDictionary *dic = self.leftList[indexPath.row];
     NSNumber *type =dic[@"type"];
+    AppDelegate *appdelegate = [UIApplication sharedApplication].delegate;
+    
     switch (type.integerValue) {
         case LeftVCListType_MyFavorites:
         {
             NewsListViewController *newListVC = [[NewsListViewController alloc] init];
             newListVC.ListTitle = @"我的收藏";
-            [self presentViewController:newListVC animated:YES completion:nil];
             
+            [appdelegate.viewController.navigationController pushViewController:newListVC animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
         }
             break;
         case LeftVCListType_Share:
@@ -235,13 +241,17 @@ typedef enum : NSUInteger {
         case LeftVCListType_Setting:
         {
             SettingViewController *settingVC = [[SettingViewController alloc] init];
-            [self presentViewController:settingVC animated:YES completion:nil];
+            [appdelegate.viewController.navigationController pushViewController:settingVC animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            
         }
             break;
         case LeftVCListType_About:
         {
             AboutViewController *aboutVC = [[AboutViewController alloc] init];
-            [self presentViewController:aboutVC animated:YES completion:nil];
+            [appdelegate.viewController.navigationController pushViewController:aboutVC animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            
         }
             break;
         default:

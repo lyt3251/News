@@ -73,7 +73,8 @@ typedef enum : NSUInteger {
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+        [self presentLeftMenuViewController:sender];
     }
 }
 
@@ -187,7 +188,8 @@ typedef enum : NSUInteger {
         case SettingType_FeedBack:
         {
             FeedBackViewController *feedbackVC = [[FeedBackViewController alloc] init];
-            [self presentViewController:feedbackVC animated:YES completion:nil];
+            [self.navigationController pushViewController:feedbackVC animated:YES];
+            
         }
             break;
             

@@ -96,7 +96,8 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+        [self presentLeftMenuViewController:sender];
     }
 }
 

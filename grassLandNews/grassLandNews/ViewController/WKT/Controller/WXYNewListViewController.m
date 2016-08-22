@@ -94,7 +94,7 @@
     if(sender.tag == TopBarButtonLeft)
     {        
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self captureScreenshot];
+//            [self captureScreenshot];
         });
         
         [self presentLeftMenuViewController:sender];

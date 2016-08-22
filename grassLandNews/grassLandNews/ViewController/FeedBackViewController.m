@@ -128,7 +128,7 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }
     else if(sender.tag == TopBarButtonRight)
     {
@@ -157,7 +157,7 @@
             if(status.integerValue > 0)
             {
                 [self showSuccessHudWithTitle:@"反馈成功"];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController popViewControllerAnimated:YES];
             }
             else
             {

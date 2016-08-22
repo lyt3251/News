@@ -66,7 +66,8 @@
     {
         if(self.listType == NewsListType_Favorites)
         {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+            [self presentLeftMenuViewController:sender];
         }
         else
         {
@@ -151,7 +152,8 @@
     NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
     if(self.listType ==  NewsListType_Favorites)
     {
-        [self presentViewController:newsDetailVC animated:YES completion:nil];
+        [self.navigationController pushViewController:newsDetailVC animated:YES];
+
     }
     else
     {
