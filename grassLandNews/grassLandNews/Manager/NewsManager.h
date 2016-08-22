@@ -27,4 +27,6 @@
 
 
 -(id)requestPushMsgsByPage:(NSInteger)page onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+
+-(id)requestHomeNewsList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 @end

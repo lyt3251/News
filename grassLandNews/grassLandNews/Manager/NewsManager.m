@@ -81,7 +81,10 @@
     return [self requestByUrl:REQUEST_PushMsg_Url requestParameters:@{@"pi":@(page), @"pc":@(KPageNumber)} progress:nil onCompleted:onCompleted];
 }
 
-
+-(id)requestHomeNewsList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+{
+    return [self requestByUrl:REQUEST_Home_Url requestParameters:nil progress:nil onCompleted:onCompleted];
+}
 
 
 @end

@@ -30,6 +30,7 @@
 @property(nonatomic, strong)UIView *rollViewBackGround;
 @property(nonatomic, strong)MutilTextLabel *rollLabel;
 @property(nonatomic, strong)NSMutableArray *newsList;
+@property(nonatomic, strong)NSMutableArray *channelList;
 @property(nonatomic, assign)NSInteger currentPage;
 @property(nonatomic, assign)NSInteger totalPage;
 @end
@@ -40,6 +41,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.newsList = [NSMutableArray arrayWithCapacity:1];
+    self.channelList = [NSMutableArray arrayWithCapacity:1];
     [self initBanner];
     [self setupViews];
     
@@ -53,8 +55,15 @@
     {
         [self requestRollNewsList];
     }
-    [self requestNewsList];
-    [self setupRefresh];
+    if([self isMainPage])
+    {
+        [self requestHome];
+    }
+    else
+    {
+        [self requestNewsList];
+        [self setupRefresh];
+    }
 }
 
 
@@ -189,6 +198,11 @@
 -(CGFloat)getTablewHight
 {
 //    return 2*KSectionHeaderHight + 3*(2*100 + 160);
+    if([self isMainPage])
+    {
+        return KSectionHeaderHight*self.channelList.count + 100.0f * self.newsList.count;
+    }
+    
     return  100.0f * self.newsList.count;
 
 }
@@ -198,6 +212,7 @@
 {
     [self requestCycleList];
     [self requestRollNewsList];
+    if(![self isMainPage])
     [self requestNewsList];
 }
 
@@ -262,11 +277,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if([self isMainPage])
+    {
+        return self.channelList.count;
+    }
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if([self isMainPage])
+    {
+    
+        return [self rowCountBySection:section];
+    }
+    
     return self.newsList.count;
 }
 
@@ -276,7 +301,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
-    NSDictionary *newsInfo = self.newsList[indexPath.row];
+    NSDictionary *newsInfo = nil;
+    if([self isMainPage])
+    {
+        newsInfo = [self newsBySection:indexPath.section row:indexPath.row];
+    }
+    else
+    {
+        newsInfo = self.newsList[indexPath.row];
+    }
+    
     NSString *picUrl = newsInfo[@"DefaultPicUrl"];
     if(picUrl.length > 0)
     {
@@ -342,21 +376,23 @@
 #pragma mark-- UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-//    if(section != 0)
-//    {
-//        return KSectionHeaderHight;
-//    }
-//    
+    if([self isMainPage])
+    {
+        return KSectionHeaderHight;
+    }
+    
     return 0.0f;
 }
 
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if(section == 0)
+    if(![self isMainPage])
     {
         return nil;
     }
+    
+    NSDictionary *nodeInfo = self.channelList[section];
     UIView *headerView = [[UIView alloc] init];
     headerView.frame = CGRectMake(0, 0, kScreenWidth, KSectionHeaderHight);
     UIView *lineView = [[UIView alloc] init];
@@ -367,7 +403,7 @@
     UILabel *sectionTitleLabel = [[UILabel alloc] init];
     sectionTitleLabel.font = kFontNewsSubTitle;
     sectionTitleLabel.textColor = KColorAppMain;
-    sectionTitleLabel.text = @"通知公告";
+    sectionTitleLabel.text = nodeInfo[@"NodeName"];
     [headerView addSubview:sectionTitleLabel];
     [sectionTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(kEdgeInsetsLeft);
@@ -499,6 +535,84 @@
     }];
 }
 
+
+-(void)requestHome
+{
+    NewsManager *newsM = [[NewsManager alloc] init];
+    @weakify(self);
+    [newsM requestHomeNewsList:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSNumber *status = responseObject[@"status"];
+        if(status.integerValue > 0)
+        {
+            [self.newsList removeAllObjects];
+            [self.channelList removeAllObjects];
+            [self.newsList addObjectsFromArray:responseObject[@"data"][@"allArticle"]];
+            [self.channelList addObjectsFromArray:responseObject[@"data"][@"allType"]];
+            [UIView animateWithDuration:0.3f animations:^{
+                [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.height.mas_equalTo([self getTablewHight]);
+                }];
+                [self.tableView reloadData];
+            }];
+        }
+        
+        
+    }];
+
+}
+
+-(BOOL)isMainPage
+{
+    NSNumber *NodeId = self.channelInfo[@"NodeID"];
+    if(NodeId.intValue == -2)
+    {
+        return YES;
+    }
+    return NO;
+}
+
+-( NSInteger)rowCountBySection:(NSInteger)section
+{
+    NSDictionary *channelInfo = self.channelList[section];
+    NSNumber *nodeId = channelInfo[@"NodeID"];
+    __block NSInteger count = 0;
+    [self.newsList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *newsInfo = (NSDictionary *)obj;
+        NSNumber *newsNodeId = newsInfo[@"NodeID"];
+        if(newsNodeId.integerValue == nodeId.integerValue)
+        {
+            count ++;
+        }
+    }];
+    
+    
+    return count;
+}
+
+
+-(NSDictionary *)newsBySection:(NSInteger)section row:(NSInteger)row
+{
+    NSDictionary *channelInfo = self.channelList[section];
+    NSNumber *nodeId = channelInfo[@"NodeID"];
+    __block NSInteger count = 0;
+    __block NSDictionary *selectedNewsInfo = nil;
+    [self.newsList enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSDictionary *newsInfo = (NSDictionary *)obj;
+        NSNumber *newsNodeId = newsInfo[@"NodeID"];
+        if(newsNodeId.integerValue == nodeId.integerValue)
+        {
+            if(count == row)
+            {
+                selectedNewsInfo = newsInfo;
+                *stop = YES;
+            }
+            count ++;
+        }
+    }];
+    
+    return selectedNewsInfo;
+}
 
 
 @end
