@@ -33,7 +33,8 @@ static NSInteger const kShareButtonTag = 100;
     self = [super init];
     if (self) {
         self.type = MMPopupTypeSheet;
-        self.backgroundColor = MMHexColor(0xe5e6e6FF);
+//        self.backgroundColor = MMHexColor(0xe5e6e6FF);
+        self.backgroundColor = [UIColor whiteColor];
         
         self.shareList = [[NSMutableArray alloc] init];
         
@@ -44,9 +45,9 @@ static NSInteger const kShareButtonTag = 100;
         [self addSubview:_btnView];
 
         _cancelButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _cancelButton.backgroundColor = MMHexColor(0xf3f3f3FF);
-        _cancelButton.titleLabel.font = [UIFont systemFontOfSize:18];
-        [_cancelButton setTitleColor:MMHexColor(0x333333FF) forState:UIControlStateNormal];
+        _cancelButton.backgroundColor = [UIColor clearColor];
+        _cancelButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        [_cancelButton setTitleColor:kColorNewsRoll forState:UIControlStateNormal];
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(onCancelButtonTapped) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_cancelButton];
@@ -63,9 +64,19 @@ static NSInteger const kShareButtonTag = 100;
             make.left.mas_equalTo(@0);
             make.right.mas_equalTo(@0);
             make.height.mas_equalTo(@48);
-            make.top.mas_equalTo(_btnView.mas_bottom);
+            make.top.mas_equalTo(_btnView.mas_bottom ).with.offset(kLineHeight);
             make.bottom.mas_equalTo(self);
         }];
+        
+        UIView *lineView = [[UIView alloc] init];
+        lineView.backgroundColor =RGBCOLOR(0xea, 0xea, 0xea);
+        [self addSubview:lineView];
+        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.and.right.mas_equalTo(0);
+            make.bottom.mas_equalTo(_cancelButton.mas_top);
+            make.height.mas_equalTo(kLineHeight);
+        }];
+        
         
         //更新屏幕旋转功能
 //        MMSheetViewConfig *sheetConfig = [MMSheetViewConfig globalConfig];
@@ -113,9 +124,9 @@ static NSInteger const kShareButtonTag = 100;
         //添加视图
         TXShareData *data = _shareList[i];
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = [UIColor whiteColor];
-        btn.layer.cornerRadius = 14.f;
-        btn.layer.masksToBounds = YES;
+//        btn.backgroundColor = [UIColor whiteColor];
+//        btn.layer.cornerRadius = 14.f;
+//        btn.layer.masksToBounds = YES;
         btn.tag = kShareButtonTag + i;
         btn.adjustsImageWhenHighlighted = NO;
         [btn setImage:data.shareImage forState:UIControlStateNormal];
@@ -123,8 +134,8 @@ static NSInteger const kShareButtonTag = 100;
         [_btnView addSubview:btn];
         UILabel *label = [[UILabel alloc] init];
         label.backgroundColor = [UIColor clearColor];
-        label.font = [UIFont systemFontOfSize:11];
-        label.textColor = MMHexColor(0x555555FF);
+        label.font = [UIFont systemFontOfSize:14];
+        label.textColor = kColorNewsRoll;
         label.textAlignment = NSTextAlignmentCenter;
         label.text = data.name;
         [_btnView addSubview:label];
