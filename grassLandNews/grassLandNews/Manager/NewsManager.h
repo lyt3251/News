@@ -13,9 +13,9 @@
 -(id)requestNewsTypesByNodeId:(int32_t)nodeId parentId:(int32_t)parentId depth:(int32_t)depth onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
 
--(id)requestCycleList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+-(id)requestCycleListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
--(id)requestRollList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+-(id)requestRollListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
 
 -(id)requestNewsListByPage:(NSInteger)page nodeId:(int32_t)nodeId keyword:(NSString *)keyword ids:(NSArray *)ids clickdesc:(NSInteger)clickdesc onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;

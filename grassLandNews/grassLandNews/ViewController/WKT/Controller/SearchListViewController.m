@@ -320,6 +320,8 @@
         else
         {
             [self updateByDicList:dic[@"data"]];
+            NSNumber *totalPageNum = dic[@"totalPage"];
+            self.recommandTotalPage = totalPageNum.integerValue;
             self.recommandCurrentPage ++;
             [self.tableView reloadData];
         }
@@ -375,6 +377,8 @@
         {
             [self.newsList removeAllObjects];
             [self.newsList addObjectsFromArray:dic[@"data"]];
+            NSNumber *totalPageNum = dic[@"totalPage"];
+            self.totalPage = totalPageNum.integerValue;
             self.currentPage ++;
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
@@ -448,6 +452,7 @@
             [self updateByNextDicList:dic[@"data"]];
             self.recommandCurrentPage++;
             [self.tableView reloadData];
+            self.tableView.footer.hidden  = self.recommandCurrentPage > self.recommandTotalPage?YES:NO;            
         }
     }];
     
@@ -499,6 +504,7 @@
         {
             [self.newsList addObjectsFromArray:dic[@"data"]];
             self.currentPage++;
+            self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
         }

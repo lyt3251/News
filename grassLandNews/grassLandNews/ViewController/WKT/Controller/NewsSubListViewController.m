@@ -210,8 +210,17 @@
 
 -(void)reloadAllDatas
 {
-    [self requestCycleList];
-    [self requestRollNewsList];
+    NSNumber *cycleNumber = self.channelInfo[@"ImgNum"];
+    if(cycleNumber.integerValue > 0)
+    {
+        [self requestCycleList];
+    }
+    NSNumber *rollNumber = self.channelInfo[@"rollNum"];
+    
+    if(rollNumber.intValue > 0)
+    {
+        [self requestRollNewsList];
+    }
     if(![self isMainPage])
     [self requestNewsList];
 }
@@ -438,7 +447,16 @@
 {
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
-    [newsM requestCycleList:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    NSNumber *nodeIdNumber = nil;
+    if([self isMainPage])
+    {
+        nodeIdNumber = @(0);
+    }
+    else
+    {
+        nodeIdNumber = self.channelInfo[@"NodeID"];
+    }
+    [newsM requestCycleListByNodeId:nodeIdNumber.integerValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.intValue > 0)
@@ -455,7 +473,16 @@
 {
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
-    [newsM requestRollList:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    NSNumber *nodeIdNumber = nil;
+    if([self isMainPage])
+    {
+        nodeIdNumber = @(0);
+    }
+    else
+    {
+        nodeIdNumber = self.channelInfo[@"NodeID"];
+    }
+    [newsM requestRollListByNodeId:nodeIdNumber.integerValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.intValue > 0)

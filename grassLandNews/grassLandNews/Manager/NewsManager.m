@@ -32,15 +32,25 @@
 }
 
 
--(id)requestCycleList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+-(id)requestCycleListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-    return [self requestByUrl:REQUEST_CircleList_Url requestParameters:nil progress:nil onCompleted:onCompleted];
+    NSDictionary *parameter = nil;
+    if(nodeId != 0)
+    {
+        parameter = @{@"nodeId":@(nodeId)};
+    }
+    
+    return [self requestByUrl:REQUEST_CircleList_Url requestParameters:parameter progress:nil onCompleted:onCompleted];
 }
 
--(id)requestRollList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+-(id)requestRollListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-
-    return [self requestByUrl:REQUEST_RollList_Url requestParameters:nil progress:nil onCompleted:onCompleted];
+    NSDictionary *parameter = nil;
+    if(nodeId != 0)
+    {
+        parameter = @{@"nodeId":@(nodeId)};
+    }
+    return [self requestByUrl:REQUEST_RollList_Url requestParameters:parameter progress:nil onCompleted:onCompleted];
 }
 
 

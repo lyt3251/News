@@ -150,7 +150,7 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     textLabel.textColor = kColorWhite;
     textLabel.font = kFontLarge;
     [_bottomView addSubview:textLabel];
-    textLabel.text = @"";
+    textLabel.text = @"  ";
     self.titleLabel = textLabel;
     [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(15);
@@ -200,6 +200,7 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     
     _pageControl.numberOfPages = _datasourceImages.count;
     _pageControl.currentPage = 0;
+    self.titleLabel.text = [_datasource titleAtIndex:0];
     
     if (self.isContinuous) {
         NSMutableArray *cycleDatasource = [_datasourceImages mutableCopy];
@@ -305,6 +306,7 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     if([_datasource respondsToSelector:@selector(titleAtIndex:)])
     {
         self.titleLabel.text = [_datasource titleAtIndex:page];
+        [self.titleLabel layoutIfNeeded];
     }
     
     
