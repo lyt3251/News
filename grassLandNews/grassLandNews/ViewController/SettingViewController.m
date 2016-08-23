@@ -9,6 +9,7 @@
 #import "SettingViewController.h"
 #import "FeedBackViewController.h"
 #import "NewsFileManger.h"
+#import "UIView+AlertView.h"
 
 #define KCellHight 45.0f
 #define KCellHeaderHight 5.0f
@@ -46,7 +47,7 @@ typedef enum : NSUInteger {
 -(void)initList
 {
     
-    self.list = @[@[@{@"title":@"清楚缓存", @"type":@(SettingType_Cache)},
+    self.list = @[@[@{@"title":@"清除缓存", @"type":@(SettingType_Cache)},
                     @{@"title":@"调整字体大小", @"type":@(SettingType_Font)}],
                   @[@{@"title":@"意见反馈", @"type":@(SettingType_FeedBack)},
                     @{@"title":@"给我们评分", @"type":@(SettingType_Comment)}]];
@@ -229,10 +230,26 @@ typedef enum : NSUInteger {
         
         }
             break;
+            
+        case SettingType_Cache:
+        {
+            @weakify(self);
+            [self showNormalSheetWithTitle:@"是否清除缓存?" items:@[@"清除"] clickHandler:^(NSInteger index) {
+                @strongify(self);
+                [[NewsFileManger shareInstance] clearCaches];
+                [self.tableView reloadData];
+                
+            } completion:^{
+            }];
+            
+        }
+            break;
         default:
             break;
     } ;
 }
+
+
 
 
 @end

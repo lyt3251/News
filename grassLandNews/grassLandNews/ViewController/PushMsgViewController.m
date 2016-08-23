@@ -8,6 +8,7 @@
 
 #import "PushMsgViewController.h"
 #import "NewsManager.h"
+#import "UILabel+ContentSize.h"
 
 #define KCellHight 72.0f
 #define KCellHeaderHight 5.0f
@@ -42,7 +43,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.rowHeight = KCellHight;
+//    self.tableView.rowHeight = KCellHight;
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, 0, 0));
@@ -109,40 +110,85 @@
         
         
         UILabel *titleLabel = [[UILabel alloc] init];
-        titleLabel.font = kFontSubTitle;
+        titleLabel.font = kFontTitle;
         titleLabel.textColor = kColorNewsTitle;
         titleLabel.tag = KCellTagBase + 3;
         [cell.contentView addSubview:titleLabel];
 //        titleLabel.frame = CGRectMake(kEdgeInsetsLeft, KCellHight - 24- 15, kScreenWidth - 2*kEdgeInsetsLeft, 24);
         [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.mas_equalTo(fromUserLabel.mas_bottom).with.offset(10);
             make.left.mas_equalTo(fromUserLabel);
-            make.bottom.mas_equalTo(-kEdgeInsetsLeft);
             make.right.mas_equalTo(-kEdgeInsetsLeft);
+        }];
+        
+        UILabel *contentLabel = [[UILabel alloc] init];
+        contentLabel.font = kFontSubTitle;
+        contentLabel.textColor = kColorNewsRoll;
+        contentLabel.tag = KCellTagBase + 4;
+        contentLabel.numberOfLines = 0;
+        [cell.contentView addSubview:contentLabel];
+        [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.mas_equalTo(fromUserLabel);
+            make.top.mas_equalTo(titleLabel.mas_bottom).with.offset(10);
+            make.right.mas_equalTo(-kEdgeInsetsLeft);
+            
         }];
         
         
         UIView *lineView = [[UIView alloc] init];
         lineView.backgroundColor = kColorLine;
-        lineView.tag = KCellTagBase + 4;
+        lineView.tag = KCellTagBase + 5;
         [cell.contentView addSubview:lineView];
-        lineView.frame = CGRectMake(kEdgeInsetsLeft, KCellHight - kLineHeight, kScreenWidth - kEdgeInsetsLeft, kLineHeight);
+        lineView.frame = CGRectMake(0, 0, 0, 0);
+//        [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.mas_equalTo(kEdgeInsetsLeft);
+//            make.right.mas_equalTo(0);
+//            make.bottom.mas_equalTo(0);
+//            make.height.mas_equalTo(kLineHeight);
+//        }];
     }
     
     UILabel *fromUserLabel = [cell.contentView viewWithTag:KCellTagBase + 1];
     UILabel *timeLabel = [cell.contentView viewWithTag:KCellTagBase + 2];
     UILabel *titleLabel = [cell.contentView viewWithTag:KCellTagBase + 3];
+    UILabel *contentLabel = [cell.contentView viewWithTag:KCellTagBase + 4];
+    UIView *lineView = [cell.contentView viewWithTag:KCellTagBase + 5];
+    
+    CGFloat height = [self getHightByRow:indexPath.row];
+    lineView.frame = CGRectMake(kEdgeInsetsLeft, height-kLineHeight, kScreenWidth - kEdgeInsetsLeft, kLineHeight);
     
     NSDictionary *systemMsg = self.list[indexPath.row];
     
     fromUserLabel.text = @"系统管理员";
     timeLabel.text = systemMsg[@"pushTime"];
     titleLabel.text = systemMsg[@"title"];
+    contentLabel.text = systemMsg[@"content"];
     
     
     return cell;
 }
 
 #pragma mark-- UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self getHightByRow:indexPath.row];
+}
+
+-(CGFloat)getHightByRow:(NSInteger)row
+{
+    NSDictionary *systemMsg = self.list[row];
+    
+    CGFloat contentHeight = [UILabel heightForLabelWithText:systemMsg[@"content"] maxWidth:kScreenWidth - 2*kEdgeInsetsLeft font:kFontSubTitle];
+    
+    return KCellHight + contentHeight + 2*10;
+
+}
+
+
+
+
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return KCellHeaderHight;
@@ -246,8 +292,6 @@
         else
         {
             self.currentPage++;
-            //                self.totalPage = responseObject[@""];
-            [self.list removeAllObjects];
             [self.list addObjectsFromArray:responseObject[@"data"]];
             [self.tableView reloadData];
         }

@@ -109,6 +109,17 @@ NSString *FileCache = @"LocalFileCache/";
     return size;
 }
 
+-(void)clearCaches
+{
+    NSString *cachesPath = [self getPath];
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:cachesPath];
+    NSString *fileName;
+    NSError *error;
+    while (fileName= [dirEnum nextObject]) {
+        [[NSFileManager defaultManager] removeItemAtPath:[NSString stringWithFormat:@"%@/%@",cachesPath,fileName] error:&error];
+    }
+}
+
 
 
 @end
