@@ -23,7 +23,7 @@ typedef enum : NSUInteger {
     
 } SettingType;
 
-@interface SettingViewController()<UITableViewDataSource, UITableViewDelegate>
+@interface SettingViewController()<UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)NSArray *list;
 @property(nonatomic, strong)NSString *fontStr;
@@ -233,14 +233,18 @@ typedef enum : NSUInteger {
             
         case SettingType_Cache:
         {
-            @weakify(self);
-            [self showNormalSheetWithTitle:@"是否清除缓存?" items:@[@"清除"] clickHandler:^(NSInteger index) {
-                @strongify(self);
-                [[NewsFileManger shareInstance] clearCaches];
-                [self.tableView reloadData];
-                
-            } completion:^{
-            }];
+//            @weakify(self);
+//            [self showNormalSheetWithTitle:@"是否清除缓存?" items:@[@"清除"] clickHandler:^(NSInteger index) {
+//                @strongify(self);
+//                [[NewsFileManger shareInstance] clearCaches];
+//                [self.tableView reloadData];
+//                
+//            } completion:^{
+//            }];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否清楚缓存" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清除", nil];
+            alert.tag = 2;
+            [alert show];
             
         }
             break;
@@ -249,7 +253,21 @@ typedef enum : NSUInteger {
     } ;
 }
 
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    
+    if(alertView.tag == 2)
+    {
+        if(buttonIndex == 1)
+        {
+            [[NewsFileManger shareInstance] clearCaches];
+            [self.tableView reloadData];
+            
+        }
+    }
+    
+    
+}
 
 
 @end
