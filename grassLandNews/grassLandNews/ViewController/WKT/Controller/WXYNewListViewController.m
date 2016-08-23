@@ -16,6 +16,7 @@
 #import "Reachability.h"
 #import "NewsSubListViewController.h"
 #import "SearchListViewController.h"
+#import "NewsFileManger.h"
 
 #define ViewPageTabHeight 40.0
 #define viewBackgroundColor [UIColor colorWithHexStr:@"f4f5f6"]
@@ -93,9 +94,9 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {        
-        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self captureScreenshot];
-        });
+//        dispatch_async(dispatch_get_main_queue(), ^{
+            [self captureScreenshot];
+//        });
         
         [self presentLeftMenuViewController:sender];
     }
@@ -108,9 +109,11 @@
     [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    NSString *homePath = NSHomeDirectory();
-    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"%@/Documents/Screen.png", homePath] atomically:YES];
+//    NSString *homePath = NSHomeDirectory();
+//    [UIImagePNGRepresentation(image) writeToFile:[NSString stringWithFormat:@"%@/Documents/Screen.png", homePath] atomically:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:TX_PUSH_SCREENCHANGED object:nil];
+    [NewsFileManger shareInstance].cacheImge = image;
+    
 }
 
 #pragma mark - init

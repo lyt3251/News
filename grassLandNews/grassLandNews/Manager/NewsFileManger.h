@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NewsFileManger : NSObject
+@property(nonatomic, strong)UIImage *cacheImge;
 
 + (instancetype)shareInstance;
 

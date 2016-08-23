@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "RDVTabBarController.h"
 #import <UIViewController+RESideMenu.h>
+#import "NewsFileManger.h"
 
 typedef enum : NSUInteger {
     LeftVCListType_MyFavorites = 0, //收藏
@@ -30,6 +31,7 @@ typedef enum : NSUInteger {
 @property(nonatomic, strong)NSArray *leftList;
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)UIImageView *screenView;
+@property(nonatomic, strong)UIView *maskView;
 @end
 
 @implementation LeftViewController
@@ -68,15 +70,14 @@ typedef enum : NSUInteger {
     self.screenView = [[UIImageView alloc] init];
     self.screenView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.screenView];
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.screenView.image = [self creatBlurBackgound:[UIImage imageWithContentsOfFile:[self photoPath]] blurRadius:100];
-//    });
     self.screenView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    
+    self.maskView = [[UIView alloc] init];
+    self.maskView.frame =  CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    self.maskView.backgroundColor = KColorAppMain;
+    self.maskView.alpha = 0.85;
+    [self.view addSubview:self.maskView];
 
-    self.view.backgroundColor = RGBACOLOR(0x44, 0x99, 0x69, 0.85);
-    self.view.backgroundColor = KColorAppMain;
-    self.view.alpha = 0.85;
-//    self.view.backgroundColor = kColorClear;
     
     
     
@@ -275,9 +276,14 @@ typedef enum : NSUInteger {
 
 -(void)refreshBKImage
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
-//        self.screenView.image = [self creatBlurBackgound:[UIImage imageWithContentsOfFile:[self photoPath]] blurRadius:100];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        UIImage *gsImge = [self creatBlurBackgound:[NewsFileManger shareInstance].cacheImge blurRadius:100];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.screenView.image = gsImge;
+        });
     });
+    
+    
 }
 
 
