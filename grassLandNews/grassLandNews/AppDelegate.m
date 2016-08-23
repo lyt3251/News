@@ -24,6 +24,8 @@
 #import "RDVTabBarItem.h"
 #import <SDVersion.h>
 #import "ChannelManager.h"
+#import "UpdateManager.h"
+#import "UIView+AlertView.h"
 
 
 @interface AppDelegate ()
@@ -38,6 +40,7 @@
     [self initWindows];
     NSLog(@"home:%@", NSHomeDirectory());
     [[ChannelManager shareInstance] requestChannelFromServer];
+//    [self checkUpdate];
     return YES;
 }
 
@@ -179,5 +182,36 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+-(void)checkUpdate
+{
+    UpdateManager *updateM = [[UpdateManager alloc] init];
+    @weakify(self);
+    [updateM requestUpdateMsg:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        
+        UIAlertView *alert = nil;
+        
+        if( status.integerValue > 0)
+        {
+            NSString *msg = dic[@"data"][@"content"];
+            alert = [[UIAlertView alloc] initWithTitle:@"升级提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.tag = 2;
+            
+        }
+        else
+        {
+            alert = [[UIAlertView alloc] initWithTitle:@"升级提示" message:dic[@"msg"] delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.tag = 3;
+        }
+        [alert show];
+        
+        
+    }];
+
+}
+
 
 @end

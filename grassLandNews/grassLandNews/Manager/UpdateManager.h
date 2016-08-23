@@ -9,5 +9,5 @@
 #import "TXTaskManagerBase.h"
 
 @interface UpdateManager : TXTaskManagerBase
-
+-(id)requestUpdateMsg:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 @end
