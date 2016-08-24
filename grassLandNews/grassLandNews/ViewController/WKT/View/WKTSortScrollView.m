@@ -102,9 +102,9 @@
         ChannelButton  *btn = [[ChannelButton alloc] init];
         btn.text = [dict objectForKey:@"NodeName"];
         //添加拖拽手势
-        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
-        [btn addGestureRecognizer:pan];
-        [pan addTarget:self action:@selector(panView:)];
+//        UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] init];
+//        [btn addGestureRecognizer:pan];
+//        [pan addTarget:self action:@selector(panView:)];
         
         [self.selectButtonArray addObject:btn];
         [self addSubview:btn];
@@ -203,8 +203,8 @@
     self.iSelectBtn.selected = !self.iSelectBtn.selected;
     self.isEdit = YES;
     
-    ChannelButton *channelButton = (ChannelButton *)self.selectButtonArray[0];
-    channelButton.userInteractionEnabled = !channelButton.isUserInteractionEnabled;
+//    ChannelButton *channelButton = (ChannelButton *)self.selectButtonArray[0];
+//    channelButton.userInteractionEnabled = !channelButton.isUserInteractionEnabled;
 }
 
 #pragma mark - 拖拽事件响应方法

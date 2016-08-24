@@ -506,7 +506,7 @@
         if(status.integerValue > 0)
         {
             [self.newsList removeAllObjects];
-            [self.newsList addObjectsFromArray:responseObject[@"data"]];
+            [self.newsList addObjectsFromArray:responseObject[@"data"][@"data"]];
             [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo([self getTablewHight]);
             }];
@@ -549,7 +549,7 @@
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
         {
-            [self.newsList addObjectsFromArray:responseObject[@"data"]];
+            [self.newsList addObjectsFromArray:responseObject[@"data"][@"data"]];
             [UIView animateWithDuration:0.3f animations:^{
                 [self.tableView mas_updateConstraints:^(MASConstraintMaker *make) {
                     make.height.mas_equalTo([self getTablewHight]);

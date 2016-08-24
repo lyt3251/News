@@ -13,8 +13,8 @@
 
 -(id)requestUpdateMsg:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
-     NSString *systemVersion = [UIDevice currentDevice].systemVersion;
-    return [self requestByUrl:REQUEST_Update_Url requestParameters:@{@"versionNum":@"1.0.0", @"appType":@(1), @"system":KSaveStr(systemVersion)} progress:nil onCompleted:onCompleted];
+//     NSString *systemVersion = [UIDevice currentDevice].systemVersion;
+    return [self requestByUrl:REQUEST_Update_Url requestParameters:@{@"versionNum":@"1.0.0", @"appType":@(1), @"system":@"ios"} progress:nil onCompleted:onCompleted];
 }
 
 @end

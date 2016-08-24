@@ -262,7 +262,7 @@
             self.currentPage++;
             //                self.totalPage = responseObject[@""];
             [self.list removeAllObjects];
-            [self.list addObjectsFromArray:responseObject[@"data"]];
+            [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
             [self.tableView reloadData];
         }
         [self.tableView.header endRefreshing];
@@ -292,7 +292,7 @@
         else
         {
             self.currentPage++;
-            [self.list addObjectsFromArray:responseObject[@"data"]];
+            [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
             [self.tableView reloadData];
         }
         [self.tableView.footer endRefreshing];
