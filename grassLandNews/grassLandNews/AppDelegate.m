@@ -26,6 +26,7 @@
 #import "ChannelManager.h"
 #import "UpdateManager.h"
 #import "UIView+AlertView.h"
+#import "UMessage.h"
 
 
 @interface AppDelegate ()
@@ -36,6 +37,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //设置 AppKey 及 LaunchOptions
+    [UMessage startWithAppkey:@"57ac3a39e0f55a30ef0016b6" launchOptions:launchOptions];
+    
+    //1.3.0版本开始简化初始化过程。如不需要交互式的通知，下面用下面一句话注册通知即可。
+    [UMessage registerForRemoteNotifications];
     // Override point for customization after application launch.
     [self initWindows];
     NSLog(@"home:%@", NSHomeDirectory());
@@ -211,6 +217,18 @@
         
     }];
 
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [UMessage didReceiveRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken NS_AVAILABLE_IOS(3_0)
+{
+    NSString *deviceTokenString = [[NSString alloc] initWithFormat:@"deviceTokenString %@", deviceToken];
+    NSLog(@"deviceTokenString:%@", deviceTokenString);
 }
 
 
