@@ -237,6 +237,10 @@
     else if(button.tag == KButtonTagBase + 2)
     {
         NSLog(@"分享被按下");
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"分享正在申请中!!" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 2;
+        [alert show];
+        
     }
     
     

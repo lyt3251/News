@@ -242,9 +242,21 @@ typedef enum : NSUInteger {
 //            } completion:^{
 //            }];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否清楚缓存" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清除", nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"是否清楚缓存?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"清除", nil];
             alert.tag = 2;
             [alert show];
+            
+        }
+            break;
+        case SettingType_Comment:
+        {
+//            NSString *str = [NSString stringWithFormat:
+//                             @"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%d", 289382458];
+//            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:str]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"itunes建立应用后 可评价" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"评价", nil];
+            alert.tag = 3;
+            [alert show];
+            
             
         }
             break;
