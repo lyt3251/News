@@ -17,6 +17,7 @@
 #import "NewsSubListViewController.h"
 #import "SearchListViewController.h"
 #import "NewsFileManger.h"
+#import "NewsManager.h"
 
 #define ViewPageTabHeight 40.0
 #define viewBackgroundColor [UIColor colorWithHexStr:@"f4f5f6"]
@@ -173,35 +174,39 @@
     self.iChannleArr = [NSMutableArray array];
     self.iViewControllersArray = [NSMutableArray array];
     __weak WXYNewListViewController *weself = self;
-//    [[TXChatClient sharedInstance].txJsbMansger fetchTagsWithTagType:TXPBTagTypeTagBaseParent onCompleted:^(NSError *error, NSArray *tags) {
-//        if (error) {
-//            [weself showFailedHudWithError:error];
-//            [weself reloadData];
-//            return;
-//        }
-//        if(tags.count==0){
-//            [weself reloadData];
-//            return ;
-//        }
-//        self.iShadowView.hidden = YES;
-//        self.shadowView.hidden = YES;
-//        [weself checkNewChannel:tags];
-//        for (int i=0; i<weself.iChannleArr.count; i++) {
-//            WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];
-//            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-//            NSInteger channelId = [[dict objectForKey:@"NodeId"] integerValue];
-//            [w loadData:channelId];
-//            [weself.iViewControllersArray addObject:w];
-//        }
-//        //跳转到制定channel
-//        [self  selectChannelIndex];
-//        [weself reloadData];
-//    }];
+
+    
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [newsManager requestNewsTypesByNodeId:0 parentId:0 depth:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(status.integerValue > 0)
+        {
+            
+            [[ChannelManager shareInstance] updateChannels:dic[@"data"]];
+            NSArray *channels = [[ChannelManager shareInstance] getChannels];
+            if(channels.count != self.iChannleArr.count)
+            {
+                self.iChannleArr = [NSMutableArray arrayWithArray:channels];
+                for (int i=0; i<weself.iChannleArr.count; i++) {
+                    NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
+                    w.channelInfo = self.iChannleArr[i];
+                    [weself.iViewControllersArray addObject:w];
+                }
+                //跳转到制定channel
+                [self  selectChannelIndex];
+                [weself reloadData];
+            }
+        }
+    }];
+
+    
+    
     
     self.iShadowView.hidden = YES;
     self.shadowView.hidden = YES;
-//        [self checkNewChannel:tags];
-    
     
     self.iChannleArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
     

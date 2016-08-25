@@ -142,7 +142,7 @@ NSString *channelProfile = @"channelProfile.plist";
 //        [dicArray addObject:dic];
 //    }
     
-    
+    self.channels = array;
     NSString *localFilePath = [self getChannelFile];
     [array writeToFile:localFilePath atomically:YES];
 }
