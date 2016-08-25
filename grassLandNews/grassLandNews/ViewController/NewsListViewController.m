@@ -191,10 +191,12 @@
             else
             {
                 self.currentPage++;
-//                self.totalPage = responseObject[@""];
                 [self.list removeAllObjects];
                 [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
+                NSNumber *totalPage = responseObject[@"data"][@"totalPage"];
+                self.totalPage = totalPage.integerValue;
                 [self.tableView reloadData];
+                self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
             }
             [self.tableView.header endRefreshing];
         }];
@@ -231,10 +233,6 @@
     }
     else if(self.listType == NewsListType_SubChannel)
     {
-//        if(self.currentPage >= self.totalPage)
-//        {
-//            return;
-//        }
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
         @weakify(self);
@@ -258,6 +256,7 @@
                 self.currentPage++;
                 [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
                 [self.tableView reloadData];
+                self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
             }
         }];
         

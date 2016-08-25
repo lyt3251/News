@@ -163,7 +163,7 @@
     timeLabel.text = systemMsg[@"pushTime"];
     titleLabel.text = systemMsg[@"title"];
     contentLabel.text = systemMsg[@"content"];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -263,7 +263,10 @@
             //                self.totalPage = responseObject[@""];
             [self.list removeAllObjects];
             [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
+            NSNumber *totalPage = responseObject[@"data"][@"totalPage"];
+            self.totalPage = totalPage.integerValue;
             [self.tableView reloadData];
+            self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
         }
         [self.tableView.header endRefreshing];
     }];
@@ -294,6 +297,8 @@
             self.currentPage++;
             [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
             [self.tableView reloadData];
+            self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
+            
         }
         [self.tableView.footer endRefreshing];
     }];

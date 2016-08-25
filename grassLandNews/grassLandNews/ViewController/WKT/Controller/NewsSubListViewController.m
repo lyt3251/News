@@ -426,7 +426,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSDictionary *newsInfo = self.newsList[indexPath.row];
+    NSDictionary *newsInfo = nil;
+    if([self isMainPage])
+    {
+        newsInfo = [self newsBySection:indexPath.section row:indexPath.row];
+    }
+    else
+    {
+        newsInfo = self.newsList[indexPath.row];
+    }
     NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
     [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
@@ -511,7 +519,10 @@
                 make.height.mas_equalTo([self getTablewHight]);
             }];
             [self.tableView reloadData];
+            NSNumber *totalPage = responseObject[@"data"][@"totalPage"];
+            self.totalPage = totalPage.integerValue;
             self.currentPage ++;
+            self.scrollView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
         }
         [self.scrollView.header endRefreshing];
         
@@ -557,6 +568,7 @@
                 [self.tableView reloadData];
             }];
             self.currentPage ++;
+            self.scrollView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
         }
         [self.scrollView.footer endRefreshing];
     }];
