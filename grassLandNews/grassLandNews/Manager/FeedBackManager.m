@@ -18,7 +18,7 @@
         return nil;
     }
     
-    return [self requestByUrl:REQUEST_FeedBack_Url requestParameters:@{@"content":contact, @"deviceType":@(1), @"contact":contact} progress:nil onCompleted:onCompleted];
+    return [self requestByUrl:REQUEST_FeedBack_Url requestParameters:@{@"content":content, @"deviceType":@(1), @"contact":contact} progress:nil onCompleted:onCompleted];
 }
 
 @end

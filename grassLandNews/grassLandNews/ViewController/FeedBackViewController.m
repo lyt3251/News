@@ -136,7 +136,7 @@
         NSString *content = [self.inputTextView getContent];
         NSString *contact = [self.addressTextView text];
         
-        if(contact.length <= 0)
+        if(content.length <= 0)
         {
             [self showSuccessHudWithTitle:@"请输入反馈内容"];
             return;
