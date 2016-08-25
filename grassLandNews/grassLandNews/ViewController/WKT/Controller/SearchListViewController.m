@@ -324,6 +324,7 @@
             self.recommandTotalPage = totalPageNum.integerValue;
             self.recommandCurrentPage ++;
             [self.tableView reloadData];
+            self.tableView.footer.hidden  = self.recommandCurrentPage > self.recommandTotalPage?YES:NO;            
         }
     }];
     
@@ -382,6 +383,8 @@
             self.currentPage ++;
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
+            self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
+            
         }
     }];
     
@@ -504,9 +507,9 @@
         {
             [self.newsList addObjectsFromArray:dic[@"data"][@"data"]];
             self.currentPage++;
-            self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
+            self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
         }
     }];
     
