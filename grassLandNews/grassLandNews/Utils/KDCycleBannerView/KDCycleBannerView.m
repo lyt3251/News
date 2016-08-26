@@ -152,11 +152,12 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
     [_bottomView addSubview:textLabel];
     textLabel.text = @"  ";
     self.titleLabel = textLabel;
-    [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(15);
-        make.centerY.mas_equalTo(_bottomView);
-        make.right.mas_equalTo(_pageControl.mas_left);
-    }];
+    textLabel.frame = CGRectMake(15, 0, CGRectGetWidth(self.frame) - 100 - 15, 35);
+//    [textLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.mas_equalTo(15);
+//        make.centerY.mas_equalTo(_bottomView);
+//        make.right.mas_equalTo(_pageControl.mas_left);
+//    }];
     
     
 }
