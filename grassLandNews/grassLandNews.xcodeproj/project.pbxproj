@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D8ED5561D7069F7003EA58D /* TestCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D8ED5551D7069F7003EA58D /* TestCycleViewController.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
 		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
@@ -142,6 +143,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D8ED5541D7069F7003EA58D /* TestCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCycleViewController.h; sourceTree = "<group>"; };
+		0D8ED5551D7069F7003EA58D /* TestCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCycleViewController.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -889,6 +892,8 @@
 				0DA95C1C1D4892FE00509547 /* WXYNewSubListViewController.m */,
 				0DA95C1D1D4892FE00509547 /* WXYSearchViewController.h */,
 				0DA95C1E1D4892FE00509547 /* WXYSearchViewController.m */,
+				0D8ED5541D7069F7003EA58D /* TestCycleViewController.h */,
+				0D8ED5551D7069F7003EA58D /* TestCycleViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -971,6 +976,7 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
+				B7E3B2824EA3EF336BCB619D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1192,6 +1198,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B7E3B2824EA3EF336BCB619D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1302,6 +1323,7 @@
 				0DA95BAD1D487F4C00509547 /* JFPhotoView.m in Sources */,
 				0DA95C3B1D4892FE00509547 /* WKTSearchView.m in Sources */,
 				0DA95BFD1D487F5500509547 /* UIView+AlertView.m in Sources */,
+				0D8ED5561D7069F7003EA58D /* TestCycleViewController.m in Sources */,
 				0DA95BA81D487F4C00509547 /* JFImageGroupTableViewController.m in Sources */,
 				0DA95BA91D487F4C00509547 /* JFImageManager.m in Sources */,
 				0DA95BBE1D487F4C00509547 /* amrFileCodec.mm in Sources */,
