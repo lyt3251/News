@@ -6,7 +6,6 @@
 //  Copyright © 2016年 liuyuantao. All rights reserved.
 //
 
-#import "ViewController.h"
 //#import "BaseViewController.h"
 
 @interface MidViewController : BaseViewController

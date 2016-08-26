@@ -54,6 +54,7 @@
     self.webView = [[UIWebView alloc] init];
     self.webView.delegate = self;
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
+    self.webView.dataDetectorTypes = UIDataDetectorTypeNone;
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, -KBottomBarHight, 0));

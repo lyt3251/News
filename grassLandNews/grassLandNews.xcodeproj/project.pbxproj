@@ -33,11 +33,10 @@
 		0D463B431D5370AE00BA1200 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D463B421D5370AE00BA1200 /* SettingViewController.m */; };
 		0D463B461D53827A00BA1200 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D463B451D53827A00BA1200 /* AboutViewController.m */; };
 		0D870ED91D5F55DD00B3FC18 /* CustomTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */; };
+		0D8ED5531D7063E6003EA58D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D8ED5521D7063E6003EA58D /* Images.xcassets */; };
 		0DA0523D1D532E7F001F9F19 /* ChannelSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */; };
 		0DA95AC91D485BD000509547 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AC81D485BD000509547 /* main.m */; };
 		0DA95ACC1D485BD000509547 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACB1D485BD000509547 /* AppDelegate.m */; };
-		0DA95ACF1D485BD000509547 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95ACE1D485BD000509547 /* ViewController.m */; };
-		0DA95AD21D485BD000509547 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD01D485BD000509547 /* Main.storyboard */; };
 		0DA95AD41D485BD000509547 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DA95AD31D485BD000509547 /* Assets.xcassets */; };
 		0DA95AE21D485BD000509547 /* grassLandNewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AE11D485BD000509547 /* grassLandNewsTests.m */; };
 		0DA95AED1D485BD000509547 /* grassLandNewsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DA95AEC1D485BD000509547 /* grassLandNewsUITests.m */; };
@@ -226,15 +225,13 @@
 		0D463B451D53827A00BA1200 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		0D870ED71D5F55DD00B3FC18 /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
 		0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
+		0D8ED5521D7063E6003EA58D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0DA0523B1D532E7F001F9F19 /* ChannelSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelSortViewController.h; sourceTree = "<group>"; };
 		0DA0523C1D532E7F001F9F19 /* ChannelSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelSortViewController.m; sourceTree = "<group>"; };
 		0DA95AC41D485BD000509547 /* grassLandNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grassLandNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DA95AC81D485BD000509547 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0DA95ACA1D485BD000509547 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0DA95ACB1D485BD000509547 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0DA95ACD1D485BD000509547 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0DA95ACE1D485BD000509547 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0DA95AD11D485BD000509547 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0DA95AD31D485BD000509547 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DA95AD81D485BD000509547 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DA95ADD1D485BD000509547 /* grassLandNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = grassLandNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -615,13 +612,11 @@
 				0DA95AFA1D487AA300509547 /* ViewController */,
 				0DA95ACA1D485BD000509547 /* AppDelegate.h */,
 				0DA95ACB1D485BD000509547 /* AppDelegate.m */,
-				0DA95ACD1D485BD000509547 /* ViewController.h */,
-				0DA95ACE1D485BD000509547 /* ViewController.m */,
-				0DA95AD01D485BD000509547 /* Main.storyboard */,
 				0DA95AD31D485BD000509547 /* Assets.xcassets */,
 				0DA95AD81D485BD000509547 /* Info.plist */,
 				0DA95AC71D485BD000509547 /* Supporting Files */,
 				0DA95C041D4882E700509547 /* grassLandNews.pch */,
+				0D8ED5521D7063E6003EA58D /* Images.xcassets */,
 			);
 			path = grassLandNews;
 			sourceTree = "<group>";
@@ -1319,6 +1314,7 @@
 				0DA95BA11D487F4C00509547 /* GMSelected.png in Resources */,
 				0DA95BEF1D487F5500509547 /* easyjs-inject.js in Resources */,
 				0DA95B9C1D487F4C00509547 /* GMEmptyFolder@1x.png in Resources */,
+				0D8ED5531D7063E6003EA58D /* Images.xcassets in Resources */,
 				0DA95C2C1D4892FE00509547 /* .gitkeep in Resources */,
 				0DA95BA31D487F4C00509547 /* GMVideoIcon.png in Resources */,
 				0DA95BA21D487F4C00509547 /* GMSelected@2x.png in Resources */,
@@ -1328,7 +1324,6 @@
 				0DA95B991D487F4C00509547 /* GMImagePicker.strings in Resources */,
 				0DA95C3E1D4892FE00509547 /* WXYNewListTableViewCell.xib in Resources */,
 				0DA95B9D1D487F4C00509547 /* GMEmptyFolder@2x.png in Resources */,
-				0DA95AD21D485BD000509547 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1492,7 +1487,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DA95BF81D487F5500509547 /* SystemAccess.m in Sources */,
-				0DA95ACF1D485BD000509547 /* ViewController.m in Sources */,
 				0DA95BAC1D487F4C00509547 /* JFPhotoBrowserViewController.m in Sources */,
 				0DA95B971D487F4C00509547 /* RMCollectionCell.m in Sources */,
 				0DA95BAF1D487F4C00509547 /* MJFoundation.m in Sources */,
@@ -1651,14 +1645,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0DA95AD01D485BD000509547 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0DA95AD11D485BD000509547 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0DA95B2E1D487F4C00509547 /* GMImagePicker.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1758,6 +1744,7 @@
 			baseConfigurationReference = 6A79093255C12512EBB3E8D9 /* Pods-grassLandNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: shen jiafeng (N6GS83S4FG)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1781,6 +1768,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "91d3a064-bf1b-463a-bf8d-8d28636ce9bf";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1789,6 +1777,7 @@
 			baseConfigurationReference = 6B491B3C6D5DA77E4AABB036 /* Pods-grassLandNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: shen jiafeng (N6GS83S4FG)";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1812,6 +1801,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "91d3a064-bf1b-463a-bf8d-8d28636ce9bf";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
