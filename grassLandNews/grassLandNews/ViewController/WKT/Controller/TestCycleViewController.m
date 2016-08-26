@@ -7,9 +7,11 @@
 //
 
 #import "TestCycleViewController.h"
+#import "KDCycleBannerView.h"
 
-@interface TestCycleViewController ()
+@interface TestCycleViewController ()<KDCycleBannerViewDelegate, KDCycleBannerViewDataource>
 @property(nonatomic, strong)KDCycleBannerView *topView;
+@property (nonatomic,strong) NSArray *bannerArr;
 @end
 
 @implementation TestCycleViewController
@@ -17,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initBanner];
+    [self initTopCycleView];
 }
 
 
@@ -30,8 +34,47 @@
     _topView.datasource = self;
     _topView.continuous = YES;
     _topView.autoPlayTimeInterval = 3.f;
-    [_contentView addSubview:_topView];
+    [self.view addSubview:_topView];
 }
+
+
+-(void)initBanner
+{
+
+    self.bannerArr = @[@{@"DefaultPicUrl" : @"http://www.grassland.gov.cn/grassland-new/UploadFiles/Article/2016/5/201653192752.jpg",
+                         @"GeneralID" : @(8297),
+                         @"NodeID" : @(1051),
+                         @"NodeName" : @"测试测试测试",
+                         @"Title" : @"测试测试测试"
+                         },
+                       @{@"DefaultPicUrl" : @"http://www.grassland.gov.cn/grassland-new/UploadFiles/Article/2016/5/201653192752.jpg",
+                         @"GeneralID" : @(8297),
+                         @"NodeID" : @(1051),
+                         @"NodeName" : @"测试测试测试",
+                         @"Title" : @"测试测试测试"
+                         },
+                       @{@"DefaultPicUrl" : @"http://www.grassland.gov.cn/grassland-new/UploadFiles/Article/2016/5/201653192752.jpg",
+                         @"GeneralID" : @(8297),
+                         @"NodeID" : @(1051),
+                         @"NodeName" : @"测试测试测试",
+                         @"Title" : @"测试测试测试"
+                         },
+                       @{@"DefaultPicUrl" : @"http://www.grassland.gov.cn/grassland-new/UploadFiles/Article/2016/5/201653192752.jpg",
+                         @"GeneralID" : @(8297),
+                         @"NodeID" : @(1051),
+                         @"NodeName" : @"测试测试测试",
+                         @"Title" : @"测试测试测试"
+                         },
+                       @{@"DefaultPicUrl" : @"http://www.grassland.gov.cn/grassland-new/UploadFiles/Article/2016/5/201653192752.jpg",
+                         @"GeneralID" : @(8297),
+                         @"NodeID" : @(1051),
+                         @"NodeName" : @"测试测试测试",
+                         @"Title" : @"测试测试测试"
+                         }];
+
+}
+
+
 
 
 - (void)didReceiveMemoryWarning {
@@ -58,11 +101,11 @@
     return UIViewContentModeScaleAspectFill;
 }
 - (UIImage *)placeHolderImageOfZeroBannerView {
-    return [UIImage imageNamed:@"banner.jpg"];
+    return [UIImage imageNamed:@"MenuBackground"];
 }
 - (UIImage *)placeHolderImageOfBannerView:(KDCycleBannerView *)bannerView atIndex:(NSUInteger)index
 {
-    return [UIImage imageNamed:@"banner.jpg"];
+    return [UIImage imageNamed:@"MenuBackground"];
 }
 - (id)imageSourceForContent:(id)content
 {
@@ -85,9 +128,9 @@
 
 #pragma mark - KDCycleBannerViewDelegate methods
 - (void)cycleBannerView:(KDCycleBannerView *)bannerView didSelectedAtIndex:(NSUInteger)index {
-    NSDictionary *newsInfo = self.bannerArr[index];
-    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-    [self.navigationController pushViewController:newsDetailVC animated:YES];
+//    NSDictionary *newsInfo = self.bannerArr[index];
+//    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+//    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 
 @end

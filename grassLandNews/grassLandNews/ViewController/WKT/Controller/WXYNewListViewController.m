@@ -14,6 +14,7 @@
 #import "TXWebViewController.h"
 #import "AppDelegate.h"
 #import "Reachability.h"
+#import "TestCycleViewController.h"
 
 #define ViewPageTabHeight 40.0
 #define viewBackgroundColor [UIColor colorWithHexStr:@"f4f5f6"]
@@ -169,10 +170,10 @@
     self.iChannleArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
     
     for (int i=0; i<weself.iChannleArr.count; i++) {
-        WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];
-        NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-        NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
-        [w loadData:channelId];
+        TestCycleViewController *w = [[TestCycleViewController alloc] initWithNibName:nil bundle:nil];
+//        NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
+//        NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+//        [w loadData:channelId];
         [weself.iViewControllersArray addObject:w];
     }
     //跳转到制定channel
@@ -342,7 +343,7 @@
 
 - (UIViewController *)viewPager:(ViewPagerController *)viewPager contentViewControllerForTabAtIndex:(NSUInteger)index {
     __weak WXYNewListViewController *weself = self;
-    WXYNewSubListViewController *v = [self.iViewControllersArray objectAtIndex:index];
+    TestCycleViewController *v = [self.iViewControllersArray objectAtIndex:index];
 //    v.tBlock = ^(TXPBArticleAbstract *model){
 //        TXWebViewController *detailVc = [[TXWebViewController alloc] initWithURLString:[NSString stringWithFormat:@"%@&pf=WJY",model.detailUrl ]];
 //        detailVc.titleStr = @"";
@@ -378,10 +379,10 @@
         weself.iChannleArr = [[NSMutableArray alloc] initWithArray:array];
         [weself.iViewControllersArray removeAllObjects];
         for (int i=0; i<weself.iChannleArr.count; i++) {
-            WXYNewSubListViewController *w = [[WXYNewSubListViewController alloc] initWithNibName:nil bundle:nil];
-            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
-            NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
-            [w loadData:channelId];
+            TestCycleViewController *w = [[TestCycleViewController alloc] initWithNibName:nil bundle:nil];
+//            NSDictionary *dict = [weself.iChannleArr objectAtIndex:i];
+//            NSInteger channelId = [[dict objectForKey:@"channelId"] integerValue];
+//            [w loadData:channelId];
             [weself.iViewControllersArray addObject:w];
         }
         [weself reloadData];
