@@ -249,6 +249,19 @@ static NSInteger const kShareButtonTag = 100;
     }
     return _qqData;
 }
+
+//QQ好友
+- (TXShareData *)sinaWeiBoData
+{
+    if (!_sinaWeiBoData) {
+        _sinaWeiBoData = [[TXShareData alloc] init];
+        _sinaWeiBoData.name = @"新浪微博";
+        _sinaWeiBoData.type = TXShareType_SinaWeiBo;
+        _sinaWeiBoData.shareImage = [UIImage imageNamed:@"share_sinaWeiBo"];
+    }
+    return _sinaWeiBoData;
+}
+
 //复制链接
 - (TXShareData *)linkCopyData
 {
@@ -354,7 +367,11 @@ static NSInteger const kShareButtonTag = 100;
         case TXShareType_Edit: {
             return self.editInfoData;
             break;
+        case TXShareType_SinaWeiBo:
+            return self.sinaWeiBoData;
+            break;
         }
     }
+    return nil;
 }
 @end

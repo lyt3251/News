@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, TXShareType) {
     TXShareType_WechatTimeline = 1,   //朋友圈
     TXShareType_WechatSession,        //微信好友
     TXShareType_QQ,                   //QQ
+    TXShareType_SinaWeiBo,   //朋友圈
     TXShareType_CopyLink,             //复制链接
     TXShareType_OpenInSafari,         //在Safari中打开
     TXShareType_Save,                 //保存到手机
@@ -68,6 +69,10 @@ typedef void(^TXSharePopViewClickBlock)(TXShareType type);
  *  QQ信息配置
  */
 @property (nonatomic,strong) TXShareData *qqData;
+/**
+ *  sinaWeiBo信息配置
+ */
+@property (nonatomic,strong) TXShareData *sinaWeiBoData;
 /**
  *  复制链接信息配置
  */

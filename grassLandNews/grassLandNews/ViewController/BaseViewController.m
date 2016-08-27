@@ -733,11 +733,9 @@
             [array addObject:@(TXShareType_WechatTimeline)];
             [array addObject:@(TXShareType_WechatSession)];
         }
-        //        else if (a==kShareCopyLink){
-        //            if (isLinkCopyable==YES) {
-        //                [array addObject:@(TXShareType_CopyLink)];
-        //            }
-        //        }
+        else if (a==TXShareType_SinaWeiBo){
+            [array addObject:@(TXShareType_SinaWeiBo)];
+        }
         else if(a==kSharePlatformQQFriends)
         {
             [array addObject:@(TXShareType_QQ)];
@@ -795,6 +793,11 @@
     }else if (type == TXShareType_CopyLink) {
         //复制链接
         [[ShareActionManager shareInstance] htmlShareToPlatformType:kShareCopyLink FromViewController:self andPostShareModel:model];
+    }
+    else if(type == TXShareType_SinaWeiBo)
+    {
+        //QQ
+        [[ShareActionManager shareInstance] htmlShareToPlatformType:kSharePlatformSinaWeibo FromViewController:self andPostShareModel:model];
     }
 }
 @end
