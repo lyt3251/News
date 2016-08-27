@@ -105,6 +105,15 @@ typedef NS_ENUM(NSInteger, NavigationBarViewType) {
  */
 -(void)shareUrlByLinkUrl:(NSString *)linkURLString title:(NSString *)title detailTitle:(NSString *)detailTitle localImage:(UIImage *)localImage;
 
+/**
+ *  分享链接
+ *
+ *  @param shareUrl    分享链接
+ *  @param titleStr    分享标题
+ *  @param subTitleStr 分享副标题
+ */
+-(void)shareUrlByLinkUrl:(NSString *)linkURLString title:(NSString *)title detailTitle:(NSString *)detailTitle imageUrl:(NSString *)imageUrl;
+
 #pragma mark - ActionSheet弹窗
 /**
  *  弹出ActionSheet选择框

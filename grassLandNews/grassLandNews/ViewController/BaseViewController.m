@@ -755,6 +755,65 @@
     return;
 }
 
+
+/**
+ *  分享链接
+ *
+ *  @param shareUrl    分享链接
+ *  @param titleStr    分享标题
+ *  @param subTitleStr 分享副标题
+ */
+-(void)shareUrlByLinkUrl:(NSString *)linkURLString title:(NSString *)title detailTitle:(NSString *)detailTitle imageUrl:(NSString *)imageUrl
+{
+    NSMutableArray *array = [NSMutableArray array];
+#if (TARGET_IPHONE_SIMULATOR)
+    
+    [array addObject:@(TXShareType_WechatTimeline)];
+    [array addObject:@(TXShareType_WechatSession)];
+    [array addObject:@(TXShareType_QQ)];
+#else
+    NSArray *array1 = [[ShareModelHelper sharedInstance] getSharePlatformTypeAndIsComeInternal:NO];
+    for(int i=0;i<array1.count;i++){
+        NSNumber *num = [array1 objectAtIndex:i];
+        NSInteger a = [num integerValue];
+        if (a==kSharePlatformWXSceneSession) {
+            [array addObject:@(TXShareType_WechatTimeline)];
+            [array addObject:@(TXShareType_WechatSession)];
+        }
+        else if (a==TXShareType_SinaWeiBo){
+            [array addObject:@(TXShareType_SinaWeiBo)];
+        }
+        else if(a==kSharePlatformQQFriends)
+        {
+            [array addObject:@(TXShareType_QQ)];
+        }
+    }
+#endif
+    
+    [self showShareSheetWithTypes:array clickBlock:^(TXShareType type) {
+        NSLog(@"点击了第%ld个按钮",type);
+        [self shareWithLink:linkURLString
+                      title:title
+                    content:detailTitle
+                   imageURL:imageUrl
+                 localImage:nil
+                       type:type];
+    }];
+    return;
+}
+
+//分享链接
+- (void)shareWithLink:(NSString *)urlString
+                title:(NSString *)title
+              content:(NSString *)content
+             imageURL:(NSString *)imageURL
+                 type:(TXShareType)type
+{
+    [self shareWithLink:urlString title:title content:content imageURL:imageURL localImage:nil type:type];
+}
+
+
+
 //弹出分享视图
 - (void)showShareSheetWithTypes:(NSArray<NSNumber *> *)shareTypes
                      clickBlock:(void(^)(TXShareType type))clickBlock

@@ -55,6 +55,7 @@
     self.webView.delegate = self;
 //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:_urlStr]]];
     self.webView.dataDetectorTypes = UIDataDetectorTypeNone;
+    self.webView.scalesPageToFit = YES;
     [self.view addSubview:self.webView];
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, -KBottomBarHight, 0));
@@ -238,15 +239,24 @@
     else if(button.tag == KButtonTagBase + 2)
     {
         NSString *shareUrl = self.newsDicInfo[@"ShareUrl"];
+        NSString *title = self.newsDicInfo[@"Title"];
         if(shareUrl.length > 0)
         {
-            [self shareUrlByLinkUrl:shareUrl title:@"中国草原网客户端" detailTitle:@"" localImage:nil];
+            NSString *imageUrl = self.newsDicInfo[@"DefaultPicUrl"];
+            if(imageUrl.length > 0)
+            {
+                [self shareUrlByLinkUrl:shareUrl title:title detailTitle:@"" imageUrl:imageUrl];
+            }
+            else
+            {
+                [self shareUrlByLinkUrl:shareUrl title:title detailTitle:@"" localImage:nil];
+            }
         }
         else
         {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"找不到分享链接" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-                    alert.tag = 2;
-                    [alert show];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:nil message:@"找不到分享链接" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+            alert.tag = 2;
+            [alert show];
         }
         
     }

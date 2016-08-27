@@ -235,7 +235,7 @@ typedef enum : NSUInteger {
             break;
         case LeftVCListType_Share:
         {
-            [self shareUrlByLinkUrl:@"http://gnapi.huilianonline.com/404?aspxerrorpath=/dl/dload.htm" title:@"中国草原网客户端" detailTitle:@" 我在\"中国草原网客户端\" 发现了喜欢的新闻，快下载一起看吧!" localImage:nil];
+            [self shareUrlByLinkUrl:@"http://gnapi.huilianonline.com/dl/dload.htm" title:@"中国草原网客户端" detailTitle:@" 我在\"中国草原网客户端\" 发现了喜欢的新闻，快下载一起看吧!" localImage:nil];
         }
             break;
             
