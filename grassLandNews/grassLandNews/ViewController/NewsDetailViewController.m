@@ -274,22 +274,7 @@
         selectFont = @"中";
     }
     NSInteger  index = [list indexOfObject:selectFont];
-    NSString *changeValue = @"";
-    if(index == 0)
-    {
-        changeValue = @"120";
-    }
-    else if(index == 1)
-    {
-        changeValue = @"100";
-    }
-    else if(index == 2)
-    {
-        changeValue = @"80";
-    }
-    
-    NSString *str = [NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust= '%@%%'", changeValue];
-    [self.webView stringByEvaluatingJavaScriptFromString:str];
+    [self.webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"ChangeFont(\"%@\")", @(index +1)]];
 }
 
 @end
