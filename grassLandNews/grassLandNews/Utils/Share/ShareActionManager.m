@@ -36,15 +36,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         obj = [[ShareActionManager alloc] init];
-       NSString *plantType = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientType"];
-        if ([@"teacher" isEqualToString:plantType]) {
-            obj.shareDefaultImageName = @"teacher.png";
-        }else if ([@"principal" isEqualToString:plantType]){
-            obj.shareDefaultImageName = @"leader.png";
-        }else{
-            obj.shareDefaultImageName = @"parent.png";
-        }
-        
+        obj.shareDefaultImageName = @"share_appIcon";
     });
     return obj;
 }

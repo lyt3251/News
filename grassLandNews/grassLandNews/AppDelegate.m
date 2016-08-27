@@ -27,6 +27,10 @@
 #import "UpdateManager.h"
 #import "UIView+AlertView.h"
 #import "UMessage.h"
+#import <UMSocial.h>
+#import <UMSocialSinaSSOHandler.h>
+#import <UMSocialWechatHandler.h>
+#import <UMSocialQQHandler.h>
 
 
 @interface AppDelegate ()
@@ -43,6 +47,7 @@
     //1.3.0版本开始简化初始化过程。如不需要交互式的通知，下面用下面一句话注册通知即可。
     [UMessage registerForRemoteNotifications];
     // Override point for customization after application launch.
+    [self setupShareConfig];
     [self initWindows];
     NSLog(@"home:%@", NSHomeDirectory());
     [[ChannelManager shareInstance] requestChannelFromServer];
@@ -166,6 +171,30 @@
     }
 }
 
+
+//初始化分享内容
+- (void)setupShareConfig
+{
+    //设置友盟社会化组件appkey
+    [UMSocialData setAppKey:UMENG_APPKEY];
+    
+    //设置微信AppId
+    [UMSocialWechatHandler setWXAppId:UMENG_WXAppId appSecret:UMENG_WXAppSecrect url:@"https://itunes.apple.com/cn/app/wei-jia-yuan2.0-quan-guo-you/id1024344228?mt=8"];
+    
+    //设置支持没有客户端情况下使用SSO授权
+    [UMSocialQQHandler setQQWithAppId:UMENG_QQAppId appKey:UMENG_QQAppKey url:@"https://itunes.apple.com/cn/app/wei-jia-yuan2.0-quan-guo-you/id1024344228?mt=8"];
+    
+    //打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。需要 #import "UMSocialSinaSSOHandler.h"
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"3448695513"
+                                              secret:@"9c169c6d9f54369433d0ec0f9769ce68"
+                                         RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    [UMSocialQQHandler setSupportWebView:YES];
+    [UMSocialConfig setFinishToastIsHidden:YES position:UMSocialiToastPositionCenter];
+    [UMSocialConfig hiddenNotInstallPlatforms:@[UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline]];
+    
+    
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

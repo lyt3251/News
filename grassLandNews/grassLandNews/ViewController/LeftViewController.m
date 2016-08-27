@@ -235,7 +235,7 @@ typedef enum : NSUInteger {
             break;
         case LeftVCListType_Share:
         {
-            [self shareUrlByLinkUrl:@"http://www.baidu.com" title:@"标题" detailTitle:@"副标题" localImage:nil];
+            [self shareUrlByLinkUrl:@"http://www.baidu.com" title:@"中国草原网客户端" detailTitle:@" 我在\"中国草原网客户端\" 发现了喜欢的新闻，快下载一起看吧!" localImage:nil];
         }
             break;
             

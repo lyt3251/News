@@ -252,4 +252,17 @@ userInfo:@{ @"FILE" : @(__FILE__),                              \
 
 #define TX_TIMETOINT64(time) ([(time) timeIntervalSince1970]*1000)
 
+#pragma mark - 友盟分享key
+
+//微信AppId
+#define UMENG_WXAppId  @"wx6650656efc3ebade"
+#define UMENG_WXAppSecrect  @"138e85777f78d34ad20fd684e8409161"
+
+//QQ的AppId
+#define UMENG_QQAppId  @"1105568341"
+#define UMENG_QQAppKey @"moD5alGKt1m2CAQ7"
+
+#define UMENG_APPKEY @"57ac3a39e0f55a30ef0016b6"
+
+
 #endif /* Comment_h */
