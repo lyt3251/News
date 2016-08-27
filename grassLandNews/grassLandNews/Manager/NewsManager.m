@@ -68,9 +68,17 @@
             [mutableStr appendFormat:@"%@", newsId];
         }
     }
+    NSDictionary *parametes = nil;
+    if(nodeId > 0)
+    {
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId)};
+    }
+    else
+    {
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr};
+    }
     
-    
-    NSDictionary *parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId)};
+
     return [self requestByUrl:REQUEST_NewsList_Url requestParameters:parametes progress:nil onCompleted:onCompleted];
     
 }
