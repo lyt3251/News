@@ -1767,7 +1767,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "91d3a064-bf1b-463a-bf8d-8d28636ce9bf";
+				PROVISIONING_PROFILE = "1fd47886-840e-4c83-acb1-120049306e16";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1800,7 +1800,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "91d3a064-bf1b-463a-bf8d-8d28636ce9bf";
+				PROVISIONING_PROFILE = "1fd47886-840e-4c83-acb1-120049306e16";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
