@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <BBCyclingLabel.h>
 
-@interface MutilTextLabel : BBCyclingLabel
+@interface MutilTextLabel : UIView
 @property(nonatomic, strong)NSArray *textList;
 @property(nonatomic, assign)CGFloat interval;
+@property(nonatomic, strong)UIFont *font;
+@property(nonatomic, strong)UIColor *textColor;
 -(NSDictionary *)currentNewsInfo;
 -(void)startShowTxt;
 @end

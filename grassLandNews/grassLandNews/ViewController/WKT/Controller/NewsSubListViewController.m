@@ -155,12 +155,8 @@
 //    rollLabel.textList = @[@"123", @"456"];
     rollLabel.interval = 5;
     [_rollViewBackGround addSubview:rollLabel];
-    [rollLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(icon.mas_right).with.offset(5);
-        make.centerY.mas_equalTo(_rollViewBackGround);
-        make.right.mas_equalTo(-5);
-        make.height.mas_equalTo(_rollViewBackGround);
-    }];
+    CGFloat beginX = icon.image.size.width +kEdgeInsetsLeft +5;
+    rollLabel.frame = CGRectMake(beginX, 0, kScreenWidth - beginX - 5 , 30);
     self.rollLabel = rollLabel;
 //    [rollLabel startShowTxt];
 }

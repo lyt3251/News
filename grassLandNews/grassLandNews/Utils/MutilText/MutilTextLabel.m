@@ -11,6 +11,9 @@
 @interface MutilTextLabel()
 @property(nonatomic, assign)NSInteger index;
 @property (nonatomic, strong)dispatch_source_t timer;
+@property(nonatomic, strong)UILabel *scrollLabel;
+@property(nonatomic, strong)UILabel *secondLabel;
+@property(nonatomic, assign)BOOL isAnimationing;
 
 @end
 
@@ -23,6 +26,7 @@
     {
         _index = 0;
         _interval = 2.0f;
+        _isAnimationing = NO;
     }
     return self;
 }
@@ -42,36 +46,67 @@
     {
         return ;
     }
-    
-    NSTimeInterval period = self.interval; //设置时间间隔
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(_timer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0); //每秒执行
-    
-    dispatch_source_set_event_handler(_timer, ^{
-        [self updateText];
-    });
-    
-    dispatch_resume(_timer);
-    
+    if(!self.scrollLabel)
+    {
+        self.scrollLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width +50, self.frame.size.height)];
+        self.scrollLabel.font = self.font;
+        self.scrollLabel.textColor = self.textColor;
+        [self addSubview:self.scrollLabel];
+    }
+    if(!self.secondLabel)
+    {
+        self.secondLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.scrollLabel.frame.origin.x+self.scrollLabel.frame.size.width, self.scrollLabel.frame.origin.y, self.scrollLabel.frame.size.width, self.scrollLabel.frame.size.height)];
+        self.secondLabel.font = self.scrollLabel.font;
+        self.secondLabel.textColor = self.scrollLabel.textColor;
+        [self addSubview:self.secondLabel];
+    }
+    [CATransaction begin];
+    [self.layer removeAllAnimations];
+    [CATransaction commit];
+    if(!self.isAnimationing)
+    {
+        [self addAnimation];
+    }
+    self.clipsToBounds = YES;
+    self.isAnimationing = YES;
 }
 
--(void)updateText
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSDictionary *dic = self.textList[self.index];
-        self.text = dic[@"Title"];
-        [UIView animateWithDuration:0.3f animations:^{
-            [self setNeedsLayout];
-        }];
+
+- (void)addAnimation{
+    
+    CGRect scrollFrame = self.scrollLabel.frame;
+    CGRect secondFrame = self.secondLabel.frame;
+    NSDictionary *dic = self.textList[self.index];
+    self.scrollLabel.text = dic[@"Title"];
+    NSDictionary *secondDic = nil;
+    if(self.index > self.textList.count -2)
+    {
+        secondDic = self.textList[0];
+    }
+    else
+    {
+        secondDic = self.textList[self.index + 1];
+    }
+    self.secondLabel.text = secondDic[@"Title"];
+    NSLog(@"frist:%@, second:%@", self.scrollLabel.text, self.secondLabel.text);
+    
+    [UIView animateWithDuration:self.interval delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        self.scrollLabel.frame = CGRectMake(-self.scrollLabel.frame.size.width, self.scrollLabel.frame.origin.y, self.scrollLabel.frame.size.width, self.scrollLabel.frame.size.height);
+        self.secondLabel.frame = CGRectMake(0, self.secondLabel.frame.origin.y, self.secondLabel.frame.size.width, self.secondLabel.frame.size.height);
+    } completion:^(BOOL finished) {
+        self.scrollLabel.frame = scrollFrame;
+        self.secondLabel.frame = secondFrame;
         self.index ++;
         if(self.index >= self.textList.count)
         {
             self.index = 0;
-        }        
-    });
+        }
+        NSLog(@"self.index:%@", @(self.index));
+        [self addAnimation];
+    }];
 }
+
+
 
 -(NSDictionary *)currentNewsInfo
 {
