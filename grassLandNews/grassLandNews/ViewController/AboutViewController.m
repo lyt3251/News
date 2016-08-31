@@ -86,6 +86,52 @@
         make.right.mas_equalTo(0);
     }];
     
+
+    UILabel *label6 = [[UILabel alloc] init];
+    label6.font = kFontNewsSubTitle;
+    label6.textColor = kColorNewsChannel;
+    label6.text = @"邮       编：";
+    [self.view addSubview:label6];
+    [label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(label1);
+        make.top.mas_equalTo(label4.mas_bottom).with.offset(20);
+        make.width.mas_equalTo(70);
+    }];
+    
+    UILabel *label7 = [[UILabel alloc] init];
+    label7.font = kFontNewsSubTitle;
+    label5.textColor = kColorNewsTitle;
+    label7.text = @"100125";
+    [self.view addSubview:label7];
+    [label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(label6.mas_right);
+        make.centerY.mas_equalTo(label6);
+        make.right.mas_equalTo(0);
+    }];
+    
+    UILabel *label8 = [[UILabel alloc] init];
+    label8.font = kFontNewsSubTitle;
+    label8.textColor = kColorNewsChannel;
+    label8.text = @"网       址：";
+    [self.view addSubview:label8];
+    [label8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(label1);
+        make.top.mas_equalTo(label6.mas_bottom).with.offset(20);
+        make.width.mas_equalTo(70);
+    }];
+    
+    UILabel *label9 = [[UILabel alloc] init];
+    label9.font = kFontNewsSubTitle;
+    label9.textColor = kColorNewsTitle;
+    label9.text = @"http://www.grassland.gov.cn";
+    [self.view addSubview:label9];
+    [label9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(label8.mas_right);
+        make.centerY.mas_equalTo(label8);
+        make.right.mas_equalTo(0);
+    }];
+    
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     

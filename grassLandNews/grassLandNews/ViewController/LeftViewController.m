@@ -93,7 +93,7 @@ typedef enum : NSUInteger {
     }];
 
     self.appNameLabel = [[UILabel alloc] init];
-    self.appNameLabel.text = @"中国草原网";
+    self.appNameLabel.text = @"中国草原";
     self.appNameLabel.font = [UIFont systemFontOfSize:20];
     self.appNameLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:self.appNameLabel];
@@ -235,7 +235,7 @@ typedef enum : NSUInteger {
             break;
         case LeftVCListType_Share:
         {
-            [self shareUrlByLinkUrl:@"http://gnapi.huilianonline.com/dl/dload.htm" title:@"中国草原网客户端" detailTitle:@" 我在\"中国草原网客户端\" 发现了喜欢的新闻，快下载一起看吧!" localImage:nil];
+            [self shareUrlByLinkUrl:@"http://gnapi.huilianonline.com/dl/dload.htm" title:@"中国草原客户端" detailTitle:@" 我在\"中国草原客户端\" 发现了喜欢的新闻，快下载一起看吧!" localImage:nil];
         }
             break;
             

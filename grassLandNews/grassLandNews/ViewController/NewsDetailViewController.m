@@ -275,8 +275,8 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    NSString *documentTitleString = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
-    self.titleStr = documentTitleString;
+//    NSString *documentTitleString = [_webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+//    self.titleStr = documentTitleString;
     [self changeFont];
 }
 
