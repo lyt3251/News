@@ -12,5 +12,7 @@
 @property(nonatomic, strong)UILabel *titleLabel;
 @property(nonatomic, strong)UIImageView *rightImageView;
 @property(nonatomic, strong)UILabel *subTitleLabel;
+@property(nonatomic, strong)UILabel *timeLabel;
+
 @property(nonatomic, strong)UIView *lineView;
 @end

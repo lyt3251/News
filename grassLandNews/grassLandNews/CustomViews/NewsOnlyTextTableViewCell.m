@@ -40,6 +40,11 @@
     self.subTitleLabel.textColor = kColorNewsChannel;
     self.subTitleLabel.font = kFontNewsChannel;
     [self.contentView addSubview:self.subTitleLabel];
+
+    self.timeLabel = [[UILabel alloc] init];
+    self.timeLabel.textColor = kColorNewsChannel;
+    self.timeLabel.font = kFontNewsChannel;
+    [self.contentView addSubview:self.timeLabel];
     
     
     self.lineView = [[UIView alloc] init];
@@ -58,9 +63,15 @@
         make.height.mas_equalTo(0.5f);
     }];
     
-    [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.titleLabel);
         make.bottom.mas_equalTo(-10);
+        make.width.mas_equalTo(80);
+    }];
+    
+    [self.subTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.timeLabel.mas_right).with.offset(5);
+        make.centerY.mas_equalTo(self.timeLabel);
     }];
     
     

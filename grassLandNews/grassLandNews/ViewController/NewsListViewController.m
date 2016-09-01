@@ -119,6 +119,7 @@
         
         [newsWithPhotoCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
         newsWithPhotoCell.subTitleLabel.text = newsDic[@"NodeName"];
+        newsWithPhotoCell.timeLabel.text = newsDic[@"InputTime"];
         
         [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
@@ -137,6 +138,7 @@
         
         [newsOnlyTextCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
         newsOnlyTextCell.subTitleLabel.text = newsDic[@"NodeName"];
+        newsOnlyTextCell.timeLabel.text = newsDic[@"InputTime"];
         
         cell = newsOnlyTextCell;
     }
