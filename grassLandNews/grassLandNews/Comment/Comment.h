@@ -187,6 +187,8 @@ static NSString *REQUEST_Searchwords_Url = @"/api/Searchwords"; //搜索关键�
 static NSString *REQUEST_Update_Url = @"/api/VersionUpdate"; //升级
 static NSString *REQUEST_PushMsg_Url = @"/api/GetMsgList";  //推送消息
 static NSString *REQUEST_Home_Url = @"/api/GetHomeArticle";  //首页请求
+static NSString *REQUEST_GetALLGwtg_Url = @"/api/GetAllgwtg";  //公告
+
 
 
 //错误信息

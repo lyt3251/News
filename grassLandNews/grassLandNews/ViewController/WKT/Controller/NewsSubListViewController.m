@@ -14,6 +14,7 @@
 #import "MutilTextLabel.h"
 #import "NewsManager.h"
 #import "NewsDetailViewController.h"
+#import "NewsNoticesViewController.h"
 
 #define KSectionHeaderHight    30.0f
 
@@ -273,9 +274,11 @@
 
 #pragma mark - KDCycleBannerViewDelegate methods
 - (void)cycleBannerView:(KDCycleBannerView *)bannerView didSelectedAtIndex:(NSUInteger)index {
-    NSDictionary *newsInfo = self.bannerArr[index];
-    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-    [self.navigationController pushViewController:newsDetailVC animated:YES];
+//    NSDictionary *newsInfo = self.bannerArr[index];
+//    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+//    [self.navigationController pushViewController:newsDetailVC animated:YES];
+    NewsNoticesViewController *noticesVC = [[NewsNoticesViewController alloc] init];
+    [self.navigationController pushViewController:noticesVC animated:YES];
 }
 
 #pragma mark-- UITableViewDataSource
@@ -440,9 +443,11 @@
 //点击图片后处理
 -(void)RollViewTapEvent:(UITapGestureRecognizer*)recognizer
 {
-    NSDictionary *newsInfo = [self.rollLabel currentNewsInfo];
-    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-    [self.navigationController pushViewController:newsDetailVC animated:YES];
+//    NSDictionary *newsInfo = [self.rollLabel currentNewsInfo];
+//    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+//    [self.navigationController pushViewController:newsDetailVC animated:YES];
+    NewsNoticesViewController *noticesVC = [[NewsNoticesViewController alloc] init];
+    [self.navigationController pushViewController:noticesVC animated:YES];
     
 }
 

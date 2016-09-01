@@ -104,5 +104,13 @@
     return [self requestByUrl:REQUEST_Home_Url requestParameters:nil progress:nil onCompleted:onCompleted];
 }
 
+-(id)requestGwtgListByPage:(NSInteger)page  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+{
+   NSDictionary *parametes = @{@"pi":@(page), @"pc":@(KPageNumber)};
+    
+    return [self requestByUrl:REQUEST_GetALLGwtg_Url requestParameters:parametes progress:nil onCompleted:onCompleted];
+    
+}
+
 
 @end
