@@ -176,7 +176,7 @@
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
         @weakify(self);
-        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
             @strongify(self);
             NSNumber *status = responseObject[@"status"];
             if(error || status.integerValue == 0)
@@ -238,7 +238,7 @@
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
         @weakify(self);
-        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
             @strongify(self);
             [self.tableView.footer endRefreshing];
             NSNumber *status = responseObject[@"status"];

@@ -359,7 +359,7 @@
     NewsManager *newsManager = [[NewsManager alloc] init];
     @weakify(self);
     [TXProgressHUD showHUDAddedTo:self.view animated:YES];
-    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         [TXProgressHUD hideHUDForView:self.view animated:YES];
         [self.tableView.header endRefreshing];
@@ -488,7 +488,7 @@
     NewsManager *newsManager = [[NewsManager alloc] init];
     @weakify(self);
     [TXProgressHUD showHUDAddedTo:self.view animated:YES];
-    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsManager requestNewsListByPage:self.currentPage nodeId:0 keyword:searchKey ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         [TXProgressHUD hideHUDForView:self.view animated:YES];
         [self.tableView.footer endRefreshing];

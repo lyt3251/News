@@ -38,18 +38,18 @@
 -(void)initTitles
 {
     self.leftTitles = [NSMutableArray array];
-//    for(NSInteger i = 0; i < 10; i++)
-//    {
-//        [self.leftTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
-//    }
-    [self.leftTitles addObjectsFromArray:[[ChannelManager shareInstance] getChannels]];
+    NSArray *channels = [[ChannelManager shareInstance] getChannels];
+    for(NSDictionary *dic in channels)
+    {
+        NSNumber *nodeId = dic[@"NodeID"];
+        if(nodeId.integerValue != -2)
+        {
+            [self.leftTitles addObject:dic];
+        }
+    }
     
     
     self.rightTitles = [NSMutableArray array];
-//    for(NSInteger i = 0; i < 5; i++)
-//    {
-//        [self.rightTitles addObject:[NSString stringWithFormat:@"测试%@", @(i)]];
-//    }
     
     if(self.leftTitles.count > 0)
     {

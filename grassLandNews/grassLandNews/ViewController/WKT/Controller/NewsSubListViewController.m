@@ -63,8 +63,8 @@
     else
     {
         [self requestNewsList];
-        [self setupRefresh];
     }
+    [self setupRefresh];
 }
 
 
@@ -274,11 +274,9 @@
 
 #pragma mark - KDCycleBannerViewDelegate methods
 - (void)cycleBannerView:(KDCycleBannerView *)bannerView didSelectedAtIndex:(NSUInteger)index {
-//    NSDictionary *newsInfo = self.bannerArr[index];
-//    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-//    [self.navigationController pushViewController:newsDetailVC animated:YES];
-    NewsNoticesViewController *noticesVC = [[NewsNoticesViewController alloc] init];
-    [self.navigationController pushViewController:noticesVC animated:YES];
+    NSDictionary *newsInfo = self.bannerArr[index];
+    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 
 #pragma mark-- UITableViewDataSource
@@ -512,7 +510,7 @@
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
@@ -542,15 +540,24 @@
     @weakify(self);
     self.scrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [self requestNewsList];
+        if([self isMainPage])
+        {
+            [self requestHome];
+        }
+        else
+        {
+            [self requestNewsList];
+        }
     }];
-    
-    self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self requestNextPage];
-    }];
-    
-    MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.scrollView.footer;
-    [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+    if(![self isMainPage])
+    {
+        self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self requestNextPage];
+        }];
+        
+        MJRefreshAutoStateFooter *autoStateFooter = (MJRefreshAutoStateFooter *) self.scrollView.footer;
+        [autoStateFooter setTitle:@"" forState:MJRefreshStateIdle];
+    }
 }
 
 
@@ -559,7 +566,7 @@
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:1 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
@@ -585,6 +592,10 @@
     @weakify(self);
     [newsM requestHomeNewsList:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
+        if([self.scrollView.header isRefreshing])
+        {
+            [self.scrollView.header endRefreshing];
+        }
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
         {
