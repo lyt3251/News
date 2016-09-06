@@ -74,7 +74,8 @@
         }
         
 //        [[TXCustomAlertWindow sharedWindow] showWithView:self];
-        [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
+//        [[[[UIApplication sharedApplication] windows] firstObject] addSubview:self];
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
     }
     
     self.dialogView.layer.opacity = 0.5f;

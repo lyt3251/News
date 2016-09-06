@@ -64,9 +64,9 @@ PODS:
   - RESideMenu (4.0.7)
   - SDCycleScrollView (1.65):
     - SDWebImage (~> 3.7)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - UIColor+Hex (1.0.1):
     - UIColor+Hex/NSColor (= 1.0.1)
     - UIColor+Hex/UIColor (= 1.0.1)
@@ -102,7 +102,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   UIColor+Hex: 9fee91bb8e19f17dd40a79ae1e98949a6a84489d
   UMengAnalytics-NO-IDFA: 601dab9ffe32f9de3fa0a6116768aed18a56f8a9
   ZipArchive: e25a4373192673e3229ac8d6e9f64a3e5713c966

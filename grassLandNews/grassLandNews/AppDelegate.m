@@ -13,7 +13,7 @@
 #import "MidViewController.h"
 #import "WXYNewListViewController.h"
 #import "CustomNavigationController.h"
-
+#import "MiddleViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +28,7 @@
     
 //    MidViewController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[MidViewController alloc] init]];
 //    MidViewController *MidViewController =  [[MidViewController alloc] init];
-    WXYNewListViewController *vc = [[WXYNewListViewController alloc] initWithNibName:nil bundle:nil];
+    MiddleViewController *vc = [[MiddleViewController alloc] initWithNibName:nil bundle:nil];
     CustomNavigationController *loginNV = [[CustomNavigationController alloc]
                                            initWithRootViewController:vc];
     loginNV.navigationBarHidden = YES;

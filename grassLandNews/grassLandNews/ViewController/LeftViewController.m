@@ -7,6 +7,7 @@
 //
 
 #import "LeftViewController.h"
+#import "UIView+AlertView.h"
 
 typedef enum : NSUInteger {
     LeftVCListType_MyFavorites = 0, //收藏
@@ -43,10 +44,11 @@ typedef enum : NSUInteger {
 -(void)initListDatas
 {
     
-    self.leftList = @[@{@"icon":@"Left_Favorites", @"name":@"我的收藏", @"type":@(LeftVCListType_MyFavorites)},
-                      @{@"icon":@"Left_Setting", @"name":@"设置", @"type":@(LeftVCListType_Setting)},
-                      @{@"icon":@"Left_About", @"name":@"关于我们", @"type":@(LeftVCListType_About)},
-                      @{@"icon":@"Left_Share", @"name":@"推荐给朋友", @"type":@(LeftVCListType_Share)}];
+    self.leftList = @[@{@"icon":@"Left_Favorites", @"name":@"测试", @"type":@(LeftVCListType_MyFavorites)},
+//                      @{@"icon":@"Left_Setting", @"name":@"设置", @"type":@(LeftVCListType_Setting)},
+//                      @{@"icon":@"Left_About", @"name":@"关于我们", @"type":@(LeftVCListType_About)},
+//                      @{@"icon":@"Left_Share", @"name":@"推荐给朋友", @"type":@(LeftVCListType_Share)}
+                      ];
     
 }
 
@@ -68,7 +70,7 @@ typedef enum : NSUInteger {
     }];
 
     self.appNameLabel = [[UILabel alloc] init];
-    self.appNameLabel.text = @"中国草原网";
+    self.appNameLabel.text = @"title";
     self.appNameLabel.font = [UIFont systemFontOfSize:20];
     self.appNameLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:self.appNameLabel];
@@ -165,6 +167,16 @@ typedef enum : NSUInteger {
     return cell;
     
 
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    ButtonItem *confirmBtn = [ButtonItem itemWithLabel:@"确定" andTextColor:[UIColor redColor] action:^{
+        
+    }];
+    
+    [self showAlertViewWithMessage:@"1111111" andButtonItems:confirmBtn, nil];
 }
 
 
