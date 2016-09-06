@@ -43,7 +43,8 @@
     for(NSDictionary *dic in channels)
     {
         NSNumber *nodeId = dic[@"NodeID"];
-        if(nodeId.integerValue != -2)
+        NSNumber *atype = dic[@"atype"];
+        if(nodeId.integerValue != -2 && atype.intValue != 2)
         {
             [self.leftTitles addObject:dic];
         }
