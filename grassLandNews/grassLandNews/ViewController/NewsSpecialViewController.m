@@ -1,27 +1,29 @@
 //
-//  NewsListViewController.m
+//  NewsNoticesViewController.m
 //  grassLandNews
 //
-//  Created by liuyuantao on 16/8/3.
+//  Created by liuyuantao on 16/9/1.
 //  Copyright © 2016年 liuyuantao. All rights reserved.
 //
 
-#import "NewsListViewController.h"
+#import "NewsSpecialViewController.h"
 #import "NewsWithPhotoTableViewCell.h"
 #import "NewsOnlyTextTableViewCell.h"
 #import "NewsManager.h"
-#import "ChannelManager.h"
 #import "FavoritesManager.h"
 #import "NewsDetailViewController.h"
 
-@interface NewsListViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+
+@interface NewsSpecialViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong)UITableView *tableView;
 @property(nonatomic, strong)NSMutableArray *list;
 @property(nonatomic, assign)NSInteger currentPage;
 @property(nonatomic, assign)NSInteger totalPage;
+
 @end
 
-@implementation NewsListViewController
+@implementation NewsSpecialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,14 +31,7 @@
     self.customNavigationView.backgroundColor = RGBCOLOR(0x44, 0x99, 0x69);
     self.titleLb.textColor = [UIColor whiteColor];
     [self.btnLeft setImage:[UIImage imageNamed:@"Main_Back"] forState:UIControlStateNormal];
-    if(self.ListTitle.length > 0)
-    {
-        self.titleStr = self.ListTitle;
-    }
-    else
-    {
-        self.titleStr = self.channelDic[@"NodeName"];
-    }
+    self.titleStr = self.specialInfo[@"NodeName"];
     // Do any additional setup after loading the view.
     self.list = [NSMutableArray arrayWithCapacity:1];
     [self setupViews];
@@ -64,15 +59,7 @@
 {
     if(sender.tag == TopBarButtonLeft)
     {
-        if(self.listType == NewsListType_Favorites)
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-            [self presentLeftMenuViewController:sender];
-        }
-        else
-        {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -83,14 +70,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark-- UITableViewDataSource
 
@@ -121,6 +108,7 @@
         newsWithPhotoCell.subTitleLabel.text = newsDic[@"NodeName"];
         newsWithPhotoCell.timeLabel.text = newsDic[@"InputTime"];
         
+        
         [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
         }];
@@ -138,7 +126,7 @@
         
         [newsOnlyTextCell.titleLabel setTextByStr:newsDic[@"Title"] WithSpace:7.0f];
         newsOnlyTextCell.subTitleLabel.text = newsDic[@"NodeName"];
-        newsOnlyTextCell.timeLabel.text = newsDic[@"InputTime"];
+        newsOnlyTextCell.timeLabel.text = newsDic[@"InputTime"];        
         
         cell = newsOnlyTextCell;
     }
@@ -152,59 +140,43 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *newsInfo = self.list[indexPath.row];
     NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-    if(self.listType ==  NewsListType_Favorites)
-    {
-        [self.navigationController pushViewController:newsDetailVC animated:YES];
-
-    }
-    else
-    {
-        [self.navigationController pushViewController:newsDetailVC animated:YES];
-    }
+    [self.navigationController pushViewController:newsDetailVC animated:YES];
 }
 
 -(void)requestList
 {
     self.currentPage = 1;
-    if(self.listType == NewsListType_Favorites)
-    {
-        NSArray *array = [[FavoritesManager shareInstance] getFavoritesList];
-        self.list = [NSMutableArray arrayWithArray:array];
-    }
-    else if(self.listType == NewsListType_SubChannel)
-    {
-        NewsManager *newsManager = [[NewsManager alloc] init];
-        NSNumber *noteId = self.channelDic[@"NodeID"];
-        NSNumber *aType = self.channelDic[@"atype"];
-        @weakify(self);
-        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-            @strongify(self);
-            NSNumber *status = responseObject[@"status"];
-            if(error || status.integerValue == 0)
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    NSNumber *specialId = self.specialInfo[@"NodeID"];
+    @weakify(self);
+    [newsManager requestSpecialListByPage:self.currentPage specialId:specialId.intValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSNumber *status = responseObject[@"status"];
+        if(error || status.integerValue == 0)
+        {
+            if(error)
             {
-                if(error)
-                {
-                    [self showFailedHudWithError:error];
-                }
-                else
-                {
-                    [self showFailedHudWithTitle:responseObject[@"msg"]];
-                }
+                [self showFailedHudWithError:error];
             }
             else
             {
-                self.currentPage++;
-                [self.list removeAllObjects];
-                [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
-                NSNumber *totalPage = responseObject[@"data"][@"totalPage"];
-                self.totalPage = totalPage.integerValue;
-                [self.tableView reloadData];
-                self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
+                [self showFailedHudWithTitle:responseObject[@"msg"]];
             }
-            [self.tableView.header endRefreshing];
-        }];
-        
-    }
+        }
+        else
+        {
+            self.currentPage++;
+            [self.list removeAllObjects];
+            [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
+            NSNumber *totalPage = responseObject[@"data"][@"totalPage"];
+            self.totalPage = totalPage.integerValue;
+            [self.tableView reloadData];
+            self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
+        }
+        [self.tableView.header endRefreshing];
+    }];
+    
+
 }
 
 
@@ -230,47 +202,35 @@
 
 -(void)requestNextPage
 {
-    if(self.listType == NewsListType_Favorites)
-    {
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    NSNumber *specialId = self.specialInfo[@"NodeID"];
+    @weakify(self);
+    [newsManager requestSpecialListByPage:self.currentPage specialId:specialId.intValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
         [self.tableView.footer endRefreshing];
-    }
-    else if(self.listType == NewsListType_SubChannel)
-    {
-        NewsManager *newsManager = [[NewsManager alloc] init];
-        NSNumber *noteId = self.channelDic[@"NodeID"];
-        NSNumber *aType = self.channelDic[@"atype"];
-        @weakify(self);
-        [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
-            @strongify(self);
-            [self.tableView.footer endRefreshing];
-            NSNumber *status = responseObject[@"status"];
-            if(error || status.integerValue == 0)
+        NSNumber *status = responseObject[@"status"];
+        if(error || status.integerValue == 0)
+        {
+            if(error)
             {
-                if(error)
-                {
-                    [self showFailedHudWithError:error];
-                }
-                else
-                {
-                    [self showFailedHudWithTitle:responseObject[@"msg"]];
-                }
+                [self showFailedHudWithError:error];
             }
             else
             {
-                self.currentPage++;
-                [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
-                [self.tableView reloadData];
-                self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
+                [self showFailedHudWithTitle:responseObject[@"msg"]];
             }
-        }];
-        
-    }
+        }
+        else
+        {
+            self.currentPage++;
+            [self.list addObjectsFromArray:responseObject[@"data"][@"data"]];
+            [self.tableView reloadData];
+            self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
+        }
+    }];
+    
+
 }
-
-
-
-
-
 
 
 @end

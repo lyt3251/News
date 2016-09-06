@@ -18,7 +18,7 @@
 -(id)requestRollListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
 
--(id)requestNewsListByPage:(NSInteger)page nodeId:(int32_t)nodeId keyword:(NSString *)keyword ids:(NSArray *)ids clickdesc:(NSInteger)clickdesc onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+-(id)requestNewsListByPage:(NSInteger)page nodeId:(int32_t)nodeId keyword:(NSString *)keyword ids:(NSArray *)ids clickdesc:(NSInteger)clickdesc aType:(int32_t)aType onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
 -(id)requestNewsById:(int64_t)newsId onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
@@ -31,4 +31,6 @@
 -(id)requestHomeNewsList:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
 -(id)requestGwtgListByPage:(NSInteger)page  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+
+-(id)requestSpecialListByPage:(NSInteger)page  specialId:(int32_t)specialId onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 @end

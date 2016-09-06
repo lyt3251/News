@@ -88,7 +88,7 @@
         secondDic = self.textList[self.index + 1];
     }
     self.secondLabel.text = secondDic[@"Title"];
-    NSLog(@"frist:%@, second:%@", self.scrollLabel.text, self.secondLabel.text);
+//    NSLog(@"frist:%@, second:%@", self.scrollLabel.text, self.secondLabel.text);
     
     [UIView animateWithDuration:self.interval delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         self.scrollLabel.frame = CGRectMake(-self.scrollLabel.frame.size.width, self.scrollLabel.frame.origin.y, self.scrollLabel.frame.size.width, self.scrollLabel.frame.size.height);
@@ -101,7 +101,7 @@
         {
             self.index = 0;
         }
-        NSLog(@"self.index:%@", @(self.index));
+//        NSLog(@"self.index:%@", @(self.index));
         [self addAnimation];
     }];
 }

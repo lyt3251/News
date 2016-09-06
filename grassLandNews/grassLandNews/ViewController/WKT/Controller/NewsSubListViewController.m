@@ -15,8 +15,19 @@
 #import "NewsManager.h"
 #import "NewsDetailViewController.h"
 #import "NewsNoticesViewController.h"
+#import "SpecialTableViewCell.h"
+#import "UILabel+ContentSize.h"
+#import "NewsSpecialViewController.h"
 
 #define KSectionHeaderHight    30.0f
+
+typedef NS_ENUM(NSInteger, PageType)
+{
+    PageType_Normal = 0,
+    PageType_Main,
+    PageType_Special,
+};
+
 
 @interface NewsSubListViewController ()<KDCycleBannerViewDataource, KDCycleBannerViewDelegate, UIScrollViewDelegate,
                                         UITableViewDelegate, UITableViewDataSource>
@@ -56,7 +67,7 @@
     {
         [self requestRollNewsList];
     }
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         [self requestHome];
     }
@@ -194,10 +205,18 @@
 
 -(CGFloat)getTablewHight
 {
-//    return 2*KSectionHeaderHight + 3*(2*100 + 160);
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         return KSectionHeaderHight*self.channelList.count + 100.0f * self.newsList.count;
+    }
+    else if([self isMainPage] == PageType_Special)
+    {
+        CGFloat total = 0.0f;
+        for(NSDictionary *info in self.newsList)
+        {
+            total += [self heightForSpecial:info];
+        }
+        return total;
     }
     
     return  100.0f * self.newsList.count;
@@ -218,7 +237,7 @@
     {
         [self requestRollNewsList];
     }
-    if(![self isMainPage])
+    if([self isMainPage] == PageType_Normal)
     [self requestNewsList];
 }
 
@@ -283,7 +302,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         return self.channelList.count;
     }
@@ -292,7 +311,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
     
         return [self rowCountBySection:section];
@@ -308,7 +327,7 @@
 {
     UITableViewCell *cell = nil;
     NSDictionary *newsInfo = nil;
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         newsInfo = [self newsBySection:indexPath.section row:indexPath.row];
     }
@@ -320,22 +339,40 @@
     NSString *picUrl = newsInfo[@"DefaultPicUrl"];
     if(picUrl.length > 0)
     {
-        static NSString *identifier = @"NewsWithPhotoTableViewCell";
-        NewsWithPhotoTableViewCell *newsWithPhotoCell = [tableView dequeueReusableCellWithIdentifier:identifier];
-        if(!newsWithPhotoCell)
+        if([self isMainPage] == PageType_Special)
         {
-            newsWithPhotoCell = [[NewsWithPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            static NSString *identifier = @"SpecialUITableViewCell";
+            SpecialTableViewCell *specialTableViewCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if(!specialTableViewCell)
+            {
+                specialTableViewCell = [[SpecialTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    
+            }
+            [specialTableViewCell.specialIcon sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"]];
+            specialTableViewCell.titleLabel.text = newsInfo[@"Title"] ;
+            
+            cell = specialTableViewCell;
         }
-        
-        [newsWithPhotoCell.titleLabel setTextByStr:newsInfo[@"Title"] WithSpace:7.0f];
-        newsWithPhotoCell.subTitleLabel.text = newsInfo[@"NodeName"];
-        newsWithPhotoCell.timeLabel.text = newsInfo[@"InputTime"];
-        
-        
-        [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
-        }];
-        cell = newsWithPhotoCell;
+        else
+        {
+            static NSString *identifier = @"NewsWithPhotoTableViewCell";
+            NewsWithPhotoTableViewCell *newsWithPhotoCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+            if(!newsWithPhotoCell)
+            {
+                newsWithPhotoCell = [[NewsWithPhotoTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+            }
+            
+            [newsWithPhotoCell.titleLabel setTextByStr:newsInfo[@"Title"] WithSpace:7.0f];
+            newsWithPhotoCell.subTitleLabel.text = newsInfo[@"NodeName"];
+            newsWithPhotoCell.timeLabel.text = newsInfo[@"InputTime"];
+            
+            
+            [newsWithPhotoCell.rightImageView sd_setImageWithURL:[NSURL URLWithString:picUrl] placeholderImage:[UIImage imageNamed:@"Left_Header"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                NSLog(@"image:%@, error:%@, type:%@, url:%@", image, error, @(cacheType), imageURL);
+            }];
+            cell = newsWithPhotoCell;
+        }
+
     }
     else
     {
@@ -347,7 +384,7 @@
         }
         
         //        newsOnlyTextCell.titleLabel.text = @"测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题测试标题";
-        [newsOnlyTextCell.titleLabel setTextByStr:newsInfo[@"Title"] WithSpace:7.0f];
+        [newsOnlyTextCell.titleLabel setText:newsInfo[@"Title"]];
         newsOnlyTextCell.subTitleLabel.text = newsInfo[@"NodeName"];
         newsOnlyTextCell.timeLabel.text = newsInfo[@"InputTime"];
         
@@ -375,17 +412,42 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if(indexPath.row == 2)
-//    {
-//        return 160.0f;
-//    }
+    if([self isMainPage] == PageType_Special)
+    {
+        NSDictionary *newsInfo = nil;
+        newsInfo = self.newsList[indexPath.row];
+        return [self heightForSpecial:newsInfo];
+    }
+    
+    return 100.0f;
+}
+
+-(CGFloat)heightForSpecial:(NSDictionary *)specialInfo
+{
+    NSString *picUrl = specialInfo[@"DefaultPicUrl"];
+    if(picUrl.length > 0)
+    {
+        NSString *title = specialInfo[@"Title"];
+        CGFloat contentHeight = [UILabel heightForLabelWithText:title maxWidth:kScreenWidth - 2*15 font:kFontNewsChannel];
+        
+        CGFloat height = 0;
+        if(title.length <= 0)
+        {
+            height = (kScreenWidth - 2*15)*170./305. + 2*10;
+        }
+        else
+        {
+            height = (kScreenWidth - 2*15)*170./305. + ceilf(contentHeight)  + 3*10;
+        }
+        return ceilf(height);
+    }
     return 100.0f;
 }
 
 #pragma mark-- UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         return KSectionHeaderHight;
     }
@@ -396,7 +458,7 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if(![self isMainPage])
+    if(![self isMainPage] == PageType_Main)
     {
         return nil;
     }
@@ -427,7 +489,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSDictionary *newsInfo = nil;
-    if([self isMainPage])
+    if([self isMainPage] == PageType_Main)
     {
         newsInfo = [self newsBySection:indexPath.section row:indexPath.row];
     }
@@ -435,8 +497,17 @@
     {
         newsInfo = self.newsList[indexPath.row];
     }
-    NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
-    [self.navigationController pushViewController:newsDetailVC animated:YES];
+    if([self isMainPage] == PageType_Special)
+    {
+        NewsSpecialViewController *specialList = [[NewsSpecialViewController alloc] init];
+        specialList.specialInfo = newsInfo;
+        [self.navigationController pushViewController:specialList animated:YES];
+    }
+    else
+    {
+        NewsDetailViewController *newsDetailVC = [[NewsDetailViewController alloc] initWithNewsId:newsInfo];
+        [self.navigationController pushViewController:newsDetailVC animated:YES];
+    }
 }
 
 
@@ -508,9 +579,10 @@
 {
     self.currentPage = 1;
     NewsManager *newsM = [[NewsManager alloc] init];
+    NSNumber *aType = self.channelInfo[@"atype"];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
@@ -540,7 +612,7 @@
     @weakify(self);
     self.scrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        if([self isMainPage])
+        if([self isMainPage] == PageType_Main)
         {
             [self requestHome];
         }
@@ -566,7 +638,8 @@
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+    NSNumber *aType = self.channelInfo[@"atype"];
+    [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
         if(status.integerValue > 0)
@@ -616,12 +689,17 @@
 
 }
 
--(BOOL)isMainPage
+-(PageType)isMainPage
 {
     NSNumber *NodeId = self.channelInfo[@"NodeID"];
+    NSNumber *aType = self.channelInfo[@"atype"];
     if(NodeId.intValue == -2)
     {
-        return YES;
+        return PageType_Main;
+    }
+    if(aType.intValue == 2)
+    {
+        return PageType_Special;
     }
     return NO;
 }

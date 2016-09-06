@@ -54,7 +54,7 @@
 }
 
 
--(id)requestNewsListByPage:(NSInteger)page nodeId:(int32_t)nodeId keyword:(NSString *)keyword ids:(NSArray *)ids clickdesc:(NSInteger)clickdesc onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+-(id)requestNewsListByPage:(NSInteger)page nodeId:(int32_t)nodeId keyword:(NSString *)keyword ids:(NSArray *)ids clickdesc:(NSInteger)clickdesc aType:(int32_t)aType onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
     NSMutableString *mutableStr = [[NSMutableString alloc] init];
     for(NSNumber *newsId in ids)
@@ -71,11 +71,11 @@
     NSDictionary *parametes = nil;
     if(nodeId > 0)
     {
-        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId)};
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId), @"atype":@(aType)};
     }
     else
     {
-        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr};
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"atype":@(aType)};
     }
     
 
@@ -112,5 +112,13 @@
     
 }
 
+
+-(id)requestSpecialListByPage:(NSInteger)page  specialId:(int32_t)specialId onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+{
+    NSDictionary *parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"specialId":@(specialId)};
+    
+    return [self requestByUrl:REQUEST_SpeicalArticle_Url requestParameters:parametes progress:nil onCompleted:onCompleted];
+    
+}
 
 @end
