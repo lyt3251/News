@@ -147,7 +147,7 @@
 {
     self.currentPage = 1;
     NewsManager *newsManager = [[NewsManager alloc] init];
-    NSNumber *specialId = self.specialInfo[@"NodeID"];
+    NSNumber *specialId = self.specialInfo[@"GeneralID"];
     @weakify(self);
     [newsManager requestSpecialListByPage:self.currentPage specialId:specialId.intValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
@@ -203,7 +203,7 @@
 -(void)requestNextPage
 {
     NewsManager *newsManager = [[NewsManager alloc] init];
-    NSNumber *specialId = self.specialInfo[@"NodeID"];
+    NSNumber *specialId = self.specialInfo[@"GeneralID"];
     @weakify(self);
     [newsManager requestSpecialListByPage:self.currentPage specialId:specialId.intValue onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);

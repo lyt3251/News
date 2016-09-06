@@ -9,6 +9,7 @@
 #import "ChannelSortViewController.h"
 #import "ChannelManager.h"
 #import "NewsListViewController.h"
+#import "NewsSpecialViewController.h"
 
 #define KCellHight 45.0f
 #define KCellTagBase 0x1000
@@ -209,11 +210,21 @@
     }
     else
     {
-         NSDictionary *dic = self.rightTitles[indexPath.row];
-        NewsListViewController *newsListVC = [[NewsListViewController alloc] init];
-        newsListVC.listType = NewsListType_SubChannel;
-        newsListVC.channelDic = dic;
-        [self.navigationController pushViewController:newsListVC animated:YES];
+        NSDictionary *dic = self.rightTitles[indexPath.row];
+        NSNumber *atype = dic[@"atype"];
+        if(atype.intValue == 2)
+        {
+            NewsSpecialViewController *specialList = [[NewsSpecialViewController alloc] init];
+            specialList.specialInfo = dic;
+            [self.navigationController pushViewController:specialList animated:YES];
+        }
+        else
+        {
+            NewsListViewController *newsListVC = [[NewsListViewController alloc] init];
+            newsListVC.listType = NewsListType_SubChannel;
+            newsListVC.channelDic = dic;
+            [self.navigationController pushViewController:newsListVC animated:YES];
+        }
     }
 }
 
