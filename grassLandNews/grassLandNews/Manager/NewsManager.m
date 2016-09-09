@@ -71,11 +71,11 @@
     NSDictionary *parametes = nil;
     if(nodeId > 0)
     {
-        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId), @"atype":@(aType)};
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"nodeId":@(nodeId), @"aType":@(aType)};
     }
     else
     {
-        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"atype":@(aType)};
+        parametes = @{@"pi":@(page), @"pc":@(KPageNumber), @"kw":keyword.length > 0?keyword:@"", @"clickdesc":@(clickdesc), @"Ids":mutableStr, @"aType":@(aType)};
     }
     
 

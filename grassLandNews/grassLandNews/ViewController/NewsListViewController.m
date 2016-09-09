@@ -175,7 +175,7 @@
     {
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
-        NSNumber *aType = self.channelDic[@"atype"];
+        NSNumber *aType = self.channelDic[@"aType"];
         @weakify(self);
         [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
             @strongify(self);
@@ -238,7 +238,7 @@
     {
         NewsManager *newsManager = [[NewsManager alloc] init];
         NSNumber *noteId = self.channelDic[@"NodeID"];
-        NSNumber *aType = self.channelDic[@"atype"];
+        NSNumber *aType = self.channelDic[@"aType"];
         @weakify(self);
         [newsManager requestNewsListByPage:self.currentPage nodeId:noteId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
             @strongify(self);

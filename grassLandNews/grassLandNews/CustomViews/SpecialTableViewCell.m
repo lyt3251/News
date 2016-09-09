@@ -35,7 +35,7 @@
     
     self.titleLabel = [[UILabel alloc] init];
     self.titleLabel.textColor = kColorNewsTitle;
-    self.titleLabel.font = kFontNewsChannel;
+    self.titleLabel.font = kFontNewsTitle;
     self.titleLabel.numberOfLines = 0;
     [self.contentView addSubview:self.titleLabel];
     

@@ -50,7 +50,8 @@ typedef enum : NSUInteger {
     self.list = @[@[@{@"title":@"清除缓存", @"type":@(SettingType_Cache)},
                     @{@"title":@"调整字体大小", @"type":@(SettingType_Font)}],
                   @[@{@"title":@"意见反馈", @"type":@(SettingType_FeedBack)},
-                    @{@"title":@"给我们评分", @"type":@(SettingType_Comment)}]];
+//                    @{@"title":@"给我们评分", @"type":@(SettingType_Comment)}
+                    ]];
     
     
 }

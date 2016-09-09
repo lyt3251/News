@@ -335,11 +335,11 @@ typedef NS_ENUM(NSInteger, PageType)
     {
         newsInfo = self.newsList[indexPath.row];
     }
-    
+    NSNumber *aType = newsInfo[@"aType"];
     NSString *picUrl = newsInfo[@"DefaultPicUrl"];
     if(picUrl.length > 0)
     {
-        if([self isMainPage] == PageType_Special)
+        if([self isMainPage] == PageType_Special || aType.intValue == 2)
         {
             static NSString *identifier = @"SpecialUITableViewCell";
             SpecialTableViewCell *specialTableViewCell = [tableView dequeueReusableCellWithIdentifier:identifier];
@@ -412,10 +412,19 @@ typedef NS_ENUM(NSInteger, PageType)
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if([self isMainPage] == PageType_Special)
+    NSDictionary *newsInfo = nil;
+    if([self isMainPage] == PageType_Main)
     {
-        NSDictionary *newsInfo = nil;
+        newsInfo = [self newsBySection:indexPath.section row:indexPath.row];
+    }
+    else
+    {
         newsInfo = self.newsList[indexPath.row];
+    }
+    
+    NSNumber *aType = newsInfo[@"aType"];
+    if([self isMainPage] == PageType_Special || aType.intValue == 2)
+    {
         return [self heightForSpecial:newsInfo];
     }
     
@@ -428,7 +437,7 @@ typedef NS_ENUM(NSInteger, PageType)
     if(picUrl.length > 0)
     {
         NSString *title = specialInfo[@"Title"];
-        CGFloat contentHeight = [UILabel heightForLabelWithText:title maxWidth:kScreenWidth - 2*15 font:kFontNewsChannel];
+        CGFloat contentHeight = [UILabel heightForLabelWithText:title maxWidth:kScreenWidth - 2*15 font:kFontNewsTitle];
         
         CGFloat height = 0;
         if(title.length <= 0)
@@ -497,7 +506,8 @@ typedef NS_ENUM(NSInteger, PageType)
     {
         newsInfo = self.newsList[indexPath.row];
     }
-    if([self isMainPage] == PageType_Special)
+    NSNumber *aType = newsInfo[@"aType"];
+    if([self isMainPage] == PageType_Special || aType.intValue == 2)
     {
         NewsSpecialViewController *specialList = [[NewsSpecialViewController alloc] init];
         specialList.specialInfo = newsInfo;
@@ -579,7 +589,7 @@ typedef NS_ENUM(NSInteger, PageType)
 {
     self.currentPage = 1;
     NewsManager *newsM = [[NewsManager alloc] init];
-    NSNumber *aType = self.channelInfo[@"atype"];
+    NSNumber *aType = self.channelInfo[@"aType"];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
     [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
@@ -638,7 +648,7 @@ typedef NS_ENUM(NSInteger, PageType)
     NewsManager *newsM = [[NewsManager alloc] init];
     @weakify(self);
     NSNumber *nodeId = self.channelInfo[@"NodeID"];
-    NSNumber *aType = self.channelInfo[@"atype"];
+    NSNumber *aType = self.channelInfo[@"aType"];
     [newsM requestNewsListByPage:self.currentPage nodeId:nodeId.intValue keyword:nil ids:nil clickdesc:0 aType:aType.intValue  onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
         @strongify(self);
         NSNumber *status = responseObject[@"status"];
@@ -692,7 +702,7 @@ typedef NS_ENUM(NSInteger, PageType)
 -(PageType)isMainPage
 {
     NSNumber *NodeId = self.channelInfo[@"NodeID"];
-    NSNumber *aType = self.channelInfo[@"atype"];
+    NSNumber *aType = self.channelInfo[@"aType"];
     if(NodeId.intValue == -2)
     {
         return PageType_Main;

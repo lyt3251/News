@@ -1226,6 +1226,7 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
+				5EADB766CB3E36E87A9D521C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1416,6 +1417,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5EADB766CB3E36E87A9D521C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */ = {

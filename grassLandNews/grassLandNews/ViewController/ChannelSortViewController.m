@@ -43,7 +43,7 @@
     for(NSDictionary *dic in channels)
     {
         NSNumber *nodeId = dic[@"NodeID"];
-        NSNumber *atype = dic[@"atype"];
+        NSNumber *atype = dic[@"aType"];
         if(nodeId.integerValue != -2 && atype.intValue != 2)
         {
             [self.leftTitles addObject:dic];
@@ -212,7 +212,7 @@
     else
     {
         NSDictionary *dic = self.rightTitles[indexPath.row];
-        NSNumber *atype = dic[@"atype"];
+        NSNumber *atype = dic[@"aType"];
         if(atype.intValue == 2)
         {
             NewsSpecialViewController *specialList = [[NewsSpecialViewController alloc] init];
