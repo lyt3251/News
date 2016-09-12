@@ -14,7 +14,8 @@
 #define TX_STATUS_UNAUTHORIZED                          403
 
 
-#define IOS7_OR_LATER       ([[[UIDevice currentDevice] systemVersion] compare:@"7"] != NSOrderedAscending)
+//#define IOS7_OR_LATER       ([[[UIDevice currentDevice] systemVersion] compare:@"7"] != NSOrderedAscending)
+#define IOS7_OR_LATER       (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_7_0)
 #define __IOS8 (([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)? (YES):(NO))//ios8版本
 
 
