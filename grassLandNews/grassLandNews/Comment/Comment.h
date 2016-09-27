@@ -176,7 +176,7 @@ static const CGFloat TXCellRightMargin = TXCellLeftMargin; //cell居右边距
  *  请求相关的常量
  */
 
-static  NSString *REQUEST_Base_Url = @"http://gnapi.huilianonline.com"; //请求服务器地址
+static  NSString *REQUEST_Base_Url = @"http://appapi.grassland.gov.cn"; //请求服务器地址
 
 static NSString *REQUEST_FeedBack_Url = @"/api/Feedback"; //意见反馈
 static NSString *REQUEST_ALLType_Url = @"/api/GetAllType"; //文章类型列表
