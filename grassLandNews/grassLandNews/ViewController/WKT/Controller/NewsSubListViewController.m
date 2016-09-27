@@ -165,7 +165,7 @@ typedef NS_ENUM(NSInteger, PageType)
     rollLabel.textColor = kColorNewsRoll;
     rollLabel.userInteractionEnabled = YES;
 //    rollLabel.textList = @[@"123", @"456"];
-    rollLabel.interval = 5;
+    rollLabel.interval = 15;
     [_rollViewBackGround addSubview:rollLabel];
     CGFloat beginX = icon.image.size.width +kEdgeInsetsLeft +5;
     rollLabel.frame = CGRectMake(beginX, 0, kScreenWidth - beginX - 5 , 30);
