@@ -226,6 +226,7 @@
 		0D463B421D5370AE00BA1200 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		0D463B441D53827A00BA1200 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		0D463B451D53827A00BA1200 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		0D56C55A1D9CE5630008830D /* grassLandNews.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = grassLandNews.entitlements; sourceTree = "<group>"; };
 		0D870ED71D5F55DD00B3FC18 /* CustomTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBarController.h; sourceTree = "<group>"; };
 		0D870ED81D5F55DD00B3FC18 /* CustomTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBarController.m; sourceTree = "<group>"; };
 		0D8ED5521D7063E6003EA58D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -615,6 +616,7 @@
 		0DA95AC61D485BD000509547 /* grassLandNews */ = {
 			isa = PBXGroup;
 			children = (
+				0D56C55A1D9CE5630008830D /* grassLandNews.entitlements */,
 				0DD9F0611D692739002CA852 /* Manager */,
 				0D21147A1D523145006888DF /* CustomViews */,
 				0DA95C001D487FFE00509547 /* Model */,
@@ -1289,6 +1291,12 @@
 				TargetAttributes = {
 					0DA95AC31D485BD000509547 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = SG8S8B94YY;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					0DA95ADC1D485BD000509547 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1763,7 +1771,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: shen jiafeng (N6GS83S4FG)";
+				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1783,9 +1794,10 @@
 					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6c04504f-29f3-4b70-a9db-d3f0834cdc93";
+				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
+				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1796,7 +1808,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: shen jiafeng (N6GS83S4FG)";
+				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1816,9 +1831,10 @@
 					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/grassLandNews/Utils/Share/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.huilianonline.grasslandnet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6c04504f-29f3-4b70-a9db-d3f0834cdc93";
+				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
+				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
