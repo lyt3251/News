@@ -56,6 +56,8 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, 0, 0));
     }];
+    [self addEmptyDataImage:NO showMessage:@"无数据"];
+    [self updateEmptyDataImageStatus:YES];
     
 }
 

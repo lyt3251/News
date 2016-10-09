@@ -224,6 +224,79 @@
     _titleLb.frame = CGRectMake(60, 0,_customNavigationView.height_ - 120, kNavigationHeight);
     _barLineView.frame = CGRectMake(0, kNavigationHeight - kLineHeight, _customNavigationView.height_, kLineHeight);
 }
+
+//添加控件
+-(void)addEmptyDataImage:(BOOL)isSupportCreateMsg  showMessage:(NSString *)showMessage
+{
+    NSString *imageName = @"noedit_default_icon";
+    
+    _noDataImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+//    if(isSupportCreateMsg)
+//    {
+//        UITapGestureRecognizer* tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(ImageViewTapEvent:)];
+//        tap.numberOfTapsRequired = 1;
+//        tap.numberOfTouchesRequired = 1;
+//        tap.cancelsTouchesInView = NO;
+//        _noDataImage.userInteractionEnabled = YES;
+//        [_noDataImage addGestureRecognizer:tap];
+//    }
+    [self.view addSubview:_noDataImage];
+    CGFloat imageHight = _noDataImage.image.size.height;
+    CGFloat margin = 13.0f;
+    CGFloat txtHight = 31.0f;
+    
+    [_noDataImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.view);
+        make.centerY.mas_equalTo(self.view).with.offset(+self.customNavigationView.maxY - (imageHight + margin + txtHight)/2);
+        //        make.top.mas_equalTo(self.view.mas_top).with.offset(self.customNavigationView.maxY + 110);
+        make.size.mas_equalTo(_noDataImage.image.size);
+    }];
+    [_noDataImage setHidden:YES];
+    _noDataLabel = [UILabel new];
+    [_noDataLabel setFont:kFontLarge];
+    [_noDataLabel setTextColor:RGBCOLOR(0xd1, 0xd1, 0xd1)];
+    [_noDataLabel setBackgroundColor:[UIColor clearColor]];
+    if(showMessage != nil && [showMessage length] > 0)
+    {
+        [_noDataLabel setText:showMessage];
+    }
+    else
+    {
+        [_noDataLabel setText:@""];
+    }
+    [_noDataLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:_noDataLabel];
+    [_noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(_noDataImage);
+        make.top.mas_equalTo(_noDataImage.mas_bottom).with.offset(margin);
+        make.size.mas_equalTo(CGSizeMake(300, txtHight));
+    }];
+    [_noDataLabel setHidden:YES];
+    
+}
+
+
+//更新隐藏显示状态
+-(void)updateEmptyDataImageStatus:(BOOL)isShow
+{
+    [_noDataImage setHidden:!isShow];
+    [_noDataImage layoutIfNeeded];
+    [_noDataLabel setHidden:!isShow];
+}
+
+//更新隐藏显示状态 和显示提示语
+-(void)updateEmptyDataImageStatusAndTitle:(BOOL)isShow newShowTitle:(NSString *)title
+{
+    [_noDataImage setHidden:!isShow];
+    [_noDataImage layoutIfNeeded];
+    [_noDataLabel setHidden:!isShow];
+    if(title && [title length] > 0)
+    {
+        _noDataLabel.text = title;
+    }
+}
+
+
 //#pragma mark - 毛玻璃模糊效果
 ///**
 // *  添加毛玻璃模糊效果到view上

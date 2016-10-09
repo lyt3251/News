@@ -69,12 +69,19 @@ typedef NS_ENUM(NSInteger, NavigationBarViewType) {
 //失败弹窗
 - (void)showFailedHudWithTitle:(NSString *)title;
 
+//添加控件
+-(void)addEmptyDataImage:(BOOL)isSupportCreateMsg  showMessage:(NSString *)showMessage;
 
-////更新隐藏显示状态
-//-(void)updateEmptyDataImageStatus:(BOOL)isShow;
 
-////更新隐藏显示状态 和显示提示语
-//-(void)updateEmptyDataImageStatusAndTitle:(BOOL)isShow newShowTitle:(NSString *)title;
+
+//更新隐藏显示状态
+-(void)updateEmptyDataImageStatus:(BOOL)isShow;
+
+
+//更新隐藏显示状态 和显示提示语
+-(void)updateEmptyDataImageStatusAndTitle:(BOOL)isShow newShowTitle:(NSString *)title;
+
+
 
 //显示权限弹窗
 - (void)showPermissionAlertWithCameraGranted:(BOOL)isGrantCamera
