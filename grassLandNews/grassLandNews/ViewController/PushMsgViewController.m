@@ -34,7 +34,7 @@
     [self setupViews];
     [self requestList];
     [self setupRefresh];
-    
+    [self addEmptyDataImage:YES showMessage:@"暂无数据"];
 }
 
 -(void)setupViews
@@ -268,6 +268,7 @@
             [self.tableView reloadData];
             self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
         }
+        [self updateEmptyDataImageStatus:self.list.count > 0?NO:YES];
         [self.tableView.header endRefreshing];
     }];
     
@@ -300,6 +301,7 @@
             self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
             
         }
+        [self updateEmptyDataImageStatus:self.list.count > 0?NO:YES];
         [self.tableView.footer endRefreshing];
     }];
 
