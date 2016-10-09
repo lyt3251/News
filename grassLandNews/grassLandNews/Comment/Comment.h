@@ -259,7 +259,7 @@ userInfo:@{ @"FILE" : @(__FILE__),                              \
 
 //微信AppId
 #define UMENG_WXAppId  @"wx6650656efc3ebade"
-#define UMENG_WXAppSecrect  @"138e85777f78d34ad20fd684e8409161"
+#define UMENG_WXAppSecrect  @"fe49fa5ea8b185536c287dec9650fde9"
 
 //QQ的AppId
 #define UMENG_QQAppId  @"1105568341"

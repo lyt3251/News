@@ -50,7 +50,7 @@
     [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(label1);
         make.top.mas_equalTo(label1.mas_bottom).with.offset(33);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(75);
     }];
     
     UILabel *label3 = [[UILabel alloc] init];
@@ -72,7 +72,7 @@
     [label4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(label1);
         make.top.mas_equalTo(label2.mas_bottom).with.offset(20);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(75);
     }];
     
     UILabel *label5 = [[UILabel alloc] init];
@@ -95,7 +95,7 @@
     [label6 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(label1);
         make.top.mas_equalTo(label4.mas_bottom).with.offset(20);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(75);
     }];
     
     UILabel *label7 = [[UILabel alloc] init];
@@ -117,7 +117,7 @@
     [label8 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(label1);
         make.top.mas_equalTo(label6.mas_bottom).with.offset(20);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(75);
     }];
     
     UILabel *label9 = [[UILabel alloc] init];
