@@ -38,6 +38,7 @@
     [self setupViews];
     [self searchRecommandList];
     [self setupRefresh];
+    [self addEmptyDataImage:YES showMessage:@"暂无数据"];
 }
 
 -(void)createCustomNavBar
@@ -344,6 +345,7 @@
     
     [self.recommandList removeAllObjects];
     [self.recommandList addObjectsFromArray:mutableArray];
+    [self updateEmptyDataImageStatus:self.recommandList.count > 0?NO:YES];
 }
 
 
@@ -387,7 +389,7 @@
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
             self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
-            
+            [self updateEmptyDataImageStatus:self.newsList.count > 0?NO:YES];
         }
     }];
     
@@ -474,6 +476,7 @@
     }
     
     [self.recommandList addObjectsFromArray:mutableArray];
+    [self updateEmptyDataImageStatus:self.recommandList.count > 0?NO:YES];
 }
 
 
@@ -513,6 +516,7 @@
             [self.inputText resignFirstResponder];
             [self.tableView reloadData];
             self.tableView.footer.hidden  = self.currentPage > self.totalPage?YES:NO;
+            [self updateEmptyDataImageStatus:self.newsList.count > 0?NO:YES];
         }
     }];
     

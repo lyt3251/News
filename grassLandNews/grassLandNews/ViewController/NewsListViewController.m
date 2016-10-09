@@ -56,8 +56,8 @@
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.insets(UIEdgeInsetsMake(self.customNavigationView.maxY, 0, 0, 0));
     }];
-    [self addEmptyDataImage:NO showMessage:@"无数据"];
-    [self updateEmptyDataImageStatus:YES];
+    [self addEmptyDataImage:NO showMessage:@"暂无数据"];
+//    [self updateEmptyDataImageStatus:YES];
     
 }
 
@@ -172,6 +172,7 @@
     {
         NSArray *array = [[FavoritesManager shareInstance] getFavoritesList];
         self.list = [NSMutableArray arrayWithArray:array];
+        [self updateEmptyDataImageStatus:self.list.count > 0?NO:YES];
     }
     else if(self.listType == NewsListType_SubChannel)
     {
@@ -203,6 +204,7 @@
                 [self.tableView reloadData];
                 self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
             }
+            [self updateEmptyDataImageStatus:self.list.count > 0?NO:YES];
             [self.tableView.header endRefreshing];
         }];
         
@@ -264,6 +266,7 @@
                 [self.tableView reloadData];
                 self.tableView.footer.hidden = self.currentPage > self.totalPage?YES:NO;
             }
+            [self updateEmptyDataImageStatus:self.list.count > 0?NO:YES];
         }];
         
     }
