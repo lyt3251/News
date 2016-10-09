@@ -84,7 +84,7 @@ typedef enum : NSUInteger {
 //    self.headerBtn = [UIButton buttonWithType:UIButtonTypeCustom];
 //    [self.headerBtn setImage:[UIImage imageNamed:@"Left_Header"] forState:UIControlStateNormal];
     self.headerBtn = [[UIImageView alloc] init];
-    [self.headerBtn setImage:[UIImage imageNamed:@"Left_header"]];
+    [self.headerBtn setImage:[UIImage imageNamed:@"Left_Header"]];
     [self.view addSubview:self.headerBtn];
     [self.headerBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(30);

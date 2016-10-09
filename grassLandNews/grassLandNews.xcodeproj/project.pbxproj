@@ -1772,8 +1772,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
 				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1796,8 +1796,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
-				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
+				PROVISIONING_PROFILE = "fb7966de-66de-4935-8ab7-8aaa3ca47402";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1809,8 +1809,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
 				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1833,8 +1833,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
-				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
+				PROVISIONING_PROFILE = "fb7966de-66de-4935-8ab7-8aaa3ca47402";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
