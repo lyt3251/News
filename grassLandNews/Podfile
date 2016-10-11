@@ -27,6 +27,7 @@ def import_main_pods
 	pod 'SDVersion', '~> 3.2'
     pod 'Mantle', '~> 2.0.7'
     pod 'BBCyclingLabel', '~> 1.0'
+    pod 'Bugly'
 end
 
 target 'grassLandNews' do

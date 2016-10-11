@@ -267,5 +267,7 @@ userInfo:@{ @"FILE" : @(__FILE__),                              \
 
 #define UMENG_APPKEY @"57ac3a39e0f55a30ef0016b6"
 
+#define BUGLY_KEY @"ea2101fe-47e2-4fa8-861f-34a2fe8ca8b1"
+#define BUGLY_APPID @"50b20e750a"
 
 #endif /* Comment_h */

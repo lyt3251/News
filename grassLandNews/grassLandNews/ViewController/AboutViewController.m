@@ -37,7 +37,7 @@
     label1.text = @"农业部草原监理中心";
     [self.view addSubview:label1];
     [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(65);
+        make.left.mas_equalTo(55);
         make.top.mas_equalTo(headerView.mas_bottom).with.offset(80.0f);
         make.right.mas_equalTo(0);
     }];

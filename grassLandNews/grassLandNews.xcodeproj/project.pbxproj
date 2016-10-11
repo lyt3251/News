@@ -1774,6 +1774,7 @@
 				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1796,8 +1797,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fb7966de-66de-4935-8ab7-8aaa3ca47402";
-				PROVISIONING_PROFILE_SPECIFIER = cgs_dev;
+				PROVISIONING_PROFILE = "496c34ea-2ee6-4d33-9315-9256c247f72b";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1833,8 +1834,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fb7966de-66de-4935-8ab7-8aaa3ca47402";
-				PROVISIONING_PROFILE_SPECIFIER = cgs_dev;
+				PROVISIONING_PROFILE = "496c34ea-2ee6-4d33-9315-9256c247f72b";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev1;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

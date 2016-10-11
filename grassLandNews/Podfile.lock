@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - BBCyclingLabel (1.0.1)
+  - Bugly (2.4.2)
   - DateTools (1.7.0)
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -83,6 +84,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - BBCyclingLabel (~> 1.0)
+  - Bugly
   - DateTools
   - libextobjc
   - Mantle (~> 2.0.7)
@@ -103,6 +105,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BBCyclingLabel: 9bda1cda6df0e5d6a3a63104836a3a558b0053f9
+  Bugly: b09cd3c7e54048a0e079be88a7a99610f14eab8f
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
