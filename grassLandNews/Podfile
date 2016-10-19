@@ -10,7 +10,7 @@ inhibit_all_warnings!
 
 def import_main_pods
 	pod 'Masonry'
-	pod 'UMengAnalytics-NO-IDFA', '3.5.17'
+	pod 'UMengAnalytics-NO-IDFA'
 	pod 'libextobjc'
 	pod 'UIColor+Hex', '~> 1.0.1'
 	pod 'SDCycleScrollView','~> 1.64'	

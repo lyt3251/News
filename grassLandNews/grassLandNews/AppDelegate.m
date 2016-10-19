@@ -32,6 +32,7 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialQQHandler.h>
 #import <Bugly/Bugly.h>
+#import <UMMobClick/MobClick.h>
 
 @interface AppDelegate ()
 
@@ -44,7 +45,7 @@
     //设置 AppKey 及 LaunchOptions
     [UMessage startWithAppkey:@"57ac3a39e0f55a30ef0016b6" launchOptions:launchOptions];
     [Bugly startWithAppId:BUGLY_APPID];
-    
+    [self initUmeng];
     //1.3.0版本开始简化初始化过程。如不需要交互式的通知，下面用下面一句话注册通知即可。
     [UMessage registerForRemoteNotifications];
     // Override point for customization after application launch.
@@ -55,7 +56,18 @@
 //    [self checkUpdate];
     return YES;
 }
-
+//友盟统计
+-(void)initUmeng
+{
+    [MobClick setCrashReportEnabled:NO];
+    [MobClick setLogEnabled:YES];  // 打开友盟sdk调试，注意Release发布时需要注释掉此行,减少io消耗
+    [MobClick setAppVersion:XcodeAppVersion]; //参数为NSString * 类型,自定义app版本信息，如果不设置，默认从CFBundleVersion里取
+    //
+    UMAnalyticsConfig *config = [UMAnalyticsConfig sharedInstance];
+    config.appKey = @"57ac3a39e0f55a30ef0016b6";
+    config.ePolicy = REALTIME;
+    [MobClick startWithConfigure:config];
+}
 
 -(void)initWindows
 {
