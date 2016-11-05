@@ -131,6 +131,21 @@
         make.right.mas_equalTo(0);
     }];
     
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.image = [UIImage imageNamed:@"Left_Code"];
+    imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [self.view addSubview:imageView];
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(label9.mas_bottom).with.offset(10);
+        make.centerX.mas_equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(200, 200));
+//        make.bottom.mas_equalTo(self.view).with.offset(-10);
+    }];
+    
+    
+    
+    
+    
     
     
     self.view.backgroundColor = [UIColor whiteColor];

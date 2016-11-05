@@ -288,6 +288,9 @@ typedef NS_ENUM(NSInteger, PageType)
 {
     NSDictionary *dic = (NSDictionary *)self.bannerArr[index];
     NSString *urlString = dic[@"Title"];
+    
+    NSLog(@"index:%@, string:%@", @(index), urlString);
+    
     return urlString;
 }
 

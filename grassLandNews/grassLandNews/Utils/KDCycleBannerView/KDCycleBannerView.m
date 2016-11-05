@@ -306,7 +306,7 @@ static void *kContentImageViewObservationContext = &kContentImageViewObservation
 
     if([_datasource respondsToSelector:@selector(titleAtIndex:)])
     {
-        self.titleLabel.text = [_datasource titleAtIndex:page];
+        self.titleLabel.text = [_datasource titleAtIndex:_currentSelectedPage];
         [self.titleLabel layoutIfNeeded];
     }
     

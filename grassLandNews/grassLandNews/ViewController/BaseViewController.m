@@ -674,6 +674,11 @@
     {
         msgWithCode = message;
     }
+    if(msgWithCode.length <= 0)
+    {
+        msgWithCode = @"网络连接异常！";
+    }
+    
     [self showFailedHudWithTitle:msgWithCode showSuccessImage:NO];
 }
 - (void)showFailedHudWithTitle:(NSString *)title
