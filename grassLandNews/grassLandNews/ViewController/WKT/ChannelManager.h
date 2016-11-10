@@ -20,6 +20,8 @@
  */
 -(NSArray *)getChannels;
 
+-(NSArray *)getTopChannels;
+
 /**
  *  更新频道列表
  *
@@ -28,6 +30,8 @@
 -(void)updateChannels:(NSArray *)array;
 
 -(void)requestChannelFromServer;
+
+-(void)requestTopChannelFromServer;
 
 -(NSArray *)getSubChannelsByChildList:(NSString *)childIds;
 

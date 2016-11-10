@@ -53,6 +53,7 @@
     [self initWindows];
     NSLog(@"home:%@", NSHomeDirectory());
     [[ChannelManager shareInstance] requestChannelFromServer];
+    [[ChannelManager shareInstance] requestTopChannelFromServer];
 //    [self checkUpdate];
     return YES;
 }

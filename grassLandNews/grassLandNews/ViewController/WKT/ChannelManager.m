@@ -11,7 +11,7 @@
 #import "ChannelModel.h"
 
 NSString *channelProfile = @"channelProfile.plist";
-
+NSString *topProfile = @"topProfile.plist";
 
 @interface ChannelManager()
 {
@@ -19,6 +19,7 @@ NSString *channelProfile = @"channelProfile.plist";
 
 }
 @property(nonatomic, strong)NSArray *channels;
+@property(nonatomic, strong)NSArray *topChannels;
 @end
 
 @implementation ChannelManager
@@ -56,6 +57,18 @@ NSString *channelProfile = @"channelProfile.plist";
         
     }
     self.channels = [NSArray arrayWithArray:array];
+    
+    NSString *localTopFilePath = [self getTopChannelFile];
+    NSMutableArray *topArray = nil;
+    
+    if([[NSFileManager defaultManager] fileExistsAtPath:localTopFilePath])
+    {
+        topArray = [NSMutableArray arrayWithContentsOfFile:localTopFilePath];
+        
+    }
+    self.topChannels = [NSArray arrayWithArray:topArray];
+    
+    
 }
 
 
@@ -78,6 +91,12 @@ NSString *channelProfile = @"channelProfile.plist";
     }
     
     return [NSArray arrayWithArray:array];
+}
+
+
+-(NSArray *)getTopChannels
+{
+    return self.topChannels;
 }
 
 
@@ -108,6 +127,12 @@ NSString *channelProfile = @"channelProfile.plist";
 {
     return [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", channelProfile]];
 }
+
+-(NSString *)getTopChannelFile
+{
+    return [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", topProfile]];
+}
+
 
 /**
  *  更新频道列表
@@ -147,8 +172,37 @@ NSString *channelProfile = @"channelProfile.plist";
     [array writeToFile:localFilePath atomically:YES];
 }
 
+-(void)updateTopChannels:(NSArray *)array
+{
+    if(array.count <= 0)
+    {
+        return ;
+    }
+    
+    //    NSMutableArray *dicArray = [NSMutableArray arrayWithCapacity:1];
+    //    for(ChannelModel *channelModel in array)
+    //    {
+    //        if(!channelModel)
+    //        {
+    //            return;
+    //        }
+    //        NSDictionary *dic = @{@"NodeId":KSaveStr(channelModel.nodeId),
+    //                              @"NodeName":KSaveStr(channelModel.nodeName),
+    //                              @"arrChildId":KSaveStr(channelModel.childChannels),
+    //                              @"ParentId":@(channelModel.parentId),
+    //                              @"Depth":@(channelModel.depth)};
+    //        [dicArray addObject:dic];
+    //    }
+    
+    self.topChannels = array;
+    NSString *localFilePath = [self getTopChannelFile];
+    [array writeToFile:localFilePath atomically:YES];
+}
 
--(void)requestChannelFromServer;
+
+
+
+-(void)requestChannelFromServer
 {
     NewsManager *newsManager = [[NewsManager alloc] init];
     @weakify(self);
@@ -163,6 +217,27 @@ NSString *channelProfile = @"channelProfile.plist";
         }
     }];
 }
+
+
+-(void)requestTopChannelFromServer
+{
+    NewsManager *newsManager = [[NewsManager alloc] init];
+    @weakify(self);
+    [newsManager requestNewsTypesByNodeId1:0 parentId:0 depth:0 onCompleted:^(NSURLSessionDataTask *task, id responseObject, NSError *error) {
+        @strongify(self);
+        NSDictionary *dic = (NSDictionary *)responseObject;
+        NSNumber *status = dic[@"status"];
+        if(status.integerValue > 0)
+        {
+            //            NSArray *array = [self getChannelsByDic:dic[@"data"]];
+            [self updateTopChannels:dic[@"data"]];
+        }
+    }];
+}
+
+
+
+
 
 -(NSArray *)getChannelsByDic:(NSArray *)dicArray
 {

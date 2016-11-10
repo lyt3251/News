@@ -12,6 +12,8 @@
 
 -(id)requestNewsTypesByNodeId:(int32_t)nodeId parentId:(int32_t)parentId depth:(int32_t)depth onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 
+-(id)requestNewsTypesByNodeId1:(int32_t)nodeId parentId:(int32_t)parentId depth:(int32_t)depth onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
+
 
 -(id)requestCycleListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted;
 

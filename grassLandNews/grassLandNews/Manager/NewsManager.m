@@ -32,6 +32,27 @@
 }
 
 
+-(id)requestNewsTypesByNodeId1:(int32_t)nodeId parentId:(int32_t)parentId depth:(int32_t)depth onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
+{
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    if(nodeId > 0)
+    {
+        [dic setValue:@(nodeId) forKey:@"nodeId"];
+    }
+
+    [dic setValue:@(depth) forKey:@"depth"];
+    if(parentId > 0)
+    {
+        [dic setValue:@(parentId) forKey:@"parentId"];
+    }
+    
+    
+    return [self requestByUrl:REQUEST_ALLType_Url requestParameters:dic progress:nil onCompleted:onCompleted];
+    
+}
+
+
 -(id)requestCycleListByNodeId:(NSInteger)nodeId  onCompleted:(void (^)(NSURLSessionDataTask *task, id responseObject, NSError *error)) onCompleted
 {
     NSDictionary *parameter = nil;

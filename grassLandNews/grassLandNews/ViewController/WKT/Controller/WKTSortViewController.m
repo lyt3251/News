@@ -127,7 +127,7 @@
 //        NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
 
         NSInteger index = [weself getChannelNameIndexFromChannelArr:selectName];
-         weself.delegate(index,[[ChannelManager shareInstance] getChannels]);
+         weself.delegate(index,[[ChannelManager shareInstance] getTopChannels]);
         [weself.navigationController popViewControllerAnimated:YES];
     };
     [self.view insertSubview:self.iSortBtnScrollView belowSubview:self.iTopView];
@@ -149,7 +149,7 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-    NSArray *array = [[ChannelManager shareInstance] getChannels];
+    NSArray *array = [[ChannelManager shareInstance] getTopChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
         NSString *selectId = [dict objectForKey:@"NodeID"];
@@ -164,7 +164,7 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-    NSArray *array = [[ChannelManager shareInstance] getChannels];
+    NSArray *array = [[ChannelManager shareInstance] getTopChannels];
     for (int i=0; i<array.count; i++) {
         NSDictionary *dict = [array objectAtIndex:i];
         NSString *channelName = [dict objectForKey:@"NodeName"];
@@ -212,7 +212,7 @@
 //            TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //            NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //            NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:name];
-            NSArray *array = [[ChannelManager shareInstance] getChannels];
+            NSArray *array = [[ChannelManager shareInstance] getTopChannels];
             NSString *selectId = [NSString stringWithFormat:@"%li",(long)self.iSelectId];
             NSInteger index = [self getSelectIdIndexFromChannelArr:selectId];
             //返回index

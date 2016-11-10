@@ -73,8 +73,8 @@
 //
 
 //    NSArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@""];
-    self.selectChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getChannels]];
-    self.originalChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getChannels]];
+    self.selectChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getTopChannels]];
+    self.originalChannelDataArray = [[NSMutableArray alloc] initWithArray:[[ChannelManager shareInstance] getTopChannels]];
     self.imageViewArr = [NSMutableArray array];
 }
 
@@ -323,7 +323,7 @@
     
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",currentUser.username];
-    NSMutableArray *oldChannelArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
+    NSMutableArray *oldChannelArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getTopChannels]];
     for (int i=0; i<selectChannelArray.count; i++) {
         NSString *channelText = [selectChannelArray objectAtIndex:i];
         for (int j=0; j<oldChannelArr.count; j++) {

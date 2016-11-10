@@ -156,13 +156,13 @@
 		0DD9F07C1D69CF45002CA852 /* NewsFileManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F07B1D69CF45002CA852 /* NewsFileManger.m */; };
 		0DD9F0801D69FEA3002CA852 /* MutilTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DD9F07F1D69FEA3002CA852 /* MutilTextLabel.m */; };
 		0DFA97191D786479009F6E16 /* NewsNoticesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DFA97181D786479009F6E16 /* NewsNoticesViewController.m */; };
-		398A279989CFB134B69E54CD /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 51326C036AB961FAF47CB3B9 /* libPods-grassLandNewsUITests.a */; };
 		4420754E1D7EEB9700B7404B /* SpecialTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4420754D1D7EEB9700B7404B /* SpecialTableViewCell.m */; };
 		442075511D7EFA6A00B7404B /* NewsSpecialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442075501D7EFA6A00B7404B /* NewsSpecialViewController.m */; };
 		443D79E51D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 443D79E41D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m */; };
 		44D464DA1D58BCAA00BB763A /* SearchTxtTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */; };
-		70BDE798E834A9664C8E66DE /* libPods-grassLandNewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A10DB88EF0E5CB586F98F96D /* libPods-grassLandNewsTests.a */; };
-		F4A9291D9C872FDD5F94079E /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0D30B8A59CAF7BD84DC7AFB /* libPods-grassLandNews.a */; };
+		A536D0A2773B7FAADD564B06 /* libPods-grassLandNewsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614C68F05A9EDE291F4337B /* libPods-grassLandNewsTests.a */; };
+		AF548F5DA1E1E71BEB5D66DC /* libPods-grassLandNewsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41D816369509DDB1185C84BF /* libPods-grassLandNewsUITests.a */; };
+		E8D38FD1719C8AF1CB116170 /* libPods-grassLandNews.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7717E5E509159CB1A5A39DC2 /* libPods-grassLandNews.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -183,6 +183,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040ECA46ECF98005071E633C /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
 		0D12C8041D56C7DB00115311 /* PushMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushMsgViewController.h; sourceTree = "<group>"; };
 		0D12C8051D56C7DB00115311 /* PushMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushMsgViewController.m; sourceTree = "<group>"; };
 		0D12C8071D56CEEB00115311 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
@@ -471,8 +472,8 @@
 		0DD9F07F1D69FEA3002CA852 /* MutilTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutilTextLabel.m; sourceTree = "<group>"; };
 		0DFA97171D786479009F6E16 /* NewsNoticesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsNoticesViewController.h; sourceTree = "<group>"; };
 		0DFA97181D786479009F6E16 /* NewsNoticesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsNoticesViewController.m; sourceTree = "<group>"; };
-		2A01E7A1D9485751F43311EA /* Pods-grassLandNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.debug.xcconfig"; sourceTree = "<group>"; };
-		43DC0A4A92BA21B8F7C86C6C /* Pods-grassLandNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		281A7C6997F744143A24FC59 /* Pods-grassLandNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.release.xcconfig"; sourceTree = "<group>"; };
+		41D816369509DDB1185C84BF /* libPods-grassLandNewsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4420754C1D7EEB9700B7404B /* SpecialTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialTableViewCell.h; sourceTree = "<group>"; };
 		4420754D1D7EEB9700B7404B /* SpecialTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialTableViewCell.m; sourceTree = "<group>"; };
 		4420754F1D7EFA6A00B7404B /* NewsSpecialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSpecialViewController.h; sourceTree = "<group>"; };
@@ -481,13 +482,12 @@
 		443D79E41D5B672F00FD5252 /* NewsWithMultiPhotosTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsWithMultiPhotosTableViewCell.m; sourceTree = "<group>"; };
 		44D464D81D58BCAA00BB763A /* SearchTxtTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchTxtTableViewCell.h; sourceTree = "<group>"; };
 		44D464D91D58BCAA00BB763A /* SearchTxtTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchTxtTableViewCell.m; sourceTree = "<group>"; };
-		51326C036AB961FAF47CB3B9 /* libPods-grassLandNewsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A16D241B2DEE533F3120BE3 /* Pods-grassLandNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews.release.xcconfig"; sourceTree = "<group>"; };
-		933404A77A9F38DE299E5759 /* Pods-grassLandNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A10DB88EF0E5CB586F98F96D /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A8DB4C2D04AFBF3138B8A02F /* Pods-grassLandNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		E0D30B8A59CAF7BD84DC7AFB /* libPods-grassLandNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECA8EAC3D58ADF5C4A830107 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		47CD31F409ECB341F7A45274 /* Pods-grassLandNewsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		62901D1D141CA7D7D0EDE582 /* Pods-grassLandNewsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.release.xcconfig"; sourceTree = "<group>"; };
+		6614C68F05A9EDE291F4337B /* libPods-grassLandNewsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNewsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E0A0DBFAC84ADABC89C35E2 /* Pods-grassLandNewsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7717E5E509159CB1A5A39DC2 /* libPods-grassLandNews.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-grassLandNews.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FD370453980DEF5D5EE37C /* Pods-grassLandNewsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-grassLandNewsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-grassLandNewsUITests/Pods-grassLandNewsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,7 +506,7 @@
 				0DA95BC01D487F4C00509547 /* libopencore-amrnb.a in Frameworks */,
 				0DA95BC11D487F4C00509547 /* libopencore-amrwb.a in Frameworks */,
 				0DA95BBD1D487F4C00509547 /* libUMessage_Sdk_1.3.0.a in Frameworks */,
-				F4A9291D9C872FDD5F94079E /* libPods-grassLandNews.a in Frameworks */,
+				E8D38FD1719C8AF1CB116170 /* libPods-grassLandNews.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +514,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70BDE798E834A9664C8E66DE /* libPods-grassLandNewsTests.a in Frameworks */,
+				A536D0A2773B7FAADD564B06 /* libPods-grassLandNewsTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +522,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				398A279989CFB134B69E54CD /* libPods-grassLandNewsUITests.a in Frameworks */,
+				AF548F5DA1E1E71BEB5D66DC /* libPods-grassLandNewsUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,7 +599,7 @@
 				0DA95AEB1D485BD000509547 /* grassLandNewsUITests */,
 				0DA95AC51D485BD000509547 /* Products */,
 				3798E754C1018A22EE5873BA /* Frameworks */,
-				BDB8A066025F06A6A64CB471 /* Pods */,
+				AA044FBD9A4B16BF912453CD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1195,22 +1195,22 @@
 				0D371C031D53222100A41D79 /* SystemConfiguration.framework */,
 				0D371C011D53221200A41D79 /* libiconv.tbd */,
 				0D371BFF1D5321E900A41D79 /* Security.framework */,
-				E0D30B8A59CAF7BD84DC7AFB /* libPods-grassLandNews.a */,
-				A10DB88EF0E5CB586F98F96D /* libPods-grassLandNewsTests.a */,
-				51326C036AB961FAF47CB3B9 /* libPods-grassLandNewsUITests.a */,
+				7717E5E509159CB1A5A39DC2 /* libPods-grassLandNews.a */,
+				6614C68F05A9EDE291F4337B /* libPods-grassLandNewsTests.a */,
+				41D816369509DDB1185C84BF /* libPods-grassLandNewsUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BDB8A066025F06A6A64CB471 /* Pods */ = {
+		AA044FBD9A4B16BF912453CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2A01E7A1D9485751F43311EA /* Pods-grassLandNews.debug.xcconfig */,
-				8A16D241B2DEE533F3120BE3 /* Pods-grassLandNews.release.xcconfig */,
-				ECA8EAC3D58ADF5C4A830107 /* Pods-grassLandNewsTests.debug.xcconfig */,
-				43DC0A4A92BA21B8F7C86C6C /* Pods-grassLandNewsTests.release.xcconfig */,
-				A8DB4C2D04AFBF3138B8A02F /* Pods-grassLandNewsUITests.debug.xcconfig */,
-				933404A77A9F38DE299E5759 /* Pods-grassLandNewsUITests.release.xcconfig */,
+				040ECA46ECF98005071E633C /* Pods-grassLandNews.debug.xcconfig */,
+				281A7C6997F744143A24FC59 /* Pods-grassLandNews.release.xcconfig */,
+				6E0A0DBFAC84ADABC89C35E2 /* Pods-grassLandNewsTests.debug.xcconfig */,
+				62901D1D141CA7D7D0EDE582 /* Pods-grassLandNewsTests.release.xcconfig */,
+				B5FD370453980DEF5D5EE37C /* Pods-grassLandNewsUITests.debug.xcconfig */,
+				47CD31F409ECB341F7A45274 /* Pods-grassLandNewsUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1228,7 +1228,6 @@
 				0DA95AC21D485BD000509547 /* Resources */,
 				60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */,
 				D90FCAD5D9E86EE2BED19C33 /* [CP] Copy Pods Resources */,
-				5EADB766CB3E36E87A9D521C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1425,21 +1424,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNewsTests/Pods-grassLandNewsTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5EADB766CB3E36E87A9D521C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-grassLandNews/Pods-grassLandNews-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		60B03C7F884AB3AB1A559A7C /* [CP] Embed Pods Frameworks */ = {
@@ -1767,13 +1751,13 @@
 		};
 		0DA95AF21D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A01E7A1D9485751F43311EA /* Pods-grassLandNews.debug.xcconfig */;
+			baseConfigurationReference = 040ECA46ECF98005071E633C /* Pods-grassLandNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
@@ -1797,21 +1781,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
-				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
+				PROVISIONING_PROFILE = "92e314f2-cb30-4ec2-8a12-5cdba14a6d0b";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		0DA95AF31D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A16D241B2DEE533F3120BE3 /* Pods-grassLandNews.release.xcconfig */;
+			baseConfigurationReference = 281A7C6997F744143A24FC59 /* Pods-grassLandNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = grassLandNews/grassLandNews.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Grassland Monitoring and Supervision Center Ministry of Agriculture,P,R,China (SG8S8B94YY)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wang GuanCong (8DX39K6QJ3)";
 				DEVELOPMENT_TEAM = SG8S8B94YY;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1834,15 +1818,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.china.grasslandnet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "60468ab0-5dfa-432e-a6d0-fecb8a24e0f7";
-				PROVISIONING_PROFILE_SPECIFIER = grass_apstore;
+				PROVISIONING_PROFILE = "92e314f2-cb30-4ec2-8a12-5cdba14a6d0b";
+				PROVISIONING_PROFILE_SPECIFIER = cgs_dev3;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		0DA95AF51D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECA8EAC3D58ADF5C4A830107 /* Pods-grassLandNewsTests.debug.xcconfig */;
+			baseConfigurationReference = 6E0A0DBFAC84ADABC89C35E2 /* Pods-grassLandNewsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
@@ -1855,7 +1839,7 @@
 		};
 		0DA95AF61D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 43DC0A4A92BA21B8F7C86C6C /* Pods-grassLandNewsTests.release.xcconfig */;
+			baseConfigurationReference = 62901D1D141CA7D7D0EDE582 /* Pods-grassLandNewsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = grassLandNewsTests/Info.plist;
@@ -1868,7 +1852,7 @@
 		};
 		0DA95AF81D485BD100509547 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8DB4C2D04AFBF3138B8A02F /* Pods-grassLandNewsUITests.debug.xcconfig */;
+			baseConfigurationReference = B5FD370453980DEF5D5EE37C /* Pods-grassLandNewsUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1881,7 +1865,7 @@
 		};
 		0DA95AF91D485BD100509547 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 933404A77A9F38DE299E5759 /* Pods-grassLandNewsUITests.release.xcconfig */;
+			baseConfigurationReference = 47CD31F409ECB341F7A45274 /* Pods-grassLandNewsUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = grassLandNewsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

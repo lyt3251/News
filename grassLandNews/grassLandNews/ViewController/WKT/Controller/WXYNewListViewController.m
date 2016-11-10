@@ -52,7 +52,7 @@
 //    TXUser *currentUser = [[TXChatClient sharedInstance] getCurrentUser:nil];
 //    NSString *name = [NSString stringWithFormat:@"%@channelDatas",@""];
 //    NSArray *array =  [[NSUserDefaults standardUserDefaults] objectForKey:name];
-    NSArray *array = [[ChannelManager shareInstance] getChannels];
+    NSArray *array = [[ChannelManager shareInstance] getTopChannels];
     NSInteger i = 0;
     for(NSDictionary *dict in array){
         NSString *channelID = [dict objectForKey:@"NodeID"];
@@ -186,7 +186,7 @@
         {
             
             [[ChannelManager shareInstance] updateChannels:dic[@"data"]];
-            NSArray *channels = [[ChannelManager shareInstance] getChannels];
+            NSArray *channels = [[ChannelManager shareInstance] getTopChannels];
             if(channels.count != self.iChannleArr.count)
             {
                 self.iChannleArr = [NSMutableArray arrayWithArray:channels];
@@ -208,7 +208,7 @@
     self.iShadowView.hidden = YES;
     self.shadowView.hidden = YES;
     
-    self.iChannleArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getChannels]];
+    self.iChannleArr = [NSMutableArray arrayWithArray:[[ChannelManager shareInstance] getTopChannels]];
     
     for (int i=0; i<weself.iChannleArr.count; i++) {
         NewsSubListViewController *w = [[NewsSubListViewController alloc] initWithNibName:nil bundle:nil];
